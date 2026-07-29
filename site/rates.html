@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Affordable Indoor Golf Rates — Albany, NY | Par Out</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../components.css"><link rel="stylesheet" href="site.css">
+<style>
+  /* ============ RATES — simple page-head, rates-first ============
+     Standard .page-head hero (no photo). The priced list is the focus. */
+
+  /* ---- Priced list ---- */
+  .o4-list-wrap { max-width: 860px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 32px 96px; text-align: center; }
+  .o4-section-k { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-eyebrow); letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--hot-text); }
+  .o4-list-wrap > h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); letter-spacing: -0.015em;
+      color: var(--fg); margin: 14px 0 0; }
+  .o4-list-wrap > .intro { color: var(--fg-muted); font-size: 18px; line-height: 1.6; max-width: 52ch;
+      margin: 18px auto 0; }
+
+  /* ---- Rate table: Public + Member columns, no toggle ----
+     A real <table> for accessibility: row headers (time), column headers
+     (Public / Member), and an sr-only caption. The Member column is a
+     continuous tinted "lane" so it reads as the deal. */
+  .o4-rates { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 32px; text-align: left; }
+
+  /* Column headers */
+  .o4-rates thead th { vertical-align: bottom; padding: 0 0 16px; font-family: var(--font-display);
+      font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .o4-rates thead th.colsp { padding: 0; }
+  .o4-rates thead th.pub { color: var(--fg); text-align: right; padding-right: 44px; font-size: 20px; }
+  .o4-rates thead th.mem { color: var(--cream); text-align: right; font-size: 20px; }
+  .o4-rates thead th.mem span { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      color: var(--cream); letter-spacing: 0.04em; text-transform: none; margin-top: 6px; }
+
+  /* Time row headers */
+  .o4-rates th.when { font-family: var(--font-display); font-weight: 700; font-size: clamp(23px, 2.8vw, 32px);
+      letter-spacing: -0.005em; color: var(--fg); padding: 30px 24px 30px 8px; }
+  .o4-rates th.when .days { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px;
+      letter-spacing: 0; color: var(--fg-faint); margin-top: 6px; }
+
+  /* Price cells */
+  .o4-rates td.amt { text-align: right; font-family: var(--font-display); font-weight: 800;
+      line-height: 0.85; letter-spacing: -0.03em; white-space: nowrap; padding: 30px 0; }
+  .o4-rates td.amt sup { font-size: 0.3em; font-weight: 600; color: var(--fg-muted); letter-spacing: 0;
+      vertical-align: top; top: 0.5em; position: relative; margin-left: 3px; }
+  .o4-rates td.mem sup { color: var(--cream); }
+  .o4-rates td.pub { font-size: clamp(30px, 3.4vw, 40px); color: var(--fg); padding-right: 44px; }
+  .o4-rates td.mem { font-size: clamp(38px, 4.6vw, 56px); color: var(--cream); padding-right: 32px; }
+
+  /* Row separators — only under the non-lane cells */
+  .o4-rates tbody th.when, .o4-rates tbody td.pub { border-top: 1px solid var(--line); }
+
+  /* Member lane: tinted band running header→last row */
+  /* Member lane: solid green deal-column so its cream figures read at full contrast */
+  .o4-rates .mem { background: var(--green); padding-left: 22px; padding-right: 32px;
+      border-left: 1px solid var(--green-deep); border-right: 1px solid var(--green-deep); }
+  .o4-rates thead th.mem { padding-top: 18px; border-top: 1px solid var(--green-deep);
+      border-radius: var(--r-md) var(--r-md) 0 0; }
+  .o4-rates tbody tr:last-child td.mem { border-bottom: 1px solid var(--green-deep);
+      border-radius: 0 0 var(--r-md) var(--r-md); }
+
+  /* Night owl: the MEMBER price is the yellow highlight (the lowest price) */
+  .o4-rates tr.night td.mem { color: var(--night); }
+
+  .o4-finehint { color: var(--fg-muted); font-size: 14px; line-height: 1.65; margin-top: 28px; max-width: 60ch;
+      margin-left: auto; margin-right: auto; }
+  .o4-finehint strong { color: var(--fg); font-weight: 600; }
+
+  /* ---- Quiet sections ---- */
+  .o4-sec { max-width: 1180px; margin: 0 auto; padding: 96px 40px; }
+  .o4-sec-head { text-align: center; margin-bottom: 48px; }
+  .o4-sec-head .o4-section-k { color: var(--hot-text); }
+  .o4-sec-head h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); letter-spacing: -0.015em;
+      color: var(--fg); margin-top: 12px; }
+  .o4-sec-head p { color: var(--fg-muted); font-size: 17px; margin: 14px auto 0; max-width: 48ch; line-height: 1.6; }
+
+  .o4-loc { display: grid; grid-template-columns: 1fr auto; column-gap: 28px; row-gap: 14px; align-items: center;
+      max-width: 760px; margin: 0 auto; padding-top: 36px; border-top: 1px solid var(--line); text-align: left; }
+  .o4-loc .o4-loc-meta { grid-column: 1; grid-row: 1; }
+  .o4-loc .loc-btn { grid-column: 2; grid-row: 2; align-self: center; justify-self: end; }
+  .o4-loc .city { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-eyebrow); letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--hot-text); }
+  .o4-loc .addr { font-family: var(--font-body); font-size: 15px; color: var(--fg-muted); margin-top: 6px; }
+  .o4-loc h3 { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.15;
+      color: var(--fg); margin: 0; max-width: 30ch; grid-column: 1; grid-row: 2; align-self: start; }
+
+  @media (max-width: 760px) {
+    .o4-list-wrap { padding-left: 20px; padding-right: 20px; padding-bottom: 48px; }
+    /* These two paddings stack between sections; at the mobile clamp floor they
+       add up to a ~144px void. Tighten so the punchcards follow naturally. */
+    .o4-sec { padding: 56px 24px; }
+    .o4-sec-head { margin-bottom: 32px; }
+    .o4-rates th.when { font-size: 22px; padding-right: 14px; padding-left: 0; }
+    .o4-rates th.when .days { font-size: 13px; }
+    .o4-rates td.pub { font-size: 26px; }
+    .o4-rates thead th.pub, .o4-rates td.pub { padding-right: 26px; }
+    .o4-rates td.mem { font-size: 34px; }
+    .o4-rates .mem { padding-left: 14px; padding-right: 14px; }
+    .o4-rates th.when, .o4-rates td.amt { padding-top: 24px; padding-bottom: 24px; }
+    .o4-loc { grid-template-columns: 1fr; gap: 18px; }
+    .o4-loc .o4-loc-meta, .o4-loc h3, .o4-loc .loc-btn { grid-column: 1; grid-row: auto; align-self: start; }
+    .o4-loc .o4-loc-meta, .o4-loc h3 { justify-self: start; }
+    .o4-loc .loc-btn { justify-self: stretch; width: 100%; }
+  }
+  @media (max-width: 440px) {
+    .o4-rates thead th { font-size: 11px; }
+    .o4-rates thead th.mem span { font-size: 10px; }
+    .o4-rates th.when { font-size: 19px; padding-right: 8px; }
+    .o4-rates td.pub { font-size: 22px; }
+    .o4-rates thead th.pub, .o4-rates td.pub { padding-right: 16px; }
+    .o4-rates td.mem { font-size: 28px; }
+    .o4-rates .mem { padding-left: 10px; padding-right: 10px; }
+    .o4-rates td.amt sup { font-size: 0.34em; }
+  }
+</style>
+  <link rel="canonical" href="https://parout.golf/rates.html">
+  <meta name="description" content="Affordable hourly bay rates — among the lowest indoor golf prices in the Albany, NY area. Lower member and late-night pricing on Trackman iO, open 24/7.">
+  <meta name="theme-color" content="#FDF5E6">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Par Out Golf">
+  <meta property="og:title" content="Rates — Par Out indoor golf">
+  <meta property="og:description" content="Simple hourly bay rates with lower member and late-night pricing. 24/7 indoor Trackman golf in Albany, NY.">
+  <meta property="og:url" content="https://parout.golf/rates.html">
+  <meta property="og:image" content="https://parout.golf/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rates — Par Out indoor golf">
+  <meta name="twitter:description" content="Simple hourly bay rates with lower member and late-night pricing. 24/7 indoor Trackman golf in Albany, NY.">
+  <meta name="twitter:image" content="https://parout.golf/assets/og-image.jpg">
+</head><body>
+<header data-nav></header>
+<main>
+
+  <!-- HERO -->
+  <section class="page-head page-head--center">
+    <div class="eyebrow">Rates &amp; access</div>
+    <h1>Pay by the bay.<br>Bring whoever.</h1>
+    <p class="lead">Affordable rates on Trackman iO, in a space that's actually nice. Hourly, per bay — never per player.</p>
+  </section>
+
+  <!-- PRICED LIST -->
+  <section class="o4-list-wrap" id="rates">
+    <div class="o4-section-k">The bay, by the hour</div>
+    <h2>One rate. Up to four players.</h2>
+    <p class="intro">A spacious bay with lounge seating, premium turf and overhead Trackman iO radar — yours by the hour, for up to four players.</p>
+
+    <table class="o4-rates">
+      <caption class="sr-only">Hourly bay rates. Hourly, per bay, for up to four players. Members save $15 per hour.</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="colsp"><span class="sr-only">Time</span></th>
+          <th scope="col" class="pub">Public</th>
+          <th scope="col" class="mem">Member</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="when">Peak<span class="days">Friday – Sunday</span></th>
+          <td class="amt pub">$60<sup>/hr</sup></td>
+          <td class="amt mem">$45<sup>/hr</sup></td>
+        </tr>
+        <tr>
+          <th scope="row" class="when">Off-peak<span class="days">Monday – Thursday</span></th>
+          <td class="amt pub">$50<sup>/hr</sup></td>
+          <td class="amt mem">$35<sup>/hr</sup></td>
+        </tr>
+        <tr class="night">
+          <th scope="row" class="when">Night owl<span class="days">9 PM – 8 AM, daily</span></th>
+          <td class="amt pub">$40<sup>/hr</sup></td>
+          <td class="amt mem">$25<sup>/hr</sup></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="o4-finehint"><strong>Hourly rate per bay, not per player.</strong> Plus applicable taxes. Member rates require the account holder present in the bay. Night-owl window is 9 PM – 8 AM, every day.</p>
+  </section>
+
+  <!-- PUNCHCARDS -->
+  <section class="o4-sec">
+    <div class="o4-sec-head">
+      <div class="o4-section-k">Punchcards</div>
+      <h2>Play more, pay less.</h2>
+      <p>Prepaid hours banked to your account — the more you buy, the deeper the discount.</p>
+    </div>
+    <div class="cards-3">
+      <div class="price-card"><h3>~7 hours</h3><div class="price">$300</div><p class="per">$350 value · save ~14%</p><a class="btn btn--ghost" href="punchcards.html" style="margin-top:24px; width:100%;">Buy on Alba</a></div>
+      <div class="price-card"><h3>~14 hours</h3><div class="price">$550</div><p class="per">$700 value · save ~21%</p><a class="btn btn--ghost" href="punchcards.html" style="margin-top:24px; width:100%;">Buy on Alba</a></div>
+      <div class="price-card feature"><span class="flag">Best deal</span><h3>~20 hours</h3><div class="price">$700</div><p class="per">$1,000 value · save ~30%</p><a class="btn btn--hot" href="punchcards.html" style="margin-top:24px; width:100%;">Buy on Alba</a></div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="o4-sec">
+    <div class="o4-sec-head">
+      <div class="o4-section-k">Location</div>
+      <h2>Where to find us.</h2>
+    </div>
+    <div class="o4-loc">
+      <div class="o4-loc-meta">
+        <div class="city">Albany, NY 12211</div>
+        <div class="addr">457 Albany Shaker Rd</div>
+      </div>
+      <h3>Indoor golf in Loudonville, open 24/7 — five minutes off the Northway.</h3>
+      <a class="btn loc-btn" href="#book">Book a bay</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="book">
+    <div class="cta-band-in">
+      <div><div class="eyebrow" style="color:var(--cream);">Book via Alba Play</div><h2>Grab your hour.</h2><p>Reservations, punchcards, and memberships all run through Alba Play.</p></div>
+      <div class="cta-actions"><a class="btn" href="#" data-cta="book">Book a bay</a><a class="btn btn--ghost" href="memberships.html">Memberships</a></div>
+    </div>
+  </section>
+
+</main>
+<div data-foot></div><script src="shell.js"></script>
+</body></html>

@@ -1,0 +1,319 @@
+/* =========================================================================
+   Par Out Golf — colors_and_type.css
+   Foundational tokens (colors, type) + semantic styles (h1, p, button...).
+   Import once at the top of any page.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ---------- Brand palette ---------- */
+  --green:       #05805B;   /* primary — fairway */
+  --green-lift:  #0A9870;   /* hover */
+  --green-deep:  #04613F;   /* pressed */
+  --orange:      #E06F1E;   /* flag — fills, large display, on-dark text */
+  --orange-lift: #EF8836;
+  --hot-text:    #A84D0D;   /* orange for SMALL text on light grounds — ≥4.5:1 on cream/white/tints */
+  --hot-display: #D9650F;   /* orange for LARGE text (≥24px / 18.66px bold) on light — ≥3:1 on cream */
+  --yellow:      #F2C94C;   /* accent / focus */
+  --night:       #FBD24A;   /* brighter yellow — night-rate figures on dark */
+  --cream:       #FDF5E6;   /* canvas / ink on dark */
+  --member:      #CFF0DB;   /* pale fairway tint — member price figures */
+  --member-ink:  #E8F8EC;   /* lighter member tint — member row labels */
+
+  /* ---------- Ink grounds ----------
+     Kept for the surfaces that stay DARK on purpose as contrast anchors:
+     the footer, the green CTA band, the night-owl band, and the home-hero
+     stat strip. The page itself is cream (see semantic tokens below). */
+  --ink-0:   #251E1E;   /* deepest ground — brand black (footer / night-band) */
+  --ink:     #0F1A14;   /* dark anchor ground */
+  --ink-2:   #162821;   /* dark surface / cards */
+  --ink-3:   #1E3329;   /* dark elevated */
+  --scrim:   rgba(253, 245, 230, 0.82);    /* sticky-nav blur ground */
+
+  /* ---------- Semantic colors (cream ground, ink text) ----------
+     The brand hues (green / orange / yellow) are left exactly as-is;
+     only the grounds + text are cream/ink. */
+  --bg:        #FDF5E6;   /* page */
+  --surface:   #FFFFFF;   /* cards / raised */
+  --surface-2: #F6EAD2;   /* warm tint — bands, wells, table heads */
+  --fg:        #11201A;   /* primary ink */
+  --fg-muted:  rgba(17, 32, 26, 0.74);
+  --fg-faint:  rgba(17, 32, 26, 0.62); /* ≥4.5:1 on cream — placeholder-safe */
+  --line:      rgba(17, 32, 26, 0.14); /* hairline */
+  --line-2:    rgba(17, 32, 26, 0.22);
+  --line-strong: rgba(17, 32, 26, 0.55); /* form-control & ghost-button boundaries — ≥3:1 on cream */
+  --accent:    var(--green);
+  --hot:       var(--orange);
+  --warn:      var(--yellow);
+  --focus:     var(--green);   /* focus ring on light grounds; dark anchors override to yellow (site.css) */
+
+  /* Brand tints deepened so they read as figures on cream. */
+  --member-on-light: var(--green);
+  --night-on-light:  #B07A09;
+
+  /* Yellow tracer recolored for LIGHT grounds — the bright --yellow tracer
+     is invisible on cream/white, so the hero shot-tracer darkens to this gold
+     on the Technology hero and the white brand-statement band (see site.css). */
+  --tracer-gold:     #D9A327;
+
+  /* ---------- Type families ---------- */
+  --font-display: 'Poppins', 'Arial Narrow', sans-serif;
+  --font-body:    'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono:    ui-monospace, Menlo, monospace; /* system monospace for <code>/<pre> only — NOT a brand face. Brand type is display + body above. */
+
+  /* ---------- Type scale (all typographic) ---------- */
+  --fs-display: clamp(72px, 9vw, 112px); /* @kind font */
+  --fs-hero:    clamp(52px, 6.8vw, 88px); /* @kind font */ /* page-title / hero headline — between display and h1 */
+  --fs-h1:      clamp(44px, 5vw, 64px); /* @kind font */
+  --fs-h2:      clamp(30px, 3.4vw, 40px); /* @kind font */
+  --fs-h3:      clamp(22px, 2.2vw, 26px); /* @kind font */
+  --fs-h4:      18px; /* @kind font */
+  --fs-eyebrow: 16px; /* @kind font */
+  --fs-body-l:  20px; /* @kind font */
+  --fs-body:    17px; /* @kind font */
+  --fs-small:   15px; /* @kind font */
+  --fs-caption: 13px; /* @kind font */
+
+  /* Line heights — typographic tokens */
+  --lh-tight:   1.02; /* @kind font */
+  --lh-snug:    1.15; /* @kind font */
+  --lh-normal:  1.5; /* @kind font */
+  --lh-loose:   1.65; /* @kind font */
+
+  /* ---------- Spacing (8pt grid) ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+  --sp-10: 128px;
+
+  /* ---------- Radii ---------- */
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-pill: 999px;
+
+  /* ---------- Elevation ----------
+     Ink-tinted, tuned for the cream/light surfaces. Warm rather than
+     neutral-black so cards don't muddy on the cream canvas. */
+  --shadow-pop: 0 18px 40px -14px rgba(17, 32, 26, 0.30),
+                0 4px 12px -6px rgba(17, 32, 26, 0.12);
+  --shadow-sm:  0 2px 8px rgba(17, 32, 26, 0.12);
+
+  /* ---------- Motion (non-visual tokens) ---------- */
+  --ease:     cubic-bezier(0.2, 0.7, 0.2, 1); /* @kind other */
+  --d-fast:   120ms; /* @kind other */
+  --d-base:   180ms; /* @kind other */
+  --d-slow:   240ms; /* @kind other */
+}
+
+/* =========================================================================
+   Base element styles
+   ========================================================================= */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--orange); color: var(--ink); }
+
+/* Headings — all use the display family (Poppins) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--fg);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-weight: 800;
+  overflow-wrap: break-word;
+}
+
+h1 { font-size: var(--fs-h1); letter-spacing: -0.015em; }
+h2 { font-size: var(--fs-h2); font-weight: 800; }
+h3 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -0.005em; }
+h4 { font-size: var(--fs-h4); font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hot-text);
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+p { margin: 0 0 var(--sp-4); color: var(--fg); font-size: var(--fs-body); line-height: 1.6; overflow-wrap: break-word; }
+.lead { font-size: var(--fs-body-l); line-height: 1.55; color: var(--fg); }
+small { font-size: var(--fs-small); color: var(--fg-muted); }
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: color var(--d-fast) var(--ease);
+}
+a:hover { color: var(--hot-text); }
+a.btn,
+a.btn:hover,
+a.btn:active,
+a.btn:visited { text-decoration: none; color: var(--cream); }
+a.btn--cream,
+a.btn--cream:hover,
+a.btn--cream:active,
+a.btn--cream:visited { color: var(--ink); }
+a.btn--ghost,
+a.btn--ghost:hover,
+a.btn--ghost:active,
+a.btn--ghost:visited { color: var(--fg); }
+a.btn--hot,
+a.btn--hot:hover,
+a.btn--hot:active,
+a.btn--hot:visited { color: var(--ink); }
+
+hr { border: 0; border-top: 1px solid var(--line); margin: var(--sp-6) 0; }
+
+code, pre { font-family: var(--font-mono); font-size: 0.9em; }
+
+/* =========================================================================
+   Utilities
+   ========================================================================= */
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+.surface     { background: var(--surface); }
+.surface-2   { background: var(--surface-2); }
+
+.hairline    { border: 1px solid var(--line); }
+.hairline-2  { border: 1px solid var(--line-2); }
+
+/* Focus style — always yellow, always offset. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* =========================================================================
+   Components — minimal, enough to build with
+   ========================================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 46px;
+  padding: 0 var(--sp-6);
+  background: var(--green);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--d-fast) var(--ease),
+              transform var(--d-fast) var(--ease),
+              filter var(--d-fast) var(--ease);
+  text-decoration: none;
+}
+.btn:hover  { background: var(--green-deep); }
+.btn:active { transform: scale(0.98); filter: brightness(0.95); }
+.btn[disabled] { opacity: 0.4; pointer-events: none; }
+
+.btn--hot     { background: var(--orange); color: var(--ink); }
+.btn--hot:hover { background: var(--orange-lift); }
+.btn--ghost   { background: transparent; color: var(--fg); border: 1px solid var(--line-strong); }
+.btn--ghost:hover { background: rgba(17,32,26,0.06); border-color: var(--fg); }
+.btn--cream   { background: var(--cream); color: var(--ink); }
+.btn--cream:hover { background: #fff; }
+
+.tag {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  height: 24px; padding: 0 var(--sp-3);
+  border-radius: var(--r-pill);
+  background: rgba(224,111,30,0.15); color: var(--hot-text);
+  font-family: var(--font-display); font-weight: 600; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--sp-5);
+}
+.card--feature { border-top: 2px solid var(--green); }
+
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--sp-4);
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  transition: border-color var(--d-fast) var(--ease);
+}
+.input::placeholder { color: var(--fg-faint); }
+.input:focus { border-color: var(--green); outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Flat "racetrack" stripe — the nav signature. Green / orange / yellow
+   bands separated by cream, 10px tall. Sits under the top bar; reusable as a
+   section divider. */
+.brand-stripe {
+  height: 10px; width: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--green)  0 2px,
+    var(--cream)  2px 4px,
+    var(--orange) 4px 6px,
+    var(--cream)  6px 8px,
+    var(--yellow) 8px 10px,
+    var(--cream)  10px
+  );
+}
+/* The trailing cream stop bounds the yellow band. Without it, yellow is the
+   gradient's terminal color and absorbs the box's sub-pixel rounding slack on
+   fractional-DPR displays (e.g. 1.25× → 10px box ceils to 13 device rows,
+   making yellow render 3 rows tall vs 2 for green/orange — a visible ~1.5×).
+   With cream terminal, all three colored bands stay equal at every DPR. */
+

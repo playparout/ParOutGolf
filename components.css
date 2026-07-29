@@ -1,0 +1,96 @@
+/* =========================================================================
+   Par Out Golf — components.css
+   Reusable, surface-agnostic content components: section heads, pricing
+   table, price cards, step lists, FAQ accordions, coach cards, feature
+   cards, card grids, and the CTA band.
+
+   Depends on tokens from colors_and_type.css (load that first). Site chrome
+   (nav, footer, page-head, layout primitives, responsive) lives in
+   site/site.css, which imports this file. Decks, signage, and other
+   surfaces can import this directly for the same components.
+   ========================================================================= */
+
+/* ---------- Section head ---------- */
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; border-bottom: 2px solid var(--fg); padding-bottom: 20px; }
+.section-head > div:first-child { flex: 1 1 auto; min-width: 0; }
+.section-head h2 { margin-top: 6px; }
+.section-head a { flex: 0 0 auto; font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); text-decoration: none; white-space: nowrap; padding: 8px 0; min-height: 44px; display: inline-flex; align-items: center; }
+.section-head a:hover { color: var(--hot-text); }
+
+/* ---------- Price card ---------- */
+.price-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 32px; position: relative; min-width: 0; display: flex; flex-direction: column; transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease); }
+.price-card:hover { transform: translateY(-3px); border-color: var(--line-2); box-shadow: 0 20px 40px -20px rgba(17,32,26,0.30); }
+.price-card.feature { border: 2px solid var(--orange); background: linear-gradient(180deg, rgba(224,111,30,0.08), transparent 40%), var(--surface); }
+.price-card.feature:hover { box-shadow: 0 20px 60px -20px rgba(224,111,30,0.35); }
+.price-card .flag { position: absolute; top: -12px; left: 24px; background: var(--orange); color: var(--ink); padding: 4px 12px; border-radius: var(--r-pill); font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+.price-card h3 { font-size: 26px; margin-bottom: 4px; font-weight: 700; }
+.price-card .price { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 4.2vw, 56px); line-height: 1; margin: 16px 0 4px; letter-spacing: -0.02em; white-space: nowrap; }
+.price-card .per { font-family: var(--font-body); font-size: 15px; color: var(--fg-muted); }
+.price-card ul { list-style: none; padding: 0; margin: 24px 0 28px; display: flex; flex-direction: column; gap: 12px; }
+.price-card li { padding-left: 24px; position: relative; font-size: 15px; color: var(--fg); line-height: 1.55; }
+.price-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 10px; background: var(--green); border-radius: 2px; transform: rotate(45deg); }
+.price-card.feature li::before { background: var(--orange); }
+.price-card .btn { width: 100%; margin-top: auto; white-space: normal; text-align: center; }
+
+/* ---------- Step list ---------- */
+.steps { counter-reset: step; display: flex; flex-direction: column; gap: 32px; max-width: 760px; margin: 0 auto; }
+.step { display: grid; grid-template-columns: 96px 1fr; gap: 32px; align-items: start; padding: 28px 0; border-top: 1px solid var(--line); }
+.step:first-child { border-top: 0; padding-top: 0; }
+.step-num { counter-increment: step; font-family: var(--font-display); font-weight: 800; font-size: 80px; line-height: 0.9; color: var(--hot-display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.step-num::before { content: counter(step, decimal-leading-zero); }
+.step h3 { font-size: 26px; margin-bottom: 10px; font-weight: 700; }
+.step h2 { font-size: 26px; margin-bottom: 10px; font-weight: 700; }
+.step p { color: var(--fg-muted); max-width: 60ch; font-size: var(--fs-body); line-height: 1.6; }
+
+/* ---------- FAQ ---------- */
+.faq-group { margin-bottom: 48px; }
+.faq-group h2 { font-size: 26px; margin-bottom: 20px; color: var(--hot-display); }
+details.faq { border-top: 1px solid var(--line); padding: 22px 0; cursor: pointer; }
+details.faq[open] { border-top-color: var(--line-2); }
+details.faq:last-child { border-bottom: 1px solid var(--line); }
+details.faq summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--fg); line-height: 1.35; }
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq summary::after { content: '+'; font-size: 26px; color: var(--hot-display); font-weight: 400; transition: transform .2s var(--ease); }
+details.faq[open] summary::after { content: '\2212'; }
+details.faq .ans { margin-top: 14px; color: var(--fg-muted); max-width: 72ch; font-size: var(--fs-body); line-height: 1.65; }
+
+/* ---------- Coach card ---------- */
+.coach { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease); }
+.coach:hover { transform: translateY(-3px); border-color: var(--line-2); box-shadow: 0 20px 40px -20px rgba(17,32,26,0.30); }
+.coach-photo { aspect-ratio: 4/3; background: linear-gradient(135deg, var(--green) 0%, var(--ink-3) 100%); display: flex; align-items: center; justify-content: center; color: rgba(253,245,230,0.4); font-family: var(--font-display); font-weight: 800; font-size: 64px; letter-spacing: -0.02em; }
+.coach-body { padding: 28px 32px 32px; }
+.coach h3 { font-size: 26px; margin-bottom: 4px; font-weight: 700; }
+.coach .title { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hot-text); margin-bottom: 18px; display: block; }
+.coach p { color: var(--fg-muted); font-size: 16px; line-height: 1.6; }
+.coach-meta { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+.coach-meta b { display: block; color: var(--fg); font-size: 14px; margin-top: 2px; }
+
+/* ---------- Generic card grid ---------- */
+.cards-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.cards-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+
+.feature-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 28px; }
+.feature-card .icon { width: 44px; height: 44px; border-radius: var(--r-sm); background: rgba(224,111,30,0.15); color: var(--orange); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.feature-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 700; text-transform: none; letter-spacing: -0.005em; font-family: var(--font-display); color: var(--fg); line-height: 1.15; }
+.feature-card p { color: var(--fg-muted); font-size: 16px; line-height: 1.6; margin: 0; font-family: var(--font-body); }
+
+/* ---------- CTA band ---------- */
+.cta-band { background: var(--green); color: var(--cream); padding: 64px 32px; margin: 96px 0 0; position: relative; overflow: hidden; }
+.cta-band-in { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: center; position: relative; }
+/* CTA band stays a dark green anchor, so its heading is cream (the base h1–h6
+   rule would otherwise make it ink on the dark ground). */
+.cta-band h2 { color: var(--cream); font-size: clamp(36px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 10px; }
+.cta-band p { color: rgba(253,245,230,0.92); font-size: 17px; margin: 0; line-height: 1.55; }
+/* Always stack the two CTA buttons in a right-aligned column, equal width, so
+   the band looks identical on every page regardless of label length (short
+   labels would otherwise sit side-by-side while long ones — e.g. lessons —
+   wrapped, making pages look inconsistent). */
+.cta-band .cta-actions { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+.cta-band .btn,
+.cta-band a.btn { background: var(--cream); color: var(--ink); transition: background var(--d-fast) var(--ease), transform var(--d-fast) var(--ease), box-shadow var(--d-fast) var(--ease); }
+.cta-band .btn:hover,
+.cta-band a.btn:hover { background: var(--yellow); color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+.cta-band .btn--ghost,
+.cta-band a.btn--ghost { background: transparent; color: var(--cream); border: 1px solid rgba(253,245,230,0.7); }
+.cta-band .btn--ghost:hover,
+.cta-band a.btn--ghost:hover { background: rgba(253,245,230,0.08); color: var(--cream); }

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact &amp; Visit — Loudonville · Albany, NY | Par Out</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css"><link rel="stylesheet" href="site.css">
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .contact-block { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 32px; overflow-wrap: break-word; }
+  .contact-block h3 { font-size: 22px; margin-bottom: 8px; overflow-wrap: break-word; }
+  .contact-block p { color: var(--fg-muted); margin: 0 0 16px; line-height: 1.6; }
+  .contact-block a.big { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--orange); text-decoration: none; display: flex; align-items: center; min-height: 44px; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+  .contact-block a.big:hover { color: var(--green); }
+  .contact-block .eyebrow { color: var(--fg); }
+  .hours { font-family: var(--font-display); font-weight: 700; font-size: 64px; line-height: 1; color: var(--orange); letter-spacing: -0.02em; }
+  .hours-sub { color: var(--fg-muted); margin-top: 8px; }
+  .map-placeholder { aspect-ratio: 4/3; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-lg); position: relative; overflow: hidden; }
+  @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) {
+    .contact-block { padding: 24px 20px; }
+    .contact-block a.big { font-size: 19px; }
+  }
+</style>
+  <link rel="canonical" href="https://parout.golf/contact.html">
+  <meta name="description" content="Find Par Out in the Loudonville neighborhood (Town of Colonie) at 457 Albany Shaker Rd, Albany, NY 12211. Open 24/7. Email support@parout.golf.">
+  <meta name="theme-color" content="#FDF5E6">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Par Out Golf">
+  <meta property="og:title" content="Contact & Location — Par Out Indoor Golf, Loudonville (Albany) NY">
+  <meta property="og:description" content="Find Par Out in the Loudonville neighborhood at 457 Albany Shaker Rd, Albany, NY 12211. Open 24/7. Email support@parout.golf.">
+  <meta property="og:url" content="https://parout.golf/contact.html">
+  <meta property="og:image" content="https://parout.golf/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact & Location — Par Out Indoor Golf, Loudonville (Albany) NY">
+  <meta name="twitter:description" content="Find Par Out in the Loudonville neighborhood at 457 Albany Shaker Rd, Albany, NY 12211. Open 24/7. Email support@parout.golf.">
+  <meta name="twitter:image" content="https://parout.golf/assets/og-image.jpg">
+</head><body>
+<header data-nav></header>
+<main>
+<section class="page-head">
+  <div class="eyebrow">Contact</div>
+  <h1>Say hi.<br>Or just swing by.</h1>
+  <p class="lead">We're unstaffed most of the time, so email beats phone. For booking problems, use the number on your confirmation email — that's monitored 24/7.</p>
+</section>
+
+<section class="section">
+  <h2 class="sr-only">Ways to reach us</h2>
+  <div class="contact-grid">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div class="contact-block">
+        <h3>General email</h3>
+        <p>Questions, feedback, partnership ideas, pun suggestions.</p>
+        <a class="big" href="mailto:support@parout.golf">support@parout.golf</a>
+      </div>
+      <div class="contact-block">
+        <h3>Booking help</h3>
+        <p>Door code not working? Trouble with Alba? The number to text is in your booking confirmation email.</p>
+        <!-- TODO NAP: real booking phone not set yet. When ready, restore: <a class="big" href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a> -->
+        <span class="big" style="color:var(--fg-faint)">Phone coming soon</span>
+      </div>
+      <div class="contact-block">
+        <h3>Private events &amp; groups</h3>
+        <p>Parties, corporate events, facility buyouts.</p>
+        <a class="big" href="private-events.html">Inquiry form →</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div class="contact-block">
+        <h3>Find us</h3>
+        <p>457 Albany Shaker Rd<br>Albany, NY 12211</p>
+        <p>We're located in <strong>Loudonville</strong> (Town of Colonie), five minutes off the Northway — easy to reach from Albany, Latham, Newtonville &amp; Menands.</p>
+        <div class="map-placeholder">
+          <iframe title="Par Out — 457 Albany Shaker Rd, Albany, NY" src="https://maps.google.com/maps?q=457%20Albany%20Shaker%20Rd%2C%20Albany%2C%20NY%2012211&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="eyebrow">Hours</div>
+        <div class="hours">24/7</div>
+        <div class="hours-sub">Every day. Every hour. Yes, Christmas too.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="book">
+  <div class="cta-band-in">
+    <div><div class="eyebrow" style="color:var(--cream);">Or just go play</div><h2>You don't have to ask permission.</h2><p>Most "contact us" questions get answered faster by just booking an hour and seeing the place.</p></div>
+    <div class="cta-actions"><a class="btn" href="#" data-cta="book">Book a bay</a><a class="btn btn--ghost" href="faq.html">Read the FAQ</a></div>
+  </div>
+</section>
+</main>
+<div data-foot></div><script src="shell.js"></script>
+</body></html>

@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indoor Golf in Loudonville · Albany, NY | Par Out</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <link rel="stylesheet" href="site.css">
+  <style>
+    /* ---- Big photo placeholder (drop an <img> inside any .ph to fill it) ----
+       Self-contained so the homepage carries no review-only dependencies.
+       To use a real hero photo: inside the .ph below, uncomment the <img>
+       and set src (≥2400px wide landscape); the .ph-hint can then be removed. */
+    .ph { position: relative; overflow: hidden; background:
+        radial-gradient(120% 90% at 78% 14%, rgba(5,128,91,0.32), transparent 62%),
+        radial-gradient(90% 80% at 12% 96%, rgba(224,111,30,0.12), transparent 60%),
+        linear-gradient(155deg, var(--ink-3), var(--ink) 80%); }
+    .ph::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(45deg, transparent 0 24px, rgba(253,245,230,0.018) 24px 48px); }
+    .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .ph-hint { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 13px; color: var(--fg-faint);
+        text-align: center; padding: 24px; pointer-events: none; }
+    .ph-hint svg { width: 40px; height: 40px; opacity: 0.55; }
+    .ph-hint .lbl { font-family: var(--font-display); font-weight: 800; font-size: 13px;
+        letter-spacing: 0.2em; text-transform: uppercase; color: rgba(253,245,230,0.72); }
+    .ph-hint .dim { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.06em;
+        font-variant-numeric: tabular-nums; color: var(--fg-faint); }
+    .scrim-b { position: absolute; inset: 0; z-index: 2; pointer-events: none;
+        background: linear-gradient(to top, rgba(37,30,30,0.92) 0%, rgba(37,30,30,0.68) 34%, rgba(37,30,30,0.18) 64%, rgba(37,30,30,0.35) 100%); }
+
+    /* ============ HOME HERO — "FULL BLEED" ============
+       One giant edge-to-edge hero photo. Headline + CTAs sit on a bottom
+       scrim; the stat strip rides the very bottom edge. Immersive, cinematic. */
+    .home-hero { position: relative; width: 100%; min-height: clamp(620px, 92vh, 980px);
+        display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
+    .home-hero .ph { position: absolute; inset: 0; z-index: 0; }
+    .home-hero .ph-hint { justify-content: flex-start; padding-top: 18vh; }
+    /* Retro photo treatment: warm fade, lifted blacks, vignette + film grain */
+    .home-hero .ph img { filter: sepia(0.34) saturate(0.86) contrast(0.92) brightness(1.05) hue-rotate(-8deg); }
+    .home-hero .ph::before { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+        background:
+          radial-gradient(120% 90% at 50% 38%, transparent 52%, rgba(28,18,6,0.42) 100%),
+          linear-gradient(0deg, rgba(64,42,16,0.10), rgba(64,42,16,0.10)); }
+    .home-hero .ph::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.5;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay; }
+
+    .home-hero-in { position: relative; z-index: 3; width: 100%; max-width: 1280px;
+        margin: 0 auto; padding: 0 32px clamp(40px, 7vw, 88px); }
+    .home-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display);
+        font-weight: 700; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); }
+    .home-eyebrow .live { width: 8px; height: 8px; border-radius: 50%; background: var(--green-lift);
+        box-shadow: 0 0 0 0 rgba(10,152,112,0.6); animation: homepulse 2.6s var(--ease) infinite; }
+    @media (prefers-reduced-motion: reduce) { .home-eyebrow .live { animation: none; } }
+    @keyframes homepulse { 0% { box-shadow: 0 0 0 0 rgba(10,152,112,0.55); } 70% { box-shadow: 0 0 0 11px rgba(10,152,112,0); } 100% { box-shadow: 0 0 0 0 rgba(10,152,112,0); } }
+
+    .home-hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(60px, 10vw, 168px);
+        line-height: 0.88; letter-spacing: -0.035em; color: var(--cream); margin: 18px 0 0; padding-bottom: 0.12em;
+        text-shadow: 0 2px 40px rgba(0,0,0,0.45); }
+    .home-hero h1 em { font-style: normal; color: var(--orange); }
+    .home-hero .lead { font-size: clamp(18px, 2vw, 23px); line-height: 1.5; color: rgba(253,245,230,0.92);
+        max-width: 50ch; margin: 26px 0 0; }
+    .home-cta { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+    .home-cta .btn { min-height: 54px; padding: 0 32px; font-size: 16px; }
+    /* Ghost CTA sits on the dark hero photo, so it keeps cream text + a light
+       hairline (the base ghost is ink, for the cream page). */
+    .home-hero a.btn--ghost,
+    .home-hero a.btn--ghost:active,
+    .home-hero a.btn--ghost:visited { color: var(--cream); border-color: rgba(253,245,230,0.7); }
+    .home-hero a.btn--ghost:hover { background: rgba(253,245,230,0.14); color: var(--cream); border-color: var(--cream); }
+
+    /* Stat strip — full width, rides the bottom edge of the hero. */
+    .home-stats { position: relative; z-index: 3; background: rgba(37,30,30,0.85); backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(253,245,230,0.18); }
+    .home-stats-in { max-width: 1280px; margin: 0 auto; padding: 0 32px;
+        display: grid; grid-template-columns: repeat(4, 1fr); }
+    .home-stat { padding: 26px 28px; border-left: 1px solid rgba(253,245,230,0.18); display: flex; flex-direction: column; gap: 4px; }
+    .home-stat:first-child { border-left: 0; padding-left: 0; }
+    .home-stat .n { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3vw, 42px);
+        line-height: 1; color: var(--cream); letter-spacing: -0.015em; white-space: nowrap; }
+    .home-stat .l { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.14em;
+        text-transform: uppercase; color: rgba(253,245,230,0.8); white-space: nowrap; }
+
+    @media (max-width: 760px) {
+      /* Smaller headline + tightened rhythm so the bottom-aligned hero copy has
+         vertical breathing room instead of cramming against the eyebrow. */
+      .home-hero h1 { font-size: clamp(44px, 10vw, 64px); line-height: 1.12; margin-top: 16px; }
+      .home-hero .lead { margin-top: 18px; }
+      .home-cta { margin-top: 26px; gap: 12px; }
+      .home-cta .btn { flex: 1 1 100%; }
+      .home-stats-in { grid-template-columns: repeat(2, 1fr); padding: 0 24px; }
+      .home-stat { padding: 20px; }
+      .home-stat:nth-child(3) { border-left: 0; padding-left: 20px; }
+      .home-stat:nth-child(odd) { border-left: 0; padding-left: 0; }
+      /* Stat numbers (esp. "Trackman") are nowrap; lower the clamp floor so they
+         can't overrun a half-width column and force a doc-wide horizontal scroll. */
+      .home-stat .n { font-size: clamp(20px, 6vw, 30px); }
+    }
+    @media (max-width: 480px) {
+      /* iPhone-SE range: the bottom-aligned copy outgrows a 540px hero and crams
+         against the eyebrow, so give the hero more height and a touch more side
+         padding, with a smaller/looser headline. */
+      .home-hero { min-height: clamp(600px, 92vh, 780px); }
+      .home-hero-in { padding: 0 22px clamp(32px, 7vw, 88px); }
+      .home-hero h1 { font-size: clamp(38px, 10.5vw, 52px); line-height: 1.16; margin-top: 14px; }
+      .home-hero .lead { margin-top: 18px; }
+      .home-cta { margin-top: 24px; gap: 12px; }
+      .home-stats-in { padding: 0 16px; }
+      .home-stat { padding: 16px 12px; }
+      .home-stat:nth-child(odd) { padding-left: 0; }
+      .home-stat .n { font-size: 20px; }
+      .home-stat .l { font-size: 11px; letter-spacing: 0.1em; }
+    }
+    @media (max-width: 360px) {
+      .home-hero h1 { font-size: clamp(34px, 11vw, 44px); }
+      .home-stat { padding: 14px 8px; }
+      .home-stat .n { font-size: 18px; }
+    }
+
+    /* Tech teaser image slot uses the shared .ph treatment, sized big. */
+    .tech-teaser { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+    .tech-teaser .ph { aspect-ratio: 5/4; border-radius: var(--r-lg); border: 1px solid var(--line); }
+    .tech-teaser .tech-logo-ph { display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+    .tech-teaser .tech-logo-ph svg { width: 100%; max-width: 360px; height: auto; }
+    .tech-teaser h2 { font-size: clamp(40px, 5vw, 64px); line-height: 0.95; letter-spacing: -0.02em; margin: 12px 0 16px; }
+    .tech-teaser .kv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 30px; }
+    .tech-teaser .kv div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 20px; }
+    .tech-teaser .kv b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 32px; color: var(--orange); line-height: 1; margin-bottom: 4px; }
+    .tech-teaser .kv span { font-size: 14px; color: var(--fg-muted); }
+    @media (max-width: 1024px) {
+      .tech-teaser { grid-template-columns: 1fr; gap: 36px; }
+      /* Stacked layout: CTA spans the full column to match the kv grid above it. */
+      .tech-teaser .btn { width: 100%; }
+      /* Bottom-aligned hero: cap height so tall viewports (iPad Pro/mini portrait,
+         large phones) don't leave a wide empty band of photo above the copy. */
+      .home-hero { min-height: clamp(500px, 62vh, 540px); }
+    }
+    @media (min-width: 1700px) { .home-hero-in, .home-stats-in { max-width: 1440px; } }
+  </style>
+  <link rel="canonical" href="https://parout.golf/">
+  <meta name="description" content="24/7 unstaffed indoor golf in Loudonville · Albany, NY. Book a Trackman simulator bay, unlock the door with your phone, and tee off any hour. No staff, no fuss.">
+  <meta name="theme-color" content="#FDF5E6">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Par Out Golf">
+  <meta property="og:title" content="Par Out — 24/7 indoor golf in Albany, NY">
+  <meta property="og:description" content="24/7 unstaffed indoor golf in Loudonville · Albany, NY. Book a Trackman simulator bay, unlock the door with your phone, and tee off any hour. No staff, no fuss.">
+  <meta property="og:url" content="https://parout.golf/">
+  <meta property="og:image" content="https://parout.golf/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Par Out — 24/7 indoor golf in Albany, NY">
+  <meta name="twitter:description" content="24/7 unstaffed indoor golf in Loudonville · Albany, NY. Book a Trackman simulator bay, unlock the door with your phone, and tee off any hour. No staff, no fuss.">
+  <meta name="twitter:image" content="https://parout.golf/assets/og-image.jpg">
+  <!-- LocalBusiness/GolfCourse structured data is injected sitewide by shell.js
+       (single source of truth — see the SOCIAL/business block there). -->
+</head>
+<body>
+<header data-nav></header>
+<main>
+
+<!-- HERO: full-bleed cinematic -->
+<section class="home-hero" data-screen-label="Homepage hero">
+  <div class="ph">
+    <img src="../assets/hero-lounge.jpg" width="1024" height="684" fetchpriority="high" alt="The Par Out lounge — a Par Out Golf neon sign over a Trackman simulator screen, with mid-century lounge seating and a checkerboard rug">
+  </div>
+  <div class="scrim-b"></div>
+  <div class="home-hero-in">
+    <span class="home-eyebrow"><span class="live"></span> Loudonville, NY · open right now</span>
+    <h1>A slice of the<br>great <em>indoors.</em></h1>
+    <p class="lead">24/7 indoor golf on Trackman. Book a bay, unlock the door with your phone, tee off anytime. No staff, no check-in, no fuss.</p>
+    <div class="home-cta">
+      <a class="btn" href="#book">Book a bay</a>
+      <a class="btn btn--ghost" href="how-it-works.html">See how it works</a>
+    </div>
+  </div>
+</section>
+<div class="home-stats">
+  <div class="home-stats-in">
+    <div class="home-stat"><span class="n">24/7</span><span class="l">Always open</span></div>
+    <div class="home-stat"><span class="n">Trackman</span><span class="l">Technology</span></div>
+    <div class="home-stat"><span class="n">BYO</span><span class="l">Food &amp; drink</span></div>
+    <div class="home-stat"><span class="n">5&nbsp;min</span><span class="l">Book to swing</span></div>
+  </div>
+</div>
+
+<!-- Why Par Out -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Why Par Out</div>
+      <h2>Fewer rules. More golf.</h2>
+    </div>
+    <a href="how-it-works.html">How it works →</a>
+  </div>
+  <div class="cards-3">
+    <div class="feature-card">
+      <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>Always open</h3>
+      <p>24/7 the bay is yours from the minute your code goes live to the minute it expires.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3>Unlock with your phone</h3>
+      <p>Your booking email contains a code that works 10 minutes before through 10 minutes after your session.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></div>
+      <h3>Trackman simulators</h3>
+      <p>The same dual-radar system tour pros train on. Shot shape, spin, distance, every course you've heard of.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Cream brand-statement band -->
+<section class="brand-band">
+  <div class="brand-band-in">
+    <div class="eyebrow">The Par Out difference</div>
+    <h2>No tee times.
+No front desk.
+No closing time.</h2>
+    <p>Just you, your group, and a bay that's open whenever you are. Book it, unlock it, play.</p>
+  </div>
+  <div class="brand-band-tracer" aria-hidden="true"><svg class="band-driver" viewBox="0 0 548 1028" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Golf driver and ball">
+<path d="M546.792 445.885V357.273C546.792 354.205 542.709 353.133 541.161 355.781C498.376 428.944 470.245 466.376 433.791 444.598C366.89 404.631 133.836 335.434 16.5486 458.629C5.98262 469.727 0.599639 484.774 1.14735 500.088C5.0898 610.316 76.1416 745.098 252.791 745.098C413.672 745.098 463.794 608.853 544.351 455.725C545.944 452.695 546.792 449.308 546.792 445.885Z" fill="#05805B" stroke="black" stroke-width="2.21965"></path>
+<path d="M546.789 416.098V350.991C546.789 349.902 544.928 349.4 544.374 350.337C538.714 359.909 524.6 382.989 516.855 395.598L546.789 416.098Z" fill="#E06F1E" stroke="black" stroke-width="2.21965"></path>
+<path d="M477.971 513.073C493.97 534.598 421.97 734.573 244.471 734.573C75.851 734.573 -4.54202 551.098 34.9706 488.073C97.9704 387.596 364.97 389.097 477.971 513.073Z" fill="#CFF0DB" stroke="black" stroke-width="2.21965"></path>
+<circle cx="251.855" cy="575.098" r="154.5" fill="#FDF5E6" stroke="#251E1E" stroke-width="2"></circle>
+<circle cx="251.855" cy="575.098" r="140.5" fill="#251E1E" stroke="#251E1E" stroke-width="2"></circle>
+<circle cx="251.855" cy="575.098" r="125.5" fill="#E06F1E" stroke="#251E1E" stroke-width="2"></circle>
+<circle cx="251.855" cy="575.098" r="108.5" fill="#F2C94C" stroke="#251E1E" stroke-width="2"></circle>
+<circle cx="251.855" cy="575.098" r="95.5" fill="#05805B" stroke="#251E1E" stroke-width="2"></circle>
+<circle cx="251.855" cy="575.098" r="71.5" fill="#251E1E"></circle>
+<circle opacity="0.23" cx="251.855" cy="575.098" r="55.5" fill="#FCFBFD"></circle>
+<path d="M198.134 36.3562C197.138 18.4592 211.589 3.10186 230.411 2.05446C249.233 1.00706 265.299 14.6662 266.295 32.5633C267.175 48.3834 255.985 62.2165 240.376 65.9381L267.826 559.228L255.046 559.94L227.596 66.6493C211.67 64.6825 199.014 52.1764 198.134 36.3562Z" fill="#05805B" stroke="#251E1E" stroke-width="4"></path>
+<path d="M509.623 840.788C518.275 850.977 516.602 866.613 505.887 875.712C495.171 884.81 479.471 883.927 470.82 873.738C463.172 864.732 463.593 851.471 471.195 842.229L232.734 561.4L240.009 555.222L478.471 836.051C488.822 830.048 501.976 831.782 509.623 840.788Z" fill="#F2C94C" stroke="#251E1E" stroke-width="2.98279"></path>
+<path d="M135.971 1003.81C131.932 1017.17 117.273 1024.55 103.229 1020.3C89.1842 1016.05 81.0727 1001.79 85.111 988.432C88.6807 976.627 100.549 969.491 112.956 970.926L224.263 602.849L233.799 605.732L122.492 973.81C133.615 979.49 139.54 992.007 135.971 1003.81Z" fill="#E06F1E" stroke="#251E1E" stroke-width="3.11334"></path>
+<path d="M16.2271 267.34C9.77829 256.55 13.7494 242.306 25.0971 235.523C36.4447 228.741 50.8714 231.99 57.3203 242.78C63.0208 252.317 60.5781 264.553 52.097 271.95L229.844 569.347L222.139 573.952L44.3919 276.555C33.861 280.522 21.9276 276.878 16.2271 267.34Z" fill="#F2C94C" stroke="#251E1E" stroke-width="2.8051"></path>
+<path d="M453.922 133.379C461.588 119.136 479.946 114.126 494.925 122.189C509.904 130.252 515.832 148.334 508.166 162.577C501.389 175.167 486.259 180.541 472.492 176.05L261.18 568.622L251.009 563.147L462.321 170.575C450.992 161.557 447.145 145.969 453.922 133.379Z" fill="#E06F1E" stroke="#251E1E" stroke-width="3.60958"></path>
+<circle cx="252.473" cy="575.098" r="56.5" fill="#FDF5E6" stroke="#251E1E" stroke-width="2"></circle>
+<path d="M295.353 591.513C290.711 591.944 288.62 595.579 288.154 597.342" stroke="#251E1E" stroke-width="1.93235" stroke-linecap="round"></path>
+<path d="M280.215 590.216C275.665 590.837 273.761 594.501 273.377 596.256" stroke="#251E1E" stroke-width="1.90319" stroke-linecap="round"></path>
+<path d="M267.212 588.156C262.589 588.786 260.654 592.509 260.265 594.292" stroke="#251E1E" stroke-width="1.93371" stroke-linecap="round"></path>
+<path d="M292.114 579.632C287.565 580.259 285.666 583.926 285.285 585.681" stroke="#251E1E" stroke-width="1.90319" stroke-linecap="round"></path>
+<path d="M279.302 577.399C274.68 578.036 272.751 581.762 272.364 583.546" stroke="#251E1E" stroke-width="1.93371" stroke-linecap="round"></path>
+<path d="M290.864 569.376C286.201 569.241 283.682 572.597 283.006 574.292" stroke="#251E1E" stroke-width="1.93371" stroke-linecap="round"></path>
+<path d="M283.278 601.759C278.672 602.474 276.807 606.23 276.451 608.018" stroke="#251E1E" stroke-width="1.93235" stroke-linecap="round"></path>
+<path d="M268.333 600.675C263.786 601.309 261.892 604.979 261.513 606.735" stroke="#251E1E" stroke-width="1.90319" stroke-linecap="round"></path>
+<path d="M255.138 598.779C250.518 599.422 248.594 603.151 248.209 604.935" stroke="#251E1E" stroke-width="1.93371" stroke-linecap="round"></path>
+<path d="M271.692 612.256C267.075 612.904 265.157 616.633 264.774 618.416" stroke="#251E1E" stroke-width="1.93235" stroke-linecap="round"></path>
+<path d="M256.87 610.79C252.324 611.428 250.434 615.1 250.057 616.857" stroke="#251E1E" stroke-width="1.90319" stroke-linecap="round"></path>
+<path d="M243.488 609.061C238.868 609.71 236.948 613.441 236.566 615.225" stroke="#251E1E" stroke-width="1.93371" stroke-linecap="round"></path>
+</svg></div>
+</section>
+
+<!-- Tech teaser -->
+<section class="section">
+  <div class="tech-teaser">
+    <div>
+      <div class="eyebrow">The tech</div>
+      <h2>Trackman.<br>The good stuff.</h2>
+      <p style="color: var(--fg-muted); font-size: 20px; max-width: 50ch;">Overhead dual-radar + high-speed camera, calibrated to sub-millimeter precision. What tour players use to dial in their swings — and what lets you play Pebble Beach on a Tuesday in Albany.</p>
+      <div class="kv">
+        <div><b>250+</b><span>courses</span></div>
+        <div><b>27</b><span>data points per shot</span></div>
+        <div><b>0.1</b><span>mph resolution</span></div>
+        <div><b>iO</b><span>overhead-mount radar</span></div>
+      </div>
+      <div style="margin-top: 30px;"><a class="btn" href="technology.html">Why this matters →</a></div>
+    </div>
+    <div class="tech-logo-ph" role="img" aria-label="Powered by Trackman">
+      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 404.54 90.21" aria-hidden="true"><defs><style>.cls-1{fill:#ed691a}.cls-2{fill:#7d7d7d}</style></defs><rect class="cls-2" x="229.07" y="56.6" width="5.4" height="25.86"></rect><path class="cls-2" d="m160.66,62.04l6.47,10.82h-12.94l6.47-10.82Zm-2.85-5.43l-15.53,25.86h6.19l2.89-4.87h18.59l2.89,4.87h6.19l-15.53-25.86h-5.7Z"></path><polygon class="cls-2" points="253.83 56.6 234.62 69.52 253.89 82.47 263.11 82.47 243.84 69.52 263.05 56.6 253.83 56.6"></polygon><polygon class="cls-2" points="307.67 56.6 293.99 75.99 280.33 56.6 273.32 56.6 273.32 82.46 278.73 82.46 278.73 63.46 292.06 82.46 295.93 82.46 309.26 63.46 309.26 82.46 314.67 82.46 314.67 56.6 307.67 56.6"></polygon><path class="cls-2" d="m343.07,62.04l6.47,10.82h-12.94l6.47-10.82Zm-2.85-5.43l-15.53,25.86h6.19l2.9-4.87h18.59l2.89,4.87h6.19l-15.53-25.86h-5.7Z"></path><polygon class="cls-2" points="399.13 56.61 399.13 76.37 378.3 56.61 371.55 56.61 371.55 82.47 376.96 82.47 376.96 62.69 397.81 82.47 404.54 82.47 404.54 56.61 399.13 56.61"></polygon><polygon class="cls-2" points="61.74 56.58 61.74 61.33 74.21 61.33 74.21 82.44 79.62 82.44 79.62 61.33 90.69 61.33 93.51 56.58 61.74 56.58"></polygon><path class="cls-2" d="m212.38,74.53c-.56,1.89-2.32,3.23-4.29,3.23h-11.65c-2.15,0-3.99-1.32-4.39-3.61-.54-3.14-.6-6.19-.03-9.11.45-2.29,2.27-3.78,4.42-3.78s11.65.01,11.65.01c2.01,0,3.75,1.31,4.29,3.19l4.59-3.09c-1.3-2.53-4.07-4.8-8.06-4.8h-13.47c-4.38,0-7.52,3.06-8.54,6.4-1.06,3.49-1.01,9.63-.03,12.94,1.06,3.55,4.07,6.51,8.57,6.51h13.46c4.02,0,6.77-2.28,8.07-4.82l-4.6-3.1Z"></path><path class="cls-2" d="m124.76,69.52h-15.73v-8.27h15.73c2.24,0,4.05,1.8,4.12,4.14-.07,2.36-1.88,4.14-4.12,4.14m8.98-4.14c0-5.08-3.69-8.78-8.22-8.78h-21.9v25.84h5.41v-8.32h13.58l4.96,8.34h6.18l-5.34-8.89c3.11-1.23,5.34-4.36,5.34-8.19"></path><path class="cls-1" d="m38.15,48.87c1.76,0,3.19,1.43,3.19,3.19v34.96c0,1.76-1.43,3.19-3.19,3.19h-21.7c-.31,0-.55-.27-.52-.58,1.95-16.63,10.81-34.24,16.68-40.7.04-.04.09-.06.15-.06h5.39Z"></path><path class="cls-1" d="m3.19,48.87h26.4c.07,0,.1.08.05.12-10.94,9.16-19.53,27.86-23.12,40.7-.09.3-.36.52-.68.52h-2.65C1.43,90.21,0,88.78,0,87.02v-34.96c0-1.76,1.43-3.19,3.19-3.19Z"></path><path class="cls-2" d="m127.66.64c1.47,0,2.75.17,3.84.51s1.99.82,2.7,1.45,1.25,1.38,1.59,2.26.52,1.87.52,2.94-.19,2.07-.56,2.97c-.37.9-.92,1.68-1.65,2.33-.73.65-1.63,1.15-2.71,1.51-1.08.36-2.33.54-3.74.54h-3.55v8.46h-3.41V.64h6.96Zm0,11.82c.86,0,1.62-.11,2.28-.34.66-.22,1.21-.54,1.65-.95s.78-.9,1-1.47c.22-.57.34-1.2.34-1.9,0-1.4-.43-2.5-1.3-3.3s-2.19-1.2-3.96-1.2h-3.55v9.15h3.55Z"></path><path class="cls-2" d="m145.53,7.1c1.19,0,2.27.19,3.24.58.96.39,1.79.95,2.46,1.68.68.73,1.2,1.61,1.56,2.64s.54,2.18.54,3.46-.18,2.44-.54,3.47-.88,1.91-1.56,2.64c-.68.73-1.5,1.28-2.46,1.67-.97.39-2.05.58-3.24.58s-2.29-.19-3.26-.58c-.97-.39-1.79-.95-2.47-1.67-.68-.73-1.21-1.6-1.58-2.64-.37-1.03-.55-2.19-.55-3.47s.18-2.43.55-3.46c.37-1.03.89-1.91,1.58-2.64.68-.73,1.51-1.29,2.47-1.68.96-.39,2.05-.58,3.26-.58Zm0,14.3c1.54,0,2.68-.52,3.44-1.55.76-1.03,1.14-2.49,1.14-4.37s-.38-3.34-1.14-4.38c-.76-1.04-1.9-1.56-3.44-1.56s-2.72.52-3.48,1.56-1.14,2.5-1.14,4.38.38,3.33,1.14,4.37,1.92,1.55,3.48,1.55Z"></path><path class="cls-2" d="m179.18,7.36l-5.23,16.26h-2.5c-.3,0-.5-.2-.61-.59l-3.42-10.59c-.09-.27-.16-.53-.22-.79-.06-.26-.12-.53-.18-.79-.1.55-.23,1.09-.4,1.62l-3.47,10.56c-.11.39-.34.59-.69.59h-2.37l-5.25-16.26h2.46c.25,0,.45.06.62.18.17.12.27.27.33.45l2.93,9.98c.1.41.18.8.26,1.18.08.38.14.77.21,1.15.1-.38.2-.77.31-1.15.11-.38.23-.78.34-1.18l3.25-10.05c.05-.18.15-.33.3-.44.15-.11.33-.17.54-.17h1.36c.23,0,.43.06.58.17.15.11.26.26.31.44l3.17,10.05c.12.41.23.8.34,1.19.11.39.2.78.29,1.18.06-.38.14-.77.22-1.16.08-.39.18-.79.29-1.21l2.98-9.98c.05-.18.16-.33.33-.45.17-.12.35-.18.57-.18h2.35Z"></path><path class="cls-2" d="m194.94,21.3c-.38.45-.83.83-1.33,1.16-.5.33-1.04.59-1.6.79-.57.2-1.15.35-1.75.45-.6.1-1.2.14-1.78.14-1.12,0-2.16-.19-3.11-.57-.96-.38-1.78-.93-2.48-1.66-.7-.73-1.24-1.64-1.63-2.72-.39-1.08-.58-2.33-.58-3.74,0-1.13.18-2.18.53-3.16s.86-1.83,1.51-2.55c.66-.73,1.46-1.3,2.41-1.71s2.02-.62,3.2-.62c.99,0,1.91.16,2.74.49.84.33,1.56.8,2.17,1.42.61.62,1.08,1.38,1.43,2.29s.52,1.94.52,3.1c0,.48-.05.8-.16.97-.11.17-.3.25-.59.25h-10.66c.03.97.17,1.82.42,2.54.25.72.58,1.32,1.02,1.8.43.48.95.84,1.54,1.07.6.23,1.26.35,2,.35.69,0,1.29-.08,1.8-.24.51-.16.94-.33,1.31-.52s.68-.36.93-.52.47-.24.66-.24c.26,0,.45.1.59.29l.9,1.15Zm-2.58-7.62c0-.62-.09-1.19-.26-1.71-.18-.52-.43-.98-.78-1.36-.34-.38-.76-.68-1.25-.9s-1.06-.32-1.7-.32c-1.31,0-2.34.38-3.1,1.14s-1.23,1.81-1.43,3.15h8.51Z"></path><path class="cls-2" d="m201.48,10.48c.52-1.07,1.15-1.9,1.89-2.51.74-.61,1.62-.91,2.66-.91.35,0,.69.04,1,.12s.59.2.82.36l-.21,2.35c-.07.29-.25.43-.53.43-.15,0-.37-.03-.67-.09s-.62-.09-.96-.09c-.5,0-.94.07-1.33.22-.38.14-.73.36-1.03.64-.3.28-.57.63-.81,1.04-.23.41-.45.88-.66,1.4v10.18h-3.12V7.36h1.79c.34,0,.57.06.7.18.12.12.21.34.26.65l.19,2.29Z"></path><path class="cls-2" d="m223,21.3c-.38.45-.83.83-1.33,1.16-.5.33-1.04.59-1.6.79-.57.2-1.15.35-1.75.45-.6.1-1.2.14-1.78.14-1.12,0-2.16-.19-3.11-.57-.96-.38-1.78-.93-2.48-1.66-.7-.73-1.24-1.64-1.63-2.72-.39-1.08-.58-2.33-.58-3.74,0-1.13.18-2.18.53-3.16s.86-1.83,1.51-2.55c.66-.73,1.46-1.3,2.41-1.71s2.02-.62,3.2-.62c.99,0,1.91.16,2.74.49.84.33,1.56.8,2.17,1.42.61.62,1.08,1.38,1.43,2.29s.52,1.94.52,3.1c0,.48-.05.8-.16.97-.11.17-.3.25-.59.25h-10.66c.03.97.17,1.82.42,2.54.25.72.58,1.32,1.02,1.8.43.48.95.84,1.54,1.07.6.23,1.26.35,2,.35.69,0,1.29-.08,1.8-.24.51-.16.94-.33,1.31-.52s.68-.36.93-.52.47-.24.66-.24c.26,0,.45.1.59.29l.9,1.15Zm-2.58-7.62c0-.62-.09-1.19-.26-1.71-.18-.52-.43-.98-.78-1.36-.34-.38-.76-.68-1.25-.9s-1.06-.32-1.7-.32c-1.31,0-2.34.38-3.1,1.14s-1.23,1.81-1.43,3.15h8.51Z"></path><path class="cls-2" d="m240.22,0v23.62h-1.89c-.44,0-.71-.21-.82-.62l-.27-1.87c-.69.82-1.48,1.48-2.36,1.98s-1.9.74-3.05.74c-.93,0-1.77-.18-2.52-.54-.75-.36-1.4-.89-1.93-1.59-.53-.7-.94-1.56-1.23-2.6-.29-1.03-.43-2.22-.43-3.57,0-1.21.16-2.33.48-3.36s.78-1.93,1.39-2.69c.61-.76,1.34-1.35,2.21-1.78.86-.43,1.84-.65,2.93-.65.98,0,1.82.16,2.5.48.69.32,1.3.77,1.85,1.36V0h3.14Zm-3.14,11.3c-.51-.67-1.06-1.14-1.66-1.41-.59-.27-1.26-.4-1.99-.4-1.43,0-2.54.51-3.32,1.54s-1.18,2.53-1.18,4.5c0,1.03.09,1.92.26,2.65.18.73.43,1.33.77,1.79.34.46.75.81,1.24,1.02.49.22,1.05.33,1.66.33.91,0,1.69-.2,2.35-.61.66-.41,1.28-.98,1.86-1.71v-7.71Z"></path><path class="cls-2" d="m260.79.64c1.44,0,2.67.14,3.7.42,1.03.28,1.87.68,2.54,1.2.66.52,1.15,1.15,1.46,1.9.31.74.47,1.58.47,2.52,0,.55-.09,1.09-.26,1.6-.17.51-.43.99-.78,1.43-.35.44-.79.84-1.33,1.19-.53.35-1.16.65-1.89.88,3.34.66,5.01,2.41,5.01,5.23,0,.98-.18,1.87-.54,2.68-.36.81-.89,1.5-1.58,2.09s-1.55,1.04-2.56,1.36c-1.01.32-2.17.48-3.46.48h-8.27V.64h7.49Zm-4.08,2.67v7.52h3.92c1.67,0,2.92-.34,3.74-1.02.82-.68,1.22-1.59,1.22-2.74,0-1.31-.39-2.27-1.17-2.86-.78-.6-1.99-.9-3.63-.9h-4.08Zm4.8,17.6c.86,0,1.6-.1,2.22-.3s1.11-.48,1.5-.83.67-.77.86-1.26c.18-.48.27-1.02.27-1.59,0-1.14-.39-2.04-1.18-2.7-.79-.66-2.01-.98-3.66-.98h-4.8v7.66h4.8Z"></path><path class="cls-2" d="m287.27,7.36l-9.02,20.98c-.1.23-.22.42-.38.54s-.39.19-.7.19h-2.32l2.98-6.48-6.67-15.23h2.72c.27,0,.47.06.62.19s.26.27.32.43l4.13,9.76c.08.25.17.49.25.74.08.25.15.5.2.74.08-.26.15-.51.24-.76.08-.25.18-.5.27-.74l3.98-9.74c.07-.18.19-.33.35-.45.16-.12.34-.18.54-.18h2.5Z"></path></svg>
+    </div>
+  </div>
+</section>
+
+<!-- Night-owl band -->
+<section class="night-band">
+  <div class="night-band-in">
+    <div>
+      <div class="eyebrow">Night owl</div>
+      <h2>Tee off at <em>3&nbsp;a.m.</em></h2>
+      <p>The lights are on, the door's unlocked, and the rate drops after 9. The quietest, cheapest round you'll play all week.</p>
+    </div>
+    <div class="night-figure">
+      <span class="amt">$25<span>/hr</span></span>
+      <div class="sub">9 PM – 8 AM · public pays $40</div>
+    </div>
+  </div>
+</section>
+
+<!-- Family / membership promo -->
+<section class="section">
+  <div class="cards-2">
+    <div class="price-card">
+      <h3>Bring the whole family</h3>
+      <p class="caption" style="margin:4px 0 16px;">Kid-friendly games on Trackman</p>
+      <p style="color: var(--fg-muted); margin: 0 0 20px;">Trackman comes loaded with family-friendly modes — Bullseye, Capture the Flag, Hit It &amp; Get It. Pick a target, earn points, talk smack. No golf experience required.</p>
+      <ul>
+        <li>Games designed for all ages &amp; skill levels</li>
+        <li>Up to 4 players share a bay</li>
+        <li>Bring your own clubs — junior sets welcome</li>
+      </ul>
+      <a class="btn btn--ghost" href="technology.html">What's on Trackman</a>
+    </div>
+    <div class="price-card feature">
+      <span class="flag">Best value</span>
+      <h3>Annual membership</h3>
+      <div class="price">$249<span class="per" style="margin-left:8px;">/ yr</span></div>
+      <p class="caption" style="margin:4px 0 16px;">$20.75/mo effective · save $159 vs. monthly</p>
+      <ul>
+        <li>$15 off every booking, every day</li>
+        <li>30-day advance window (vs 7 for public)</li>
+        <li>Up to 2 active reservations</li>
+        <li>Discounted league play</li>
+      </ul>
+      <a class="btn btn--hot" href="memberships.html">Go annual</a>
+    </div>
+  </div>
+</section>
+
+<!-- Where we are / local relevance -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Where we are</div>
+      <h2>Indoor golf in the heart of Loudonville.</h2>
+    </div>
+    <a href="contact.html">Get directions →</a>
+  </div>
+  <p style="color: var(--fg-muted); font-size: 20px; max-width: 60ch; line-height: 1.6; text-wrap: pretty;">Par Out sits on Albany Shaker Road in Loudonville (Town of Colonie), five minutes off the Northway and easy to reach from Albany, Latham, Newtonville, Menands, and across the Capital Region. Lunch-break nine or a 2&nbsp;a.m. session — the bay's the same short drive from wherever you call home.</p>
+</section>
+
+<!-- CTA band -->
+<section class="cta-band" id="book">
+  <div class="cta-band-in">
+    <div>
+      <div class="eyebrow" style="color: var(--cream);">Book via Alba Play</div>
+      <h2>Bay's open. Your move.</h2>
+      <p>Pick your bay, pick your hour, get your door code on the way.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn" href="#" data-cta="book">Book a bay</a>
+      <a class="btn btn--ghost" href="rates.html">See rates</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-foot></div>
+<script src="shell.js"></script>
+</body></html>

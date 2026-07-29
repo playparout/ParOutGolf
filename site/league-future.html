@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2-Person Scramble League in Albany, NY | Par Out</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css"><link rel="stylesheet" href="site.css">
+<style>
+  /* League page — centered hero (no motif), then a centered section flow
+     (steps, feature cards, price cards, FAQ) matching the coming-soon page. */
+  .page-head h1 em { font-style: normal; color: var(--hot-display); }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; justify-content: center; }
+  .season-note { margin-top: 18px; font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; color: var(--fg-muted); }
+  .season-note b { color: var(--hot-text); }
+
+  /* Center every section header (eyebrow + h2) over its full-width rule. */
+  .section-head { flex-direction: column; align-items: center; text-align: center; }
+  .section-head > div:first-child { width: 100%; }
+  /* Center the step list copy too, so the whole page reads centered. */
+  .steps .step { grid-template-columns: 1fr; gap: 8px; text-align: center; justify-items: center; }
+  .steps .step-num { line-height: 1; margin-bottom: 4px; }
+  .step p { margin-left: auto; margin-right: auto; }
+  .entry-note { margin-left: auto; margin-right: auto; }
+
+  /* At-a-glance fact row */
+  .league-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .league-fact { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; }
+  .league-fact .k { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hot-text); margin-bottom: 10px; }
+  .league-fact .v { font-family: var(--font-display); font-weight: 800; font-size: 23px; color: var(--fg); line-height: 1.12; letter-spacing: -0.01em; }
+
+  /* Division card: price-card shell, no price — params list + division tag */
+  .division .tag { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hot-text); display: block; margin-bottom: 4px; }
+  .division.feature .tag { color: var(--hot-text); }
+  .division .blurb { color: var(--fg-muted); font-size: 15px; line-height: 1.55; margin: 0 0 4px; }
+  .division .foot-note { color: var(--fg-muted); font-size: 13px; margin: auto 0 0; padding-top: 8px; }
+
+  .entry-note { color: var(--fg-muted); font-size: 13px; margin-top: 24px; text-align: center; }
+
+  @media (max-width: 880px) { .league-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .hero-actions { flex-direction: column; align-items: stretch; } .league-facts { grid-template-columns: 1fr; } }
+</style>
+  <link rel="canonical" href="https://parout.golf/league.html">
+  <meta name="description" content="Par Out's 2-person scramble league: a 12-week season, a new course every week, two divisions, and an Order of Merit playoff. 24/7 indoor golf in Albany, NY.">
+  <meta name="theme-color" content="#FDF5E6">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Par Out Golf">
+  <meta property="og:title" content="2-Person Scramble League — Par Out">
+  <meta property="og:description" content="A 12-week 2-person scramble. New course every week, play on your schedule, climb the Order of Merit. 24/7 indoor golf in Albany, NY.">
+  <meta property="og:url" content="https://parout.golf/league.html">
+  <meta property="og:image" content="https://parout.golf/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="2-Person Scramble League — Par Out">
+  <meta name="twitter:description" content="A 12-week 2-person scramble. New course every week, play on your schedule, climb the Order of Merit. 24/7 indoor golf in Albany, NY.">
+  <meta name="twitter:image" content="https://parout.golf/assets/og-image.jpg">
+  <!-- League FAQ structured data — mirrors the visible Q&A below. Keep in sync. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do we submit our weekly score?", "acceptedAnswer": { "@type": "Answer", "text": "Play that week's course any time Monday through Sunday and the Trackman logs your scramble score automatically. One attempt per week, so book a time you can finish all 18." } },
+      { "@type": "Question", "name": "How long does a round take?", "acceptedAnswer": { "@type": "Answer", "text": "Budget about 90 minutes for a 2-person scramble. Book a bay with enough runway to finish before your slot ends." } },
+      { "@type": "Question", "name": "Can we miss a week?", "acceptedAnswer": { "@type": "Answer", "text": "Life happens. You can play the upcoming week's course early, or make up one missed week. Beyond that those weeks score zero — but we only count your best 10 of 12, so one slip won't sink you." } },
+      { "@type": "Question", "name": "What if we tie for the best score?", "acceptedAnswer": { "@type": "Answer", "text": "Trackman breaks regular-season ties on back-nine performance. In the playoffs we run a tiebreaker round so there's always a clear winner." } },
+      { "@type": "Question", "name": "Our division feels too tough — can we move?", "acceptedAnswer": { "@type": "Answer", "text": "Maybe. We set divisions by handicap, distance, and early results, and we'll move a team after week 1 if it's clearly a better fit — you'll get to make up that week. Heads up: we move teams up, too." } },
+      { "@type": "Question", "name": "We're out of playoff range. Why keep playing?", "acceptedAnswer": { "@type": "Answer", "text": "Teams that play every week and miss the bracket get 50% off the next season — just email us so we can apply it." } },
+      { "@type": "Question", "name": "The sim's acting up mid-round — what do we do?", "acceptedAnswer": { "@type": "Answer", "text": "Restart steps and full tech troubleshooting live on our FAQ page. Short version: call us and we'll add time, move you to another bay, or fix your scorecard so your round still counts." } }
+    ]
+  }
+  </script>
+</head><body>
+<header data-nav></header>
+<main id="main" tabindex="-1">
+
+<section class="page-head page-head--center">
+  <div class="eyebrow">Leagues</div>
+  <h1>The Par Out<br><em>Scramble Tour.</em></h1>
+  <p class="lead">Grab a partner and play our 2-person scramble. A new course every week for twelve weeks, played on your schedule — climb the Order of Merit, reach the playoffs, take home hardware.</p>
+  <div class="hero-actions">
+    <a class="btn" href="#" data-cta="league">Register your team</a>
+    <a class="btn btn--ghost" href="#" data-cta="leaderboard">Live leaderboard</a>
+  </div>
+  <p class="season-note">Next season (tentative): <b>Nov '26 – Jan '27</b> — dates may shift, so get on the list below and we'll confirm before tee-off.</p>
+</section>
+
+<section class="section">
+  <h2 class="sr-only">League at a glance</h2>
+  <div class="league-facts">
+    <div class="league-fact"><div class="k">Format</div><div class="v">2-person scramble</div></div>
+    <div class="league-fact"><div class="k">Season</div><div class="v">12 weeks<span style="display:block; font-size:14px; font-weight:600; color:var(--fg-muted); margin-top:4px;">Nov '26 – Jan '27</span></div></div>
+    <div class="league-fact"><div class="k">Play window</div><div class="v">Anytime Mon–Sun</div></div>
+    <div class="league-fact"><div class="k">Divisions</div><div class="v">Competitive &amp; Casual</div></div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="section-head"><div><div class="eyebrow">How it works</div><h2>Four steps to the tee.</h2></div></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div>
+        <h3>Grab a partner</h3>
+        <p>Register as a 2-person team and pick your division — competitive if you're chasing the cup, casual if you're here for the fun.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div>
+        <h3>Play the weekly course</h3>
+        <p>A new course is picked every week. Book a bay and play it any time from Monday to Sunday — whenever the two of you can line up a slot.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div>
+        <h3>Submit your scramble score</h3>
+        <p>Both of you tee off, you play the best ball, and repeat until it's holed. One attempt per week — the Trackman logs the score for you.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div>
+        <h3>Climb the Order of Merit</h3>
+        <p>Your weekly rank earns points. We count your best 10 of 12 weeks toward a 100-point Order of Merit, and the top teams play it out in a season-ending bracket.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><div class="eyebrow">Gameplay</div><h2>The rules, in three.</h2></div></div>
+  <div class="cards-3">
+    <div class="feature-card">
+      <div class="icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v16"/><path d="M5 3l11 3-4 4 4 4-11 3"/></svg>
+      </div>
+      <h3>The format</h3>
+      <p>2-person scramble, stroke play, no handicap influence. Both partners hit, you pick the best ball, and you go again from there until the hole's done. Your hole score is the team's best work.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="9"/></svg>
+      </div>
+      <h3>Scoring &amp; Order of Merit</h3>
+      <p>Each week you earn points based on your rank. We drop your two worst weeks, so your best 10 of 12 count toward a 100-point Order of Merit that sets the playoff field.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3>On the sim</h3>
+      <p>Aimed putting with 8-foot gimmes. Yardages and pin difficulty are based on your division. One attempt per week, so make it count.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><div class="eyebrow">Divisions</div><h2>Pick your flight.</h2></div></div>
+  <div class="cards-2">
+    <div class="price-card feature division">
+      <span class="flag">Chasing the cup</span>
+      <span class="tag">Flight A</span>
+      <h3>Competitive</h3>
+      <p class="blurb">For teams that came to win — and to be crowned the best scramble pair in the room.</p>
+      <ul>
+        <li>Combined handicap 0–20</li>
+        <li>Back tees — longer yardage</li>
+        <li>Medium-to-hard pin locations</li>
+        <li>Tight gimme circle</li>
+        <li>Plays for the top prizes</li>
+      </ul>
+      <p class="foot-note">Pick your division at signup — we'll fine-tune placements after week 1.</p>
+    </div>
+    <div class="price-card division">
+      <span class="tag">Flight B</span>
+      <h3>Casual</h3>
+      <p class="blurb">Here for the fun, the regular bay time, and a real shot at weekly prizes.</p>
+      <ul>
+        <li>Combined handicap 20+</li>
+        <li>Forward tees — shorter yardage</li>
+        <li>Easy pin locations</li>
+        <li>Generous gimme circle</li>
+        <li>Weekly prizes, zero pressure</li>
+      </ul>
+      <p class="foot-note">Not sure where you fit? Start here — we'll move you up if you're too good to hide.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><div class="eyebrow">Entry</div><h2>Register your team.</h2></div></div>
+  <div class="cards-2">
+    <div class="price-card feature">
+      <span class="flag">Member rate</span>
+      <h3>Members</h3>
+      <div class="price">$120<span class="per" style="margin-left:8px;">/ team</span></div>
+      <p style="color:var(--fg-muted); font-size:15px; margin:4px 0 16px;">12-week season · 2 players</p>
+      <ul>
+        <li>Full 12-week season</li>
+        <li>Discounted league nights</li>
+        <li>League vouchers for every signup</li>
+        <li>Order of Merit + playoff eligibility</li>
+      </ul>
+      <a class="btn" href="#" data-cta="league">Register your team</a>
+    </div>
+    <div class="price-card">
+      <h3>Non-members</h3>
+      <div class="price">$150<span class="per" style="margin-left:8px;">/ team</span></div>
+      <p style="color:var(--fg-muted); font-size:15px; margin:4px 0 16px;">12-week season · 2 players</p>
+      <ul>
+        <li>Full 12-week season</li>
+        <li>Discounted league nights</li>
+        <li>League vouchers for every signup</li>
+        <li>Order of Merit + playoff eligibility</li>
+      </ul>
+      <a class="btn" href="#" data-cta="league">Register your team</a>
+    </div>
+  </div>
+  <p class="entry-note">Join as a member and the team rate drops — plus $15 off every bay you book all season. See <a href="memberships.html" style="color:var(--hot-text);">memberships</a>.</p>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><div class="eyebrow">Good to know</div><h2>League questions.</h2></div></div>
+  <div class="faq-group">
+    <details class="faq"><summary>How do we submit our weekly score?</summary><div class="ans">Play that week's course any time Monday through Sunday and the Trackman logs your scramble score automatically. One attempt per week, so book a time you can finish all 18.</div></details>
+    <details class="faq"><summary>How long does a round take?</summary><div class="ans">Budget about 90 minutes for a 2-person scramble. Book a bay with enough runway to finish before your slot ends.</div></details>
+    <details class="faq"><summary>Can we miss a week?</summary><div class="ans">Life happens. You can play the upcoming week's course early, or make up one missed week. Beyond that those weeks score zero — but we only count your best 10 of 12, so one slip won't sink you.</div></details>
+    <details class="faq"><summary>What if we tie for the best score?</summary><div class="ans">Trackman breaks regular-season ties on back-nine performance. In the playoffs we run a tiebreaker round so there's always a clear winner.</div></details>
+    <details class="faq"><summary>Our division feels too tough — can we move?</summary><div class="ans">Maybe. We set divisions by handicap, distance, and early results, and we'll move a team after week 1 if it's clearly a better fit — you'll get to make up that week. Heads up: we move teams up, too.</div></details>
+    <details class="faq"><summary>We're out of playoff range. Why keep playing?</summary><div class="ans">Teams that play every week and miss the bracket get 50% off the next season — just email us so we can apply it.</div></details>
+    <details class="faq"><summary>The sim's acting up mid-round — what do we do?</summary><div class="ans">Restart steps and full tech troubleshooting live on our <a href="faq.html" style="color:var(--hot-text);">FAQ page</a>. Short version: call us and we'll add time, move you to another bay, or fix your scorecard so your round still counts.</div></details>
+  </div>
+</section>
+
+<section class="cta-band" id="book">
+  <div class="cta-band-in">
+    <div><div class="eyebrow" style="color:var(--cream);">Grab a partner</div><h2>Put your name on the board.</h2><p>Registration opens before each season. Get your team in early and we'll save you a tee.</p></div>
+    <div class="cta-actions"><a class="btn" href="#" data-cta="league">Register your team</a><a class="btn btn--ghost" href="how-it-works.html">How it works</a></div>
+  </div>
+</section>
+</main>
+<div data-foot></div><script src="shell.js"></script>
+</body></html>
