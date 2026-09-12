@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script>
+(function(){
+  var KEY='pog_preview_ok';
+  try{ if(localStorage.getItem(KEY)==='1') return; }catch(e){}
+  function hash(s){var x=5381;for(var i=0;i<s.length;i++){x=(((x<<5)+x)+s.charCodeAt(i))>>>0;}return x;}
+  var TARGET=hash('POG123');
+  var de=document.documentElement;
+  de.setAttribute('data-gated','');
+  var st=document.createElement('style');
+  st.textContent="@font-face{font-family:'PGArchivo';font-weight:400;font-display:swap;src:url('./fonts/Archivo-Regular.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGArchivo';font-weight:700;font-display:swap;src:url('./fonts/Archivo-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGBric';font-weight:700;font-display:swap;src:url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGMono';font-weight:400;font-display:swap;src:url('./fonts/JetBrainsMono-Regular.woff2') format('woff2')}"
+    +"html[data-gated] body{display:none!important}"
+    +"html[data-gated]{background:#04563E}";
+  document.head.appendChild(st);
+  function build(){
+    if(document.getElementById('pog-gate'))return;
+    var w=document.createElement('div');
+    w.id='pog-gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:#04563E;color:#FDF5E6;display:flex;align-items:center;justify-content:center;padding:24px;font-family:PGArchivo,Helvetica,Arial,sans-serif;box-sizing:border-box');
+    w.innerHTML='<div style="width:100%;max-width:380px;display:flex;flex-direction:column;gap:18px">'
+      +'<div style="font-family:PGMono,monospace;font-size:13px;letter-spacing:.14em;opacity:.75">PAR OUT GOLF &middot; PRIVATE PREVIEW</div>'
+      +'<h1 style="margin:0;font-family:PGBric,PGArchivo,sans-serif;font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em">Not open to the public yet.</h1>'
+      +'<p style="margin:0;font-size:16px;line-height:1.5;opacity:.85">Enter the preview password to view the site.</p>'
+      +'<form id="pog-form" style="display:flex;flex-direction:column;gap:12px">'
+      +'<input id="pog-pass" type="password" autocomplete="current-password" placeholder="Password" style="box-sizing:border-box;width:100%;padding:14px 16px;border:1.5px solid #FDF5E6;border-radius:10px;background:transparent;color:#FDF5E6;font-size:17px;font-family:inherit;outline:none">'
+      +'<button type="submit" style="padding:15px 16px;border:none;border-radius:999px;background:#B5551A;color:#FDF5E6;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;min-height:48px">Enter site</button>'
+      +'<div id="pog-err" style="min-height:20px;font-family:PGMono,monospace;font-size:13px;letter-spacing:.1em;color:#F3B58A"></div>'
+      +'</form></div>';
+    de.appendChild(w);
+    var inp=w.querySelector('#pog-pass');
+    inp.focus();
+    w.querySelector('#pog-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      if(hash(inp.value.trim())===TARGET){
+        try{localStorage.setItem(KEY,'1');}catch(err){}
+        location.reload();
+      } else {
+        w.querySelector('#pog-err').textContent='INCORRECT PASSWORD';
+        inp.value='';inp.focus();
+      }
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',build);}else{build();}
+  window.addEventListener('load',build);
+})();
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Par Out Golf — Colonie NY golf simulator | 24/7 indoor golf near Albany, NY</title>
+<meta name="description" content="Par Out Golf is a 24/7 unstaffed indoor golf simulator facility in Colonie, NY, minutes from Albany. Four public Trackman iO bays, rates from $25/hr, no bar and no minimums. A Slice of the Great Indoors.">
+<meta property="og:title" content="Par Out Golf — Colonie NY golf simulator, open 24/7">
+<meta property="og:description" content="Four public Trackman iO bays in Colonie, NY. Book online, tap your access link at the door, play. No bar, no minimums.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://parout.golf/">
+<meta property="og:site_name" content="Par Out Golf">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://parout.golf/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Par Out Golf — a slice of the great indoors. Colonie, NY, open 24/7, four Trackman iO bays, from $25/hr.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Par Out Golf — Colonie NY golf simulator, open 24/7">
+<meta name="twitter:description" content="Four public Trackman iO bays in Colonie, NY. Book online, tap your access link at the door, play. No bar, no minimums.">
+<meta name="twitter:image" content="https://parout.golf/assets/og-card.png">
+<meta name="theme-color" content="#FDF5E6">
+<meta name="format-detection" content="telephone=no">
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin="anonymous">
+<link rel="canonical" href="https://parout.golf/">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./assets/favicon.svg">
+<style>
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
+html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
+html { overflow-x: clip; }
+* { box-sizing: border-box; }
+a { color: #A24A14; text-decoration: none; }
+a:hover { color: #04563E; }
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; cursor: pointer; }
+:root { interpolate-size: allow-keywords; }
+:focus-visible { outline: 3px solid #B5551A; outline-offset: 3px; }
+.leaflet-container { background: #EFE3C8; font-family: 'JetBrains Mono', monospace; font-size: 13px; position: relative; z-index: 0; isolation: isolate; }
+.leaflet-control-attribution { background: rgba(253,245,230,0.85) !important; color: #04563E !important; }
+.leaflet-control-attribution a { color: #A24A14 !important; }
+details::details-content { block-size: 0; overflow: clip; opacity: 0; transition: block-size 420ms cubic-bezier(.16,.84,.3,1), content-visibility 420ms allow-discrete, opacity 240ms ease; }
+details[open]::details-content { block-size: auto; opacity: 1; }
+nav[data-nav] a { position: relative; }
+nav[data-nav] a [data-underline] { position: absolute; left: 0; right: 0; bottom: -4px; height: 1.5px; background: #B5551A; transform: scaleX(0); transform-origin: left center; transition: transform 260ms cubic-bezier(.2,.9,.25,1); }
+nav[data-nav] a:hover [data-underline], nav[data-nav] a:focus-visible [data-underline] { transform: scaleX(1); }
+details[data-faq] summary { transition: background-color 220ms cubic-bezier(.2,.9,.25,1), padding-left 260ms cubic-bezier(.2,.9,.25,1); }
+details[data-faq] summary:hover { background-color: rgba(4,86,62,0.045); padding-left: 8px; }
+details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
+@keyframes contactStampIn { 0% { opacity: 0; transform: scale(1.06); } 55% { opacity: 1; transform: scale(0.995); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes contactRuleWipe { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+[data-contact-stamp] { animation: contactStampIn 420ms cubic-bezier(.16,.84,.3,1) both; }
+[data-contact-stamp-rule] { transform-origin: left center; animation: contactRuleWipe 520ms cubic-bezier(.16,.84,.3,1) 160ms both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-contact-stamp], [data-contact-stamp-rule] { animation: none !important; }
+  details::details-content { transition: none; }
+  [data-reel-strip], nav[data-nav] a [data-underline] { transition: none !important; }
+}
+@media (max-width: 1120px) {
+  nav[data-nav] { gap: 18px !important; font-size: 14px !important; }
+  [data-split], [data-tech-grid] { grid-template-columns: 1fr !important; gap: 34px !important; }
+  [data-faq-anchor] { position: static !important; }
+}
+/* Spacing scale, one block per breakpoint. Desktop L160 · M112 · S56,
+   tablet L112 · M88 · S56, phone L88 · M72 · S44. */
+@media (max-width: 1000px) {
+  html { scroll-padding-top: 82px; }
+  [data-band] { margin-top: 112px !important; padding: 88px 0 92px !important; }
+  [data-pad-lg] { padding-top: 112px !important; }
+  #lessons[data-pad-lg] { padding-top: 88px !important; }
+  [data-gap-lg] { margin-top: 88px !important; }
+  [data-breathe] { margin-top: 48px !important; }
+  [data-perks] { grid-column: 1 / -1 !important; }
+  [data-bay-board] { margin-top: 44px !important; }
+}
+@media (max-width: 880px) {
+  html { scroll-padding-top: 72px; }
+  [data-pog-root] { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
+  nav[data-nav] { display: none !important; }
+  [data-menu-btn] { display: inline-flex !important; }
+  [data-header-cta] { display: none !important; }
+  [data-header-inner] { padding: 10px 20px !important; }
+  [data-logo-mark] { width: 22px !important; height: 38px !important; }
+  [data-logo-word] { font-size: 15px !important; margin-top: 7px !important; }
+  [data-menu-btn], [data-menu-close] { margin-top: 0 !important; padding: 11px 14px !important; }
+  [data-header-actions] { margin-top: 4px !important; }
+  [data-mono-meta] { font-size: 13px !important; }
+}
+@media (min-width: 881px) {
+  /* desktop keeps the header pinned — the auto-hide is a small-screen
+     concession to the sticky header + sticky CTA bar both eating height */
+  header[data-header] { transform: none !important; }
+}
+@media (min-width: 881px) {
+  [data-cta-bar] { display: none !important; }
+}
+@media (max-width: 760px) {
+  [data-band] { margin-top: 88px !important; padding: 72px 0 76px !important; }
+  [data-pad-lg] { padding-top: 88px !important; }
+  #lessons[data-pad-lg] { padding-top: 72px !important; }
+  [data-gap-lg] { margin-top: 72px !important; }
+  [data-breathe] { margin-top: 40px !important; }
+  /* The fold has to hold headline + promise + stat rail. 9.3vw keeps the
+     h1 to three lines at 390px; 10.4vw ran it to four and pushed the rail off. */
+  [data-hero-h1] { font-size: clamp(36px, 9.3vw, 58px) !important; letter-spacing: -0.022em !important; margin-top: 12px !important; }
+  [data-hero-sub] { gap: 18px !important; margin-top: 20px !important; }
+  [data-hero-sub] > p { font-size: 17px !important; }
+  [data-stats] { margin-top: 2px !important; }
+  [data-hero-cta] { width: 100% !important; text-align: center !important; }
+  [data-hero-cta-wrap] { width: 100% !important; }
+  /* Block flow, not column-flex: a `flex-basis: 100%` in a column container
+     resolves against an indeterminate height and collapses the box to 0,
+     which also defeats aspect-ratio. Plain blocks let aspect-ratio govern. */
+  [data-hero-media] { display: block !important; margin: 24px -20px 0 !important; gap: 0 !important; }
+  [data-hero-shot-1] { flex: none !important; width: 100% !important; aspect-ratio: 4 / 5 !important; min-height: 0 !important; }
+  [data-hero-shot-2] { display: block !important; flex: none !important; width: 100% !important; aspect-ratio: 3 / 2 !important; min-height: 0 !important; margin-top: 2px !important; }
+  [data-stats] { grid-template-columns: 1fr 1fr !important; border-bottom: 0 !important; }
+  [data-stats] > div { border-bottom: 1px solid rgba(4,86,62,0.28); padding: 14px 0 !important; }
+  [data-stats] > div:nth-child(odd) { border-right: 1px solid rgba(4,86,62,0.28); padding-right: 14px !important; }
+  [data-stats] > div:nth-child(even) { padding-left: 14px !important; }
+  [data-rate-table] { display: flex !important; flex-direction: column !important; }
+  [data-rate-head] { display: none !important; }
+  [data-rate-row] { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+  [data-price-cell] { justify-content: flex-start !important; }
+  [data-steps] { position: relative; }
+  [data-steps]::before { content: ''; position: absolute; left: 8px; top: 22px; bottom: 22px; width: 1px; background: rgba(242,201,76,0.32); }
+  [data-step] { grid-template-columns: 26px 1fr !important; gap: 14px !important; border-top: 0 !important; border-bottom: 0 !important; padding: 13px 0 !important; }
+  [data-step-num] { position: relative; z-index: 1; background: #04382A; padding: 3px 0 5px !important; }
+  [data-memberships-head] { text-align: center; margin-left: auto; margin-right: auto; }
+  [data-bay-row] { grid-template-columns: 34px minmax(0, 1fr) auto !important; gap: 14px !important; padding: 17px 0 !important; }
+  [data-map] { height: 300px !important; }
+  /* The fold carries a 3-line h1, the promise and the CTA — two stats is all
+     that fits above it. Players-per-bay and BYO are covered in the FAQ. */
+  [data-stats] > div:nth-child(2), [data-stats] > div:nth-child(3) { display: none !important; }
+  [data-ballot-card] > div { padding-left: 18px !important; padding-right: 18px !important; }
+  [data-chips] { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  [data-chips] > button { width: 100% !important; text-align: center !important; justify-content: center !important; }
+  [data-cta-bar-sub] { display: none !important; }
+  /* Standalone stacked links need real tap targets; inline links inside
+     sentences are exempt (WCAG 2.5.8) and stay as-is. */
+  [data-foot-nav] { gap: 0 !important; }
+  [data-foot-nav] > a { min-height: 44px; display: flex !important; align-items: center; border-bottom: 1px solid rgba(4,86,62,0.16); }
+  [data-foot-nav] > a:last-child { border-bottom: 0; }
+  [data-foot-tel] { min-height: 44px; align-items: center; display: inline-flex !important; }
+  /* iOS Safari force-zooms the page on focus of any field under 16px. */
+  #ballot-note { font-size: 16px !important; }
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Par Out Golf","description":"24/7 unstaffed indoor golf simulator facility with four public Trackman iO bays.","address":{"@type":"PostalAddress","streetAddress":"1770 Central Avenue","addressLocality":"Colonie","addressRegion":"NY","postalCode":"12205","addressCountry":"US"},"telephone":"+1-518-727-3442","email":"Contact@parout.golf","url":"https://parout.golf/","image":"https://parout.golf/assets/og-card.png","geo":{"@type":"GeoCoordinates","latitude":42.7279042,"longitude":-73.8459286},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],"priceRange":"$25-$60","hasMap":"https://www.google.com/maps/dir/?api=1&destination=42.72790417575961,-73.8459286112816","currenciesAccepted":"USD","paymentAccepted":"Credit Card","isAccessibleForFree":false,"areaServed":[{"@type":"City","name":"Colonie"},{"@type":"City","name":"Albany"},{"@type":"City","name":"Latham"},{"@type":"City","name":"Schenectady"},{"@type":"City","name":"Troy"},{"@type":"City","name":"Clifton Park"},{"@type":"AdministrativeArea","name":"Capital Region, New York"}],"makesOffer":[{"@type":"Offer","name":"Night Owl bay rental","description":"Simulator bay, 10pm-6am.","priceSpecification":{"@type":"UnitPriceSpecification","price":"25","priceCurrency":"USD","unitCode":"HUR","referenceQuantity":{"@type":"QuantitativeValue","value":1,"unitCode":"HUR"}},"availability":"https://schema.org/PreOrder","itemOffered":{"@type":"Service","name":"Trackman iO golf simulator bay","serviceType":"Golf simulator rental"}},{"@type":"Offer","name":"Early Bird membership","description":"Annual membership, capped at 50 members. $10/hr off every rate and a 30-day advance booking window.","priceSpecification":{"@type":"UnitPriceSpecification","price":"199","priceCurrency":"USD","billingDuration":12,"billingIncrement":1,"unitCode":"ANN"},"availability":"https://schema.org/PreOrder","itemOffered":{"@type":"Service","name":"Par Out Golf Early Bird membership"}},{"@type":"Offer","name":"Annual membership","description":"Annual membership. $10/hr off every rate and a 30-day advance booking window.","priceSpecification":{"@type":"UnitPriceSpecification","price":"249","priceCurrency":"USD","billingDuration":12,"billingIncrement":1,"unitCode":"ANN"},"availability":"https://schema.org/PreOrder","itemOffered":{"@type":"Service","name":"Par Out Golf Annual membership"}}],"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Trackman iO simulator","value":true},{"@type":"LocationFeatureSpecification","name":"Open 24 hours","value":true},{"@type":"LocationFeatureSpecification","name":"Unstaffed keyless entry","value":true},{"@type":"LocationFeatureSpecification","name":"Outside food welcome","value":true},{"@type":"LocationFeatureSpecification","name":"Free parking","value":true},{"@type":"LocationFeatureSpecification","name":"Alcohol served","value":false}],"sameAs":["https://www.instagram.com/parout.golf/","https://www.facebook.com/profile.php?id=61590569169332"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get in at 3am?","acceptedAnswer":{"@type":"Answer","text":"Your booking confirmation email contains a door access link. It activates 10 minutes before your session starts and expires 10 minutes after it ends. Tap the link in the email, the door unlocks, walk in."}},{"@type":"Question","name":"Is anyone actually there?","acceptedAnswer":{"@type":"Answer","text":"Nope. Par Out is unstaffed by design — that's how we keep the 24/7 hours viable. Cameras are active throughout the facility for everyone's safety."}},{"@type":"Question","name":"Do I need to bring my own clubs?","acceptedAnswer":{"@type":"Answer","text":"Yes. At this time we don't have loaner clubs. It's something we're actively looking into."}},{"@type":"Question","name":"How many people fit in a bay?","acceptedAnswer":{"@type":"Answer","text":"Up to 4 players on the simulator per session. The lounge area around each bay seats 4, which is fine for a small group hanging out while a foursome plays. Planning something bigger? Reach out and we'll try to work with you."}},{"@type":"Question","name":"Can I bring food? What about alcohol?","acceptedAnswer":{"@type":"Answer","text":"Food, yes — order a pizza, pack a cooler, grab takeout on the way. Drinks, non-alcoholic only; we're not licensed to serve or allow alcohol on the premises."}},{"@type":"Question","name":"How long should I book for 9 or 18 holes?","acceptedAnswer":{"@type":"Answer","text":"Rough math: about 30 minutes per person for 9 holes, about an hour per person for 18."}},{"@type":"Question","name":"Do I need to be a member to play?","acceptedAnswer":{"@type":"Answer","text":"No — anyone can book. Members save $10/hr on every session and get a 30-day advance booking window; the public gets 7 days. Full breakdown on the memberships section."}}]}</script>
+<noscript><style>
+[data-nojs] { display: block !important; }
+</style></noscript>
+</helmet>
+
+<div data-pog-root="" style="font-family: 'Archivo', system-ui, sans-serif; color: #04563E; background: #FDF5E6; background-image: linear-gradient(to right, rgba(4,86,62,0.055) 0 1px, transparent 1px 100%), linear-gradient(to bottom, rgba(4,86,62,0.032) 0 1px, transparent 1px 100%); background-size: 104px 100%, 100% 26px; padding-bottom: 36px; overflow-x: clip;">
+
+  
+
+  <div data-nojs="" style="display: none; background: #04382A; padding: 28px 20px 32px; font-family: 'Archivo', system-ui, sans-serif; font-size: 17px; line-height: 1.55; color: #FDF5E6;">
+    <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px;">
+      <h2 style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.02; margin: 0;">Par Out Golf — a slice of the great indoors</h2>
+      <p style="margin: 12px 0 0;">A 24/7 unstaffed indoor golf simulator facility at 1770 Central Avenue, Colonie, NY 12205 — ten minutes from Albany. Four public Trackman iO bays, up to four players per bay, no bar and no food minimum. Opening winter 2027.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin: 26px 0 8px; color: #F2C94C;">Rates (per bay, per hour, up to 4 players)</h2>
+      <ul style="margin: 0; padding-left: 20px;">
+        <li>Peak, Fri–Sun 9am–10pm — $60/hr ($50 members)</li>
+        <li>Off-Peak, Mon–Thu 9am–10pm — $50/hr ($40 members)</li>
+        <li>Night Owl, 10pm–9am every night — $35/hr ($25 members)</li>
+      </ul>
+      <h2 style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin: 26px 0 8px; color: #F2C94C;">Memberships</h2>
+      <p style="margin: 0;">Early Bird $199/yr, capped at 50 members. Annual $249/yr. Both save $10/hr on every rate and book 30 days in advance; the public books 7 days out.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin: 26px 0 8px; color: #F2C94C;">How access works</h2>
+      <p style="margin: 0;">Book a bay online, pay, and a door access link is emailed to you. It activates 10 minutes before your session and expires 10 minutes after it ends. Tap the link, the door unlocks, walk to your bay — the simulator is already on. The facility is unstaffed by design; cameras are active throughout.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin: 26px 0 8px; color: #F2C94C;">Good to know</h2>
+      <p style="margin: 0;">Bring your own clubs — no loaners yet. Food is welcome; non-alcoholic drinks only. Plan about 30 minutes per person for 9 holes, an hour for 18. Independent coaches can rent a bay: <a href="mailto:coaches@parout.golf" style="color: #F2C94C;">coaches@parout.golf</a>.</p>
+      <h2 style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin: 26px 0 8px; color: #F2C94C;">Contact</h2>
+      <p style="margin: 0;">Par Out Golf LLC, 1770 Central Avenue, Colonie, NY 12205 · <a href="mailto:Contact@parout.golf" style="color: #F2C94C;">Contact@parout.golf</a> · <a href="tel:+15187273442" style="color: #F2C94C;">(518) 727-3442</a> · open 24 hours, 7 days.</p>
+      <p style="margin: 22px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #BCCCC2;">JAVASCRIPT IS OFF — THIS IS THE PLAIN-TEXT VERSION OF THE PAGE.</p>
+    </div>
+  </div>
+
+  <a href="#top" style="position: absolute; left: -9999px; top: 0; background: #04563E; color: #FDF5E6; padding: 12px 18px; z-index: 100; font-size: 14px; font-weight: 700;" style-focus="left: 12px; top: 12px;">Skip to content</a>
+
+  <header data-header="" style="position: sticky; top: 0; z-index: 40; background: #FDF5E6; border-bottom: 1px solid #04563E; transition: transform 360ms cubic-bezier(.16,.84,.3,1); will-change: transform;">
+    <div data-header-inner="" style="max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="#top" style="flex: 1 0 auto; display: flex; align-items: center; gap: 10px; color: #04563E;" aria-label="Par Out home">
+        <svg data-logo-mark="" width="27" height="47" viewBox="0 0 1222 2107" aria-hidden="true" style="flex: none; display: block; overflow: visible;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
+        <span data-logo-word="" style="font-weight: 700; font-size: 17px; letter-spacing: 0.11em; white-space: nowrap; margin-top: 9px;">PAR OUT</span>
+      </a>
+      <nav data-nav="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 24px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
+        <a href="#access" style="color: #04563E;">Access<span data-underline="" aria-hidden="true"></span></a>
+        <a href="#rates" style="color: #04563E;">Rates<span data-underline="" aria-hidden="true"></span></a>
+        <a href="#memberships" style="color: #04563E;">Memberships<span data-underline="" aria-hidden="true"></span></a>
+        <a href="#leagues" style="color: #04563E;">Leagues<span data-underline="" aria-hidden="true"></span></a>
+        <a href="#lessons" style="color: #04563E;">Lessons<span data-underline="" aria-hidden="true"></span></a>
+        <a href="#technology" style="color: #04563E;">Technology<span data-underline="" aria-hidden="true"></span></a>
+        <a href="#faq" style="color: #04563E;">FAQ<span data-underline="" aria-hidden="true"></span></a>
+      </nav>
+      <div data-header-actions="" style="flex: 1 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 9px;">
+        <button type="button" data-menu-btn="" onClick="{{ openMenu }}" aria-label="Open menu" aria-expanded="false" data-mono-meta="" style="display: none; align-items: center; gap: 8px; background: transparent; border: 1.5px solid #04563E; color: #04563E; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 14px; border-radius: 999px; cursor: pointer; min-height: 44px;">MENU</button>
+        <a href="#join" data-header-cta="" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 14px; padding: 11px 20px; border-radius: 999px; white-space: nowrap; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-1px);">Join the list</a>
+      </div>
+    </div>
+  </header>
+
+  <div data-menu="" role="dialog" aria-modal="true" aria-label="Menu" style="position: fixed; left: 0; right: 0; top: 0; height: 100dvh; max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; z-index: 60; background: #04382A; color: #FDF5E6; display: none; flex-direction: column; padding: calc(16px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)); opacity: 0; transition: opacity 280ms ease;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">PAR OUT · COLONIE, NY</span>
+      <button type="button" data-menu-close="" aria-label="Close menu" data-mono-meta="" style="background: transparent; border: 1.5px solid #F2C94C; color: #F2C94C; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 16px; border-radius: 999px; cursor: pointer; min-height: 44px;">CLOSE</button>
+    </div>
+    <nav aria-label="Sections" data-menu-nav="" style="margin-top: auto; margin-bottom: auto; padding: 24px 0; display: flex; flex-direction: column; gap: 2px;">
+      <a href="#access" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Access</a>
+      <a href="#rates" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Rates</a>
+      <a href="#memberships" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Memberships</a>
+      <a href="#leagues" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Leagues</a>
+      <a href="#lessons" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Lessons</a>
+      <a href="#technology" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Technology</a>
+      <a href="#faq" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">FAQ</a>
+    </nav>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <a href="#join" data-menu-item="" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 17px; padding: 17px 28px; border-radius: 999px; text-align: center; min-height: 44px;">Join the list</a>
+      <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; letter-spacing: 0.06em; color: #F2C94C;">OPEN 24/7 · UNSTAFFED · RATES FROM $25/HR</span>
+    </div>
+  </div>
+
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true"><symbol id="pm" viewBox="0 0 1222 2107"><rect y="1244" width="190" height="863" fill="#04563E"></rect>
+<path d="M600 834C373.563 834 190 1017.56 190 1244C190 1470.44 373.563 1654 600 1654C826.437 1654 1010 1470.44 1010 1244C1010 1037.94 857.995 867.392 660 838.358V646.965C963.199 677.068 1200 932.879 1200 1244C1200 1575.37 931.371 1844 600 1844C268.629 1844 0 1575.37 0 1244C0 912.629 268.629 644 600 644V834Z" fill="#04563E"></path>
+<path d="M600 1261H630C646.569 1261 660 1247.57 660 1231V1037.48C749.543 1063.45 815 1146.08 815 1244C815 1362.74 718.741 1459 600 1459C481.259 1459 385 1362.74 385 1244C385 1125.26 481.259 1029 600 1029V1261Z" fill="#B5551A"></path>
+<path d="M928.577 214.747C855.919 171.672 705.762 144.969 660 199.944V598.249C721.636 499.469 815.246 456.939 947.82 448.989C1152.67 424.685 1178.69 355.949 1221.03 296.181C1133.35 313.649 1017.19 265.916 928.577 214.747Z" fill="#B5551A"></path>
+<path d="M600 152H540V1261H600V152Z" fill="#04563E"></path>
+<path d="M570 0C619.706 0 660 40.2944 660 90C660 139.706 619.706 180 570 180C520.294 180 480 139.706 480 90C480 40.2944 520.294 0 570 0Z" fill="#B5551A"></path></symbol></svg>
+
+  <main id="top">
+
+    <!-- ================= HERO — ball-flight arcs ================= -->
+    <section style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
+      <svg data-motif="arcs" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 620px; max-height: 100%; pointer-events: none; overflow: visible;">
+        <path data-draw="" d="M20 600 C 300 180, 660 90, 1190 380" fill="none" stroke="#04563E" stroke-width="1.25" opacity="0.16"></path>
+        <path data-draw="" d="M20 600 C 350 260, 720 190, 1190 470" fill="none" stroke="#B5551A" stroke-width="1.25" opacity="0.2"></path>
+        <path data-draw="" d="M20 600 C 260 110, 740 40, 1190 280" fill="none" stroke="#F2C94C" stroke-width="1.5" opacity="0.5"></path>
+        <path data-draw="" d="M20 600 C 390 340, 780 300, 1190 540" fill="none" stroke="#04563E" stroke-width="1.25" opacity="0.12"></path>
+        <circle data-ball="" r="3.5" fill="#04563E" opacity="0"></circle>
+        <circle data-ball="" r="3.5" fill="#B5551A" opacity="0"></circle>
+        <circle data-ball="" r="4.5" fill="#B5551A" opacity="0"></circle>
+        <circle data-ball="" r="3.5" fill="#04563E" opacity="0"></circle>
+      </svg>
+      <div style="position: relative; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: end;">
+        <div>
+          <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #A24A14;">COLONIE, NY · OPEN 24/7 · UNSTAFFED</div>
+          <h1 data-hero-h1="" style="margin: 16px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(50px, 10.4vw, 132px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">A slice of the great <em style="color: #B5551A; font-style: normal;">indoors</em></h1>
+          <div data-hero-sub="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; align-items: end; margin-top: 34px;">
+            <p style="margin: 0; font-size: clamp(18px, 2.3vw, 22px); line-height: 1.45; max-width: 36ch; text-wrap: pretty;">Four public Trackman iO bays in Colonie, ten minutes from Albany. No bar, no food minimum, nobody hovering. The price of your session is the price you pay.</p>
+            <div data-hero-cta-wrap="" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+              <a href="#join" data-hero-cta="" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 999px; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Join the list</a>
+              <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.5; color: #04563E;">OPENING WINTER '27</span>
+            </div>
+          </div>
+        </div>
+        <div data-stats="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
+          <div style="padding: 14px 0;"><div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">HOURS</div><div style="font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums;">24/7</div></div>
+          <div style="padding: 14px 0;"><div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">PLAYERS PER BAY</div><div style="font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums;">Up to 4</div></div>
+          <div style="padding: 14px 0;"><div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">FOOD &amp; DRINK</div><div style="font-weight: 700; font-size: 26px;">BYO</div></div>
+          <div style="padding: 14px 0;"><div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">RATES FROM</div><div style="font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums;">$25/hr</div></div>
+        </div>
+      </div>
+      <div data-hero-media="" style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 20px;">
+        <div data-hero-shot-1="" style="flex: 1 1 260px; aspect-ratio: 3 / 4; background-color: #FDF5E6; background-image: repeating-linear-gradient(135deg, rgba(242,201,76,0.4) 0 12px, rgba(242,201,76,0) 12px 24px); position: relative;">
+          <span data-mono-meta="" style="position: absolute; bottom: 12px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.5; color: #04563E; background: #FDF5E6; padding: 5px 7px;">PHOTO · HERO, TALL VERTICAL CROP<br>1200 × 1600 · 3:4 · JPG</span>
+        </div>
+        <div data-hero-shot-2="" style="flex: 2 1 320px; min-height: 240px; background-color: #FDF5E6; background-image: repeating-linear-gradient(135deg, rgba(242,201,76,0.4) 0 12px, rgba(242,201,76,0) 12px 24px); position: relative;">
+          <span data-mono-meta="" style="position: absolute; bottom: 12px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.5; color: #04563E; background: #FDF5E6; padding: 5px 7px;">PHOTO · BAYS, WIDE / EYE LEVEL<br>DESKTOP 2000 × 1250 · 16:10 · MOBILE CROP 1500 × 1000 · 3:2 · JPG</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW ACCESS WORKS — 24h clock ================= -->
+    <section id="access" data-band="" style="position: relative; overflow: hidden; background: #04382A; color: #FDF5E6; background-image: linear-gradient(to right, rgba(242,201,76,0.05) 0 1px, transparent 1px 100%), linear-gradient(to bottom, rgba(242,201,76,0.028) 0 1px, transparent 1px 100%); background-size: 104px 100%, 100% 26px; margin-top: 160px; padding: 112px 0 116px;">
+      <svg data-motif="clock" viewBox="0 0 500 500" aria-hidden="true" style="position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 480px; height: 480px; max-width: 46%; pointer-events: none;">
+        <circle cx="250" cy="250" r="196" fill="none" stroke="#F2C94C" stroke-width="1" opacity="0.3"></circle>
+        <circle cx="250" cy="250" r="150" fill="none" stroke="#F2C94C" stroke-width="1" opacity="0.12"></circle>
+        <g data-ticks=""></g>
+        <line data-sec="" x1="250" y1="250" x2="250" y2="72" stroke="#F2C94C" stroke-width="1.25" stroke-linecap="round" opacity="0"></line>
+        <circle data-hand="" cx="250" cy="54" r="4.5" fill="#B5551A" opacity="0"></circle>
+      </svg>
+      <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: start;">
+          <div>
+            <h2 data-reveal="wipe" style="margin: 14px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 4.6vw, 64px); line-height: 0.94; letter-spacing: -0.024em;">Nobody's here. That's the point.</h2>
+            <p style="margin: 18px 0 0; font-size: 18px; line-height: 1.55; max-width: 40ch; color: #FDF5E6;">Book your timeslot, get in with an emailed access link. Walk in. No check in required. Six steps, start to finish.</p>
+            <div style="margin-top: 30px; aspect-ratio: 4 / 3; background-image: repeating-linear-gradient(135deg, rgba(242,201,76,0.3) 0 12px, rgba(4,56,42,0) 12px 24px); border: 1px solid rgba(242,201,76,0.55); position: relative;">
+              <span data-mono-meta="" style="position: absolute; bottom: 12px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.5; background: #04382A; color: #F2C94C; padding: 5px 7px;">PHOTO · DOOR + ACCESS LINK IN HAND<br>1600 × 1200 · 4:3 · JPG</span>
+            </div>
+          </div>
+          <ol data-steps="" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0;">
+            <li data-step="" data-reveal="rise" style="position: relative; border-top: 1px solid rgba(253,245,230,0.35); padding: 20px 0; display: grid; grid-template-columns: 44px 1fr; gap: 16px;">
+              <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #F2C94C; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+              <span data-step-num="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">01</span>
+              <div><h3 style="margin: 0; font-size: 19px; font-weight: 700;">Book a bay</h3><p style="margin: 6px 0 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">Pick your date, time, and how many bays you need. Members book 30 days out; general public gets 7. Pay online and your spot is secured.</p></div>
+            </li>
+            <li data-step="" data-reveal="rise" style="position: relative; border-top: 1px solid rgba(253,245,230,0.35); padding: 20px 0; display: grid; grid-template-columns: 44px 1fr; gap: 16px;">
+              <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #F2C94C; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+              <span data-step-num="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">02</span>
+              <div><h3 style="margin: 0; font-size: 19px; font-weight: 700;">Get your access email</h3><p style="margin: 6px 0 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">Ten minutes before your start time we email your digital access link. It goes live 10 minutes prior to your tee time and lasts until 10 minutes after — plenty of buffer to walk in and get settled.</p></div>
+            </li>
+            <li data-step="" data-reveal="rise" style="position: relative; border-top: 1px solid rgba(253,245,230,0.35); padding: 20px 0; display: grid; grid-template-columns: 44px 1fr; gap: 16px;">
+              <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #F2C94C; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+              <span data-step-num="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">03</span>
+              <div><h3 style="margin: 0; font-size: 19px; font-weight: 700;">Unlock the door</h3><p style="margin: 6px 0 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">Open the email, tap the button, door opens. Head to your reserved bay — the simulator is already powered up. Forward the email to anyone playing with you.</p></div>
+            </li>
+            <li data-step="" data-reveal="rise" style="position: relative; border-top: 1px solid rgba(253,245,230,0.35); padding: 20px 0; display: grid; grid-template-columns: 44px 1fr; gap: 16px;">
+              <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #F2C94C; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+              <span data-step-num="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">04</span>
+              <div><h3 style="margin: 0; font-size: 19px; font-weight: 700;">Log in and pick a course</h3><p style="margin: 6px 0 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">The Trackman iO boots to the player-select screen. Log in with your Trackman account, then choose from over 250 world-class courses or warm up on the range.</p></div>
+            </li>
+            <li data-step="" data-reveal="rise" style="position: relative; border-top: 1px solid rgba(253,245,230,0.35); padding: 20px 0; display: grid; grid-template-columns: 44px 1fr; gap: 16px;">
+              <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #F2C94C; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+              <span data-step-num="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">05</span>
+              <div><h3 style="margin: 0; font-size: 19px; font-weight: 700;">Play</h3><p style="margin: 6px 0 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">Shot shape, spin, carry, and every metric that matters, on screen after every swing. Up to four players per bay. Bring your own snacks and non-alcoholic drinks.</p></div>
+            </li>
+            <li data-step="" data-reveal="rise" style="position: relative; border-top: 1px solid rgba(253,245,230,0.35); border-bottom: 1px solid rgba(253,245,230,0.35); padding: 20px 0; display: grid; grid-template-columns: 44px 1fr; gap: 16px;">
+              <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #F2C94C; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+              <span data-step-num="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">06</span>
+              <div><h3 style="margin: 0; font-size: 19px; font-weight: 700;">Walk out</h3><p style="margin: 6px 0 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">The simulator locks automatically when your session ends, but you're welcome to extend your time if the bay is available. When you're finished, please toss your trash in the bins and give the table a quick wipe so it's ready for the next group. That's it.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RATES — scoreboard reels ================= -->
+    <section id="rates" data-pad-lg="" style="max-width: 1240px; margin: 0 auto; padding: 160px 20px 0;">
+      <div data-rates-band="" data-mono-meta="" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; border-top: 1.5px solid #04563E; padding-top: 10px; margin-bottom: 44px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">
+        <span>RATES</span><span style="color: #04563E;">PER BAY · PER HOUR · UP TO 4 PLAYERS</span>
+      </div>
+      <div data-split="" style="display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: 56px; align-items: start;">
+        <div>
+          <h2 data-reveal="wipe" style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 4.6vw, 64px); line-height: 0.94; letter-spacing: -0.024em; max-width: 15ch; text-wrap: balance;">One price. Per hour. That's it.</h2>
+          <p style="margin: 18px 0 0; font-size: 18px; line-height: 1.55; max-width: 42ch; text-wrap: pretty;">There's no bar or kitchen to upcharge you. Rates are per bay, per hour, up to 4 players.</p>
+          <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.55; max-width: 42ch; text-wrap: pretty;">Members save $10 an hour on every rate — <a href="#memberships">see memberships</a>.</p>
+        </div>
+        <div>
+          <div role="group" aria-label="Rate view" style="position: relative; display: flex; border: 1.5px solid #04563E; width: fit-content; margin-bottom: 22px;">
+            <div data-pill="" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 0; width: 0; background: #04563E; transition: transform 480ms cubic-bezier(.16,.84,.3,1), width 480ms cubic-bezier(.16,.84,.3,1);"></div>
+            <button type="button" data-rate-btn="public" onClick="{{ showPublic }}" aria-pressed="{{ isPublic }}" style="position: relative; font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 700; padding: 12px 24px; min-height: 44px; background: transparent; color: #FDF5E6; border: 0; cursor: pointer; transition: color 300ms ease;">Public</button>
+            <button type="button" data-rate-btn="member" onClick="{{ showMember }}" aria-pressed="{{ isMember }}" style="position: relative; font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 700; padding: 12px 24px; min-height: 44px; background: transparent; color: #04563E; border: 0; cursor: pointer; transition: color 300ms ease;">Member</button>
+          </div>
+          <div data-rate-table="" style="display: grid; grid-template-columns: 1fr auto; gap: 0 20px;">
+            <div data-rate-head="" data-mono-meta="" style="grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; border-bottom: 1.5px solid #04563E; padding-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em;"><span>WHEN</span><span data-col-label="" style="text-align: right;">{{ colLabel }}</span></div>
+
+            <div data-rate-row="" style="position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; border-bottom: 1px solid rgba(4,86,62,0.3); padding: 18px 0;">
+              <span style="font-size: 18px;">Peak<br><span style="font-size: 14px; color: #A24A14;">Fri–Sun, 9am–10pm</span></span>
+              <span data-price-cell="" style="display: flex; justify-content: flex-end; align-items: flex-start; line-height: 1; font-weight: 700; font-size: clamp(30px, 5vw, 40px); font-variant-numeric: tabular-nums;">
+                <span>$</span><span data-reel="peak" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span>0</span><span style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span>
+              </span>
+            </div>
+
+            <div data-rate-row="" style="position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; border-bottom: 1px solid rgba(4,86,62,0.3); padding: 18px 0;">
+              <span style="font-size: 18px;">Off-Peak<br><span style="font-size: 14px; color: #A24A14;">Mon–Thu, 9am–10pm</span></span>
+              <span data-price-cell="" style="display: flex; justify-content: flex-end; align-items: flex-start; line-height: 1; font-weight: 700; font-size: clamp(30px, 5vw, 40px); font-variant-numeric: tabular-nums;">
+                <span>$</span><span data-reel="offpeak" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span>0</span><span style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span>
+              </span>
+            </div>
+
+            <div data-rate-row="" style="position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; background: #04382A; padding: 20px 16px; margin: 0 -16px;">
+              <span style="font-size: 18px; color: #FDF5E6;">Night Owl<br><span style="font-size: 14px; color: #F2C94C;">10pm–9am, every night</span></span>
+              <span data-price-cell="" style="display: flex; justify-content: flex-end; align-items: flex-start; line-height: 1; font-weight: 700; font-size: clamp(30px, 5vw, 40px); font-variant-numeric: tabular-nums; color: #F2C94C;">
+                <span>$</span><span data-reel="night" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span>5</span><span style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span>
+              </span>
+            </div>
+          </div>
+          <p data-mono-meta="" style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6;">PER BAY · PER HOUR · TRACKMAN TECHNOLOGY · UP TO 4 PLAYERS<br><span style="color: #A24A14;">{{ note }}</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MEMBERSHIPS — centred opening ================= -->
+    <section id="memberships" data-band="" style="position: relative; overflow: hidden; background: #04382A; color: #FDF5E6; background-image: linear-gradient(to right, rgba(242,201,76,0.05) 0 1px, transparent 1px 100%), linear-gradient(to bottom, rgba(242,201,76,0.028) 0 1px, transparent 1px 100%); background-size: 104px 100%, 100% 26px; margin-top: 160px; padding: 112px 0 116px;">
+      <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 20px;">
+        <div data-memberships-head="" style="max-width: min(100%, 720px);">
+          <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">MEMBERSHIPS</div>
+          <h2 data-reveal="wipe" style="margin: 22px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 0.94; letter-spacing: -0.024em; max-width: 18ch; text-wrap: balance;">The Par Out Membership.</h2>
+        </div>
+        <div data-breathe="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px;">
+          <div data-magnet="" data-magnet-rest="rgba(242,201,76,0.5)" data-magnet-hover="rgba(242,201,76,0.78)" data-glow-rgb="242,201,76" data-reveal="rise" style="position: relative; overflow: hidden; border: 1.5px solid rgba(242,201,76,0.5); padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+            <span data-glow="" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0; transition: opacity 420ms ease; pointer-events: none;"></span>
+            <div style="position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+              <h3 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 32px; color: #FDF5E6;">Early Bird</h3>
+              <span data-mono-meta="" style="background: #F2C94C; color: #04382A; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; padding: 5px 8px; flex: none;">50 SPOTS</span>
+            </div>
+            <div style="position: relative; font-weight: 700; font-size: 48px; font-variant-numeric: tabular-nums; line-height: 1; color: #F2C94C;">$199<span style="font-size: 18px; font-weight: 400; color: #FDF5E6;">/yr</span></div>
+            <p style="position: relative; margin: 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">The founding rate, capped at 50 members. Same benefits as Annual, fifty dollars less, for as long as you keep it.</p>
+            <a href="#join" style="position: relative; margin-top: auto; align-self: flex-start; background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 13px 24px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), color 260ms ease, transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04382A; transform: translateY(-2px);">Join the list</a>
+          </div>
+          <div data-magnet="" data-magnet-rest="rgba(253,245,230,0.32)" data-magnet-hover="rgba(253,245,230,0.6)" data-glow-rgb="253,245,230" data-reveal="rise" style="position: relative; overflow: hidden; border: 1.5px solid rgba(253,245,230,0.32); padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+            <span data-glow="" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0; transition: opacity 420ms ease; pointer-events: none;"></span>
+            <h3 style="position: relative; margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: 32px; color: #FDF5E6;">Annual</h3>
+            <div style="position: relative; font-weight: 700; font-size: 48px; font-variant-numeric: tabular-nums; line-height: 1; color: #FDF5E6;">$249<span style="font-size: 18px; font-weight: 400;">/yr</span></div>
+            <p style="position: relative; margin: 0; font-size: 17px; line-height: 1.5; color: #FDF5E6;">The standard membership, open after the first fifty are gone.</p>
+            <a href="#join" style="position: relative; margin-top: auto; align-self: flex-start; border: 1.5px solid #FDF5E6; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 11px 22px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #FDF5E6; color: #04382A; transform: translateY(-2px);">Join the list</a>
+          </div>
+          <div data-perks="" data-reveal="rise" style="background: #FDF5E6; color: #04563E; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+            <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14;">MEMBERSHIP PERKS</div>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.4;">
+              <div style="border-top: 1px solid rgba(4,86,62,0.3); padding-top: 12px;"><strong style="font-weight: 700;">$10/hr off</strong> every rate, every hour of the day</div>
+              <div style="border-top: 1px solid rgba(4,86,62,0.3); padding-top: 12px;"><strong style="font-weight: 700;">30-day</strong> advance booking window (public gets 7)</div>
+              <div style="border-top: 1px solid rgba(4,86,62,0.3); padding-top: 12px;">Night Owl at <strong style="font-weight: 700;">$25/hr</strong> — the cheapest golf in the Capital Region</div>
+            </div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.5;">The member rate applies to the bay; the account holder just needs to be in it. Bring whoever — they play at your rate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LEAGUES ================= -->
+    <section id="leagues" data-pad-lg="" style="max-width: 1240px; margin: 0 auto; padding: 160px 20px 0;">
+      <div data-reveal="rise" data-ballot-card="" style="max-width: 880px; margin: 0 auto; border: 1.5px solid #04563E; background: #FDF5E6; box-shadow: 7px 7px 0 rgba(4,86,62,0.13);">
+          <div style="border-bottom: 1.5px solid #04563E; padding: 30px 26px 28px;">
+            <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 0.94; letter-spacing: -0.024em; max-width: 19ch; text-wrap: balance;">Tell us what league you want.</h2>
+            <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.55; max-width: 52ch; text-wrap: pretty;">We plan to run several — different formats, room for scratch players and for people who just want friendly competition. What we haven't settled is the shape of them, so mark your card: four questions, fifteen seconds, and it decides what the first season looks like.</p>
+          </div>
+          <div data-mono-meta="" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; border-bottom: 1.5px solid #04563E; padding: 12px 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14;">
+            <span>MARK YOUR CARD</span><span>{{ ballotProgress }}</span>
+          </div>
+          <div style="padding: 6px 26px 26px;">
+            <sc-for list="{{ ballotGroups }}" as="g" hint-placeholder-count="4">
+              <div style="border-bottom: 1px dashed rgba(4,86,62,0.32); padding: 18px 0 16px;">
+                <div style="display: flex; align-items: baseline; gap: 10px;">
+                  <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">{{ g.num }}</span>
+                  <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">{{ g.label }}</span>
+                </div>
+                <div data-chips="" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                  <sc-for list="{{ g.opts }}" as="o" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.css }}">{{ o.text }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+            <div style="padding: 18px 0 4px;">
+              <label for="ballot-note" data-mono-meta="" style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">05 &nbsp;ANYTHING WE DIDN'T ASK <span style="color: #A24A14;">(OPTIONAL)</span></label>
+              <textarea id="ballot-note" rows="2" value="{{ ballotNote }}" onChange="{{ setBallotNote }}" placeholder="A night that works, a format we missed, who you'd bring…" style="margin-top: 12px; width: 100%; box-sizing: border-box; resize: vertical; min-height: 5.6em; font-family: 'Archivo', system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: #04563E; background: #FDF5E6; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 0; padding: 12px 14px; outline: none; transition: border-color 300ms ease;" style-focus="border-color: #04563E;"></textarea>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px;">
+              <a href="{{ ballotMailto }}" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Send my card</a>
+              <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14; line-height: 1.6; max-width: 40ch; text-wrap: balance;">{{ ballotHint }}</span>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- ================= LESSONS — bay board as ruled rows ================= -->
+    <section id="lessons" data-pad-lg="" style="max-width: 1240px; margin: 0 auto; padding: 160px 20px 0;">
+      <div style="max-width: 62ch;">
+        <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">LESSONS</div>
+        <h2 data-reveal="wipe" style="margin: 16px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 0.94; letter-spacing: -0.024em; max-width: 18ch; text-wrap: balance;">Four bays. No coaches yet.</h2>
+        <div style="margin-top: 22px;">
+          <p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 46ch; text-wrap: pretty;">We're not hiring instructors — we're opening bays to independent coaches who set their own rate and their own hours. You'd book straight with them through Alba Play. We cover the bay and the tech, they cover the teaching.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+            <a href="mailto:coaches@parout.golf?subject=Coaching%20at%20Par%20Out%20Golf&amp;body=I'd%20like%20to%20teach%20out%20of%20a%20bay%20at%20Par%20Out%20Golf.%0A%0AName%3A%0AWhere%20I%20coach%20now%3A%0AWhat%20I%20specialize%20in%3A%0ADays%20and%20times%20I'd%20want%3A%0A" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 13px 24px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">I coach — let's talk</a>
+            <a href="#join" style="border: 1.5px solid rgba(4,86,62,0.4); color: #04563E; font-weight: 700; font-size: 16px; padding: 11px 22px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: border-color 300ms ease, background-color 300ms ease;" style-hover="border-color: #04563E; background-color: rgba(4,86,62,0.05);">Tell me when lessons start</a>
+          </div>
+        </div>
+      </div>
+      <div data-bay-board="" style="margin-top: 56px;">
+        <div data-mono-meta="" style="display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 20px; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14; padding-bottom: 10px;">
+          <span>BAY</span><span>COACH</span><span style="text-align: right;">0 OF 4 CLAIMED</span>
+        </div>
+        <div data-reveal="rise" data-bay-row="" style="position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 20px; align-items: center; border-top: 1px solid rgba(4,86,62,0.3); padding: 20px 0;">
+          <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #B5551A; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14;">01</span>
+          <span aria-hidden="true" style="height: 1px; background: repeating-linear-gradient(to right, rgba(4,86,62,0.3) 0 5px, transparent 5px 10px);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14; border: 1px solid rgba(181,85,26,0.55); padding: 5px 9px; flex: none;">OPEN</span>
+        </div>
+        <div data-reveal="rise" data-bay-row="" style="position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 20px; align-items: center; border-top: 1px solid rgba(4,86,62,0.3); padding: 20px 0;">
+          <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #B5551A; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14;">02</span>
+          <span aria-hidden="true" style="height: 1px; background: repeating-linear-gradient(to right, rgba(4,86,62,0.3) 0 5px, transparent 5px 10px);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14; border: 1px solid rgba(181,85,26,0.55); padding: 5px 9px; flex: none;">OPEN</span>
+        </div>
+        <div data-reveal="rise" data-bay-row="" style="position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 20px; align-items: center; border-top: 1px solid rgba(4,86,62,0.3); padding: 20px 0;">
+          <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #B5551A; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14;">03</span>
+          <span aria-hidden="true" style="height: 1px; background: repeating-linear-gradient(to right, rgba(4,86,62,0.3) 0 5px, transparent 5px 10px);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14; border: 1px solid rgba(181,85,26,0.55); padding: 5px 9px; flex: none;">OPEN</span>
+        </div>
+        <div data-reveal="rise" data-bay-row="" style="position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 20px; align-items: center; border-top: 1px solid rgba(4,86,62,0.3); border-bottom: 1px solid rgba(4,86,62,0.3); padding: 20px 0;">
+          <span data-rule="" aria-hidden="true" style="position: absolute; top: -1px; left: 0; height: 1px; width: 100%; background: #B5551A; transform: scaleX(0); transform-origin: left center; transition: transform 700ms cubic-bezier(.5, 0, .5, 1);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14;">04</span>
+          <span aria-hidden="true" style="height: 1px; background: repeating-linear-gradient(to right, rgba(4,86,62,0.3) 0 5px, transparent 5px 10px);"></span>
+          <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14; border: 1px solid rgba(181,85,26,0.55); padding: 5px 9px; flex: none;">OPEN</span>
+        </div>
+        <p data-mono-meta="" style="margin: 18px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14; line-height: 1.7;">SIGN A LINE AND IT'S YOURS — NAME, SPECIALTY, RATE AND YOUR OWN BOOKING LINK GO RIGHT HERE.</p>
+      </div>
+    </section>
+
+    <!-- ================= TECHNOLOGY — bay screen ================= -->
+    <section id="technology" data-band="" style="position: relative; overflow: hidden; background: #04382A; color: #FDF5E6; background-image: linear-gradient(to right, rgba(242,201,76,0.05) 0 1px, transparent 1px 100%), linear-gradient(to bottom, rgba(242,201,76,0.028) 0 1px, transparent 1px 100%); background-size: 104px 100%, 100% 26px; margin-top: 160px; padding: 112px 0 116px;">
+      <svg data-motif="dispersion" ref="{{ parallaxRef }}" viewBox="0 0 700 700" aria-hidden="true" style="position: absolute; right: -160px; bottom: -140px; top: auto; width: 620px; max-width: 52%; height: auto; pointer-events: none; will-change: transform; opacity: 0.7;">
+        <ellipse cx="350" cy="330" rx="215" ry="128" fill="none" stroke="#F2C94C" stroke-width="1" opacity="0.26"></ellipse>
+        <ellipse cx="350" cy="330" rx="128" ry="76" fill="none" stroke="#F2C94C" stroke-width="1" opacity="0.14"></ellipse>
+        <line x1="350" y1="120" x2="350" y2="540" stroke="#FDF5E6" stroke-width="1" opacity="0.14"></line>
+        <line x1="110" y1="330" x2="590" y2="330" stroke="#FDF5E6" stroke-width="1" opacity="0.14"></line>
+        <g data-dots=""></g>
+      </svg>
+      <div data-tech-grid="" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: 56px; align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <h2 data-reveal="wipe" style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 0.94; letter-spacing: -0.024em; color: #FDF5E6; max-width: 18ch; text-wrap: balance;">Trackman iO in all four bays.</h2>
+          <div role="group" aria-label="Trackman capabilities" style="display: flex; flex-direction: column; margin-top: 22px; border-top: 1px solid rgba(253,245,230,0.28);">
+            <sc-for list="{{ techTabs }}" as="t" hint-placeholder-count="3">
+              <button type="button" aria-pressed="{{ t.on }}" aria-controls="tech-panel" onClick="{{ t.pick }}" style="{{ t.css }}">
+                <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">{{ t.num }}</span>
+                <span style="font-family: 'Archivo', sans-serif; font-size: 17px; font-weight: 700;">{{ t.label }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <div data-reveal="rise" style="position: relative; border: 1.5px solid rgba(242,201,76,0.55); background: #062E22;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(242,201,76,0.4); padding: 12px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">
+            <span>TRACKMAN iO</span><span style="color: #BCCCC2;">{{ techCount }}</span>
+          </div>
+          <div id="tech-panel" aria-live="polite" style="padding: 46px 32px 40px; display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; min-height: 360px;">
+            <sc-for list="{{ techPanels }}" as="p" hint-placeholder-count="1">
+              <div style="{{ p.css }}">
+                <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #BCCCC2;">{{ p.kicker }}</div>
+                <div style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(44px, 6.4vw, 88px); line-height: 0.84; letter-spacing: -0.034em; color: #F2C94C; font-variant-numeric: tabular-nums; text-wrap: balance;">{{ p.val }}</div>
+                <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #FDF5E6; max-width: 46ch; text-wrap: pretty;">{{ p.copy }}</p>
+                <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px;">
+                  <sc-for list="{{ p.chips }}" as="c" hint-placeholder-count="4">
+                    <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #FDF5E6; border: 1px solid rgba(253,245,230,0.4); padding: 6px 10px;">{{ c }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq" data-pad-lg="" style="max-width: 1240px; margin: 0 auto; padding: 160px 20px 0;">
+      <div data-split="" style="display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: 56px; align-items: start;">
+        <div data-faq-anchor="" style="position: sticky; top: 110px;">
+          <h2 data-reveal="wipe" style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(23px, 2.5vw, 30px); line-height: 1.06; letter-spacing: -0.016em;">The seven people ask first.</h2>
+          <p style="margin: 16px 0 0; font-size: 17px; line-height: 1.55; max-width: 34ch;">Everything else — cancellations, group buyouts, what to do if the sim freezes at 2am — is on the <a href="faq.html">full FAQ page</a>.</p>
+        </div>
+        <div>
+          <details data-faq="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How do I get in at 3am?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">01</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">Your booking confirmation email contains a door access link. It activates 10 minutes before your session starts and expires 10 minutes after it ends. Tap the link in the email, the door unlocks, walk in.</p>
+          </details>
+          <details data-faq="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Is anyone actually there?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">02</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">Nope. Par Out is unstaffed by design — that's how we keep the 24/7 hours viable. Cameras are active throughout the facility for everyone's safety.</p>
+          </details>
+          <details data-faq="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Do I need to bring my own clubs?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">03</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">Yes. At this time we don't have loaner clubs. It's something we're actively looking into.</p>
+          </details>
+          <details data-faq="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How many people fit in a bay?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">04</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">Up to 4 players on the simulator per session. The lounge area around each bay seats 4, which is fine for a small group hanging out while a foursome plays. Planning something bigger? <a href="#contact">Reach out</a> and we'll try to work with you.</p>
+          </details>
+          <details data-faq="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Can I bring food? What about alcohol?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">05</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">Food, yes — order a pizza, pack a cooler, grab takeout on the way. Drinks, non-alcoholic only; we're not licensed to serve or allow alcohol on the premises.</p>
+          </details>
+          <details data-faq="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How long should I book for 9 or 18 holes?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">06</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">Rough math: about 30 minutes per person for 9 holes, about an hour per person for 18.</p>
+          </details>
+          <details data-faq="" style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Do I need to be a member to play?<span style="display: flex; align-items: center; gap: 12px; flex: none;"><span data-faq-num="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; transition: color 300ms ease, transform 300ms cubic-bezier(.2,.9,.25,1);">07</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; overflow: visible; transition: transform 420ms cubic-bezier(.16,.84,.3,1);" data-chev=""><path data-chev-path="" d="M3 6 L8 10.5 L13 6" fill="none" stroke="#B5551A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 56ch;">No — anyone can book. Members save $10/hr on every session and get a 30-day advance booking window; the public gets 7 days. <a href="#memberships">Full breakdown here.</a></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JOIN THE LIST ================= -->
+    <section id="join" data-band="" style="background: #04382A; color: #FDF5E6; background-image: linear-gradient(to right, rgba(242,201,76,0.05) 0 1px, transparent 1px 100%), linear-gradient(to bottom, rgba(242,201,76,0.028) 0 1px, transparent 1px 100%); background-size: 104px 100%, 100% 26px; margin-top: 160px; padding: 112px 0 116px;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+        <div>
+          <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">OPENING WINTER '27</div>
+          <h2 data-reveal="wipe" style="margin: 14px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 4.6vw, 64px); line-height: 0.94; letter-spacing: -0.024em;">Get the door link before everyone else.</h2>
+          <p style="margin: 18px 0 0; font-size: 18px; line-height: 1.55; max-width: 40ch;">Booking opens through Alba Play when we do. Leave your email and you'll hear the day tee times go live — plus first call on the 50 Early Bird memberships.</p>
+        </div>
+        <div>
+          <form onSubmit="{{ onJoin }}" style="display: flex; flex-direction: column; gap: 12px; max-width: 460px;">
+            <label for="join-email" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">EMAIL ADDRESS</label>
+            <div data-green="" style="position: relative; padding-bottom: 40px;">
+              <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <input id="join-email" type="email" name="email" required="required" autoComplete="email" inputMode="email" placeholder="you@example.com" style="flex: 1 1 220px; min-width: 0; background: #FDF5E6; border: 0; padding: 15px 16px; font-family: 'Archivo', sans-serif; font-size: 16px; color: #04563E; outline: none;">
+                <button type="submit" style="background: #B5551A; color: #FDF5E6; border: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 15px 26px; border-radius: 999px; cursor: pointer; min-height: 44px; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), color 260ms ease, transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04563E; transform: translateY(-2px);">Join the list</button>
+              </div>
+              <span data-rail="" aria-hidden="true" style="position: absolute; left: 0; right: 15px; bottom: 12px; height: 1px; background: rgba(253,245,230,0.3);"></span>
+              <span data-cup="" aria-hidden="true" style="position: absolute; right: 0; bottom: 6px; width: 15px; height: 15px; border-radius: 999px; background: #062E22; box-shadow: inset 0 2px 5px rgba(0,0,0,0.6); transition: transform 300ms cubic-bezier(.2,.9,.25,1);"></span>
+              <span data-ball="" aria-hidden="true" style="position: absolute; left: 0; bottom: 5px; width: 14px; height: 14px; border-radius: 999px; background-color: #FDF5E6; background-image: radial-gradient(circle at 50% 50%, rgba(4,86,62,0.24) 0 0.85px, rgba(255,255,255,0.85) 0.85px 1.3px, transparent 1.4px), radial-gradient(circle at 50% 50%, rgba(4,86,62,0.24) 0 0.85px, rgba(255,255,255,0.85) 0.85px 1.3px, transparent 1.4px); background-size: 3.4px 3.4px, 3.4px 3.4px; background-position: 0 0, 1.7px 1.7px; box-shadow: inset -1.5px -2px 3.5px rgba(4,86,62,0.3), inset 1.5px 1.5px 2px rgba(255,255,255,0.85); transition: background-color 320ms ease;"></span>
+            </div>
+            <p id="join-status" role="status" aria-live="polite" data-mono-meta="" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; letter-spacing: 0.04em; color: #F2C94C;">{{ joinMsg }}</p>
+          </form>
+          <p data-mono-meta="" style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: #F2C94C;">WE PROMISE TO NOT SPAM YOU. WE WILL LET YOU KNOW WHEN MEMBERSHIPS GO LIVE AND WHEN WE OPEN TO THE PUBLIC.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="visit" style="max-width: 1240px; margin: 0 auto; padding: 56px 20px 0;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+        <div>
+          <div aria-hidden="true" style="border-top: 1px solid rgba(4,86,62,0.35);"></div>
+          <h2 data-reveal="wipe" style="margin: 16px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(23px, 2.5vw, 30px); line-height: 1.06; letter-spacing: -0.016em;">Ten minutes from Albany.</h2>
+          <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.55; max-width: 40ch;">We're on Central Avenue in Colonie, between Wolf Road and Fuller. Park out front. Your access link opens the door.</p>
+          <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px; font-size: 16px;">
+            <div style="border-top: 1px solid #04563E; padding-top: 12px;">1770 Central Avenue<br>Colonie, NY 12205</div>
+            <div style="border-top: 1px solid #04563E; padding-top: 12px;"><a href="mailto:Contact@parout.golf">Contact@parout.golf</a></div>
+            <div style="border-top: 1px solid #04563E; padding-top: 12px;"><a href="tel:+15187273442">(518) 727-3442</a></div>
+          </div>
+        </div>
+        <div data-reveal="rise" style="border: 1.5px solid #04563E;">
+          <div id="pog-map" data-map="" style="height: 320px; background: #EFE3C8;"></div>
+          <div style="border-top: 1.5px solid #04563E; padding: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+            <div>
+              <div style="font-weight: 700; font-size: 16px;">1770 Central Avenue</div>
+              <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; margin-top: 5px;">COLONIE, NY 12205 · 10 MIN FROM ALBANY</div>
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.72790417575961,-73.8459286112816" target="_blank" rel="noopener" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 999px; white-space: nowrap; min-height: 44px; display: flex; align-items: center; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Get directions</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" data-gap-lg="" style="max-width: 1240px; margin: 112px auto 0; padding: 0 20px;">
+      <div style="border-top: 1.5px solid #04563E; padding-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+        <div>
+          <h2 data-reveal="wipe" style="margin: 12px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(23px, 2.5vw, 30px); line-height: 1.06; letter-spacing: -0.016em;">Nobody's at a desk. Somebody reads every message.</h2>
+          <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.55; max-width: 36ch;">Group bookings, coaching, question, or a bay that won't behave. Most messages get an answer within a day.</p>
+        </div>
+        <div>
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div data-contact-stamp="" style="max-width: 520px; border: 1.5px solid #04563E; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px;">
+              <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">{{ sentKicker }}</div>
+              <div style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.06; letter-spacing: -0.020em;">{{ sentTitle }}</div>
+              <div style="position: relative; height: 2px; background: rgba(4,86,62,0.2);"><span data-contact-stamp-rule="" style="position: absolute; inset: 0; background: #B5551A; display: block;"></span></div>
+              <p style="margin: 0; font-size: 17px; line-height: 1.55;">{{ sentBody }}</p>
+              <button type="button" onClick="{{ resetContact }}" data-mono-meta="" style="align-self: flex-start; background: transparent; border: 1.5px solid #04563E; color: #04563E; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; padding: 12px 16px; border-radius: 999px; cursor: pointer; min-height: 44px; transition: border-color 200ms ease, color 200ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">SEND ANOTHER</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onContact }}" style="display: flex; flex-direction: column; gap: 14px; max-width: 520px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+              <div data-contact-field="" style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="c-name" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em;">NAME</label>
+                <input id="c-name" name="name" required="required" autocomplete="name" autocapitalize="words" style="border: 1.5px solid #04563E; background: #FDF5E6; padding: 13px 14px; font-family: 'Archivo', sans-serif; font-size: 16px; color: #04563E;">
+              </div>
+              <div data-contact-field="" style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="c-email" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em;">EMAIL</label>
+                <input id="c-email" name="email" type="email" required="required" autoComplete="email" inputMode="email" spellCheck="false" pattern="[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}" title="Enter a full email address, like you@example.com" placeholder="you@example.com" aria-describedby="c-email-err" onInput="{{ onEmailInput }}" onBlur="{{ onEmailBlur }}" style="border: 1.5px solid #04563E; background: #FDF5E6; padding: 13px 14px; font-family: 'Archivo', sans-serif; font-size: 16px; color: #04563E;">
+                <sc-if value="{{ emailErr }}" hint-placeholder-val="{{ false }}">
+                  <span id="c-email-err" role="alert" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.5; letter-spacing: 0.04em; color: #A24A14;">ENTER A FULL EMAIL ADDRESS — YOU@EXAMPLE.COM</span>
+                </sc-if>
+              </div>
+            </div>
+            <div data-contact-field="" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="c-msg" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em;">MESSAGE</label>
+              <textarea id="c-msg" name="message" rows="4" required="required" style="border: 1.5px solid #04563E; background: #FDF5E6; padding: 13px 14px; font-family: 'Archivo', sans-serif; font-size: 16px; color: #04563E; resize: vertical;"></textarea>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+              <button type="submit" style="background: #B5551A; color: #FDF5E6; border: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 15px 26px; border-radius: 999px; cursor: pointer; min-height: 44px; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Send it</button>
+            </div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.5;">Lands in the Contact@parout.golf inbox.</p>
+          </form>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+
+  <div aria-hidden="true" style="position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0.05; mix-blend-mode: multiply; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div></main>
+
+  <footer style="max-width: 1240px; margin: 112px auto 0; padding: 28px 20px 40px; border-top: 1px solid #04563E; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px 24px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="18" height="31" viewBox="0 0 1222 2107" aria-hidden="true" style="display: block;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
+        <span style="font-weight: 700; font-size: 14px; letter-spacing: 0.11em;">PAR OUT</span>
+      </div>
+      <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br><a href="tel:+15187273442" data-foot-tel="" style="color: #04563E; display: inline-block;">(518) 727-3442</a></div>
+    </div>
+    <div data-foot-nav="" style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+      <a href="#access" style="color: #04563E;">How access works</a>
+      <a href="#rates" style="color: #04563E;">Rates</a>
+      <a href="#memberships" style="color: #04563E;">Memberships</a>
+      <a href="#visit" style="color: #04563E;">Visit</a>
+      <a href="faq.html" style="color: #04563E;">Full FAQ</a>
+      <a href="#contact" style="color: #04563E;">Contact</a>
+      <a href="privacy.html" style="color: #04563E;">Privacy Policy</a>
+      <a href="terms.html" style="color: #04563E;">Terms of Use</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>UNSTAFFED BY DESIGN<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf" data-foot-tel="" style="display: inline-block;">CONTACT@PAROUT.GOLF</a></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM ↗</a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+    <div style="min-width: 0;">
+      <div data-cta-bar-sub="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER '27 · COLONIE, NY</div>
+      <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: #FDF5E6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rates from $25/hr</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex: none;">
+      <a href="#join" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; white-space: nowrap; transition: background-color 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04563E;">Join the list</a>
+      <button type="button" data-cta-dismiss="" aria-label="Dismiss banner" style="background: transparent; border: 1.5px solid rgba(242,201,76,0.5); color: #F2C94C; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1; width: 44px; height: 44px; border-radius: 999px; cursor: pointer; flex: none; transition: border-color 260ms ease, color 260ms ease;" style-hover="border-color: #F2C94C; color: #FDF5E6;">✕</button>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[BOOKING_URL]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
+class Component extends DCLogic {
+  state = { techTab: 0, view: 'public', joinState: 'idle', joinErr: '', sent: false, sentVia: '', sending: false, emailErr: false, picks: {} };
+
+  /* Delivery. With a formEndpoint set, both forms POST to it and only claim
+     success on a 2xx. With no endpoint (or a failed POST) we hand off to the
+     visitor's mail client with the message prefilled — nothing is silently
+     dropped, and nothing says "sent" that wasn't. */
+  postForm(kind, data) {
+    const url = (this.props.formEndpoint || '').trim();
+    if (!url) return Promise.reject(new Error('no endpoint'));
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(Object.assign({ form: kind, page: 'homepage' }, data))
+    }).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return true; });
+  }
+
+  mailHandoff(subject, body) {
+    window.location.href = 'mailto:Contact@parout.golf?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  BALLOT = [
+    { key: 'format', num: '01', label: 'Format you would prefer', opts: ['Stroke play', 'Scramble', 'Competitive'] },
+    { key: 'team', num: '02', label: 'Team or solo', opts: ['2-Person team', '4-Person team', 'Solo', 'Pair me up'] },
+    { key: 'season', num: '03', label: 'Season length', opts: ['6 weeks', '8 weeks', '12 weeks'] },
+    { key: 'prize', num: '04', label: 'Prize structure', opts: ['Weekly prize', 'End-of-season purse', 'Credit', 'Trophy'] }
+  ];
+
+  toggleBallot(key, opt) {
+    this.setState(s => {
+      const cur = s.picks[key] || [];
+      const next = cur.includes(opt) ? cur.filter(x => x !== opt) : cur.concat([opt]);
+      return { picks: Object.assign({}, s.picks, { [key]: next }) };
+    });
+  }
+
+  chipCss(on) {
+    return [
+      "font-family: 'Archivo', sans-serif", 'font-size: 15px', 'font-weight: 700',
+      'padding: 11px 16px', 'min-height: 44px', 'border-radius: 999px', 'cursor: pointer',
+      'transition: background-color 220ms ' + this.HEAVY + ', color 220ms ease, border-color 220ms ease, transform 220ms ' + this.HEAVY,
+      on ? 'background: #04563E' : 'background: transparent',
+      on ? 'color: #FDF5E6' : 'color: #04563E',
+      on ? 'border: 1.5px solid #04563E' : 'border: 1.5px solid rgba(4,86,62,0.4)',
+      on ? 'transform: translateY(-1px)' : 'transform: none'
+    ].join('; ');
+  }
+
+  ballotVals() {
+    const picks = this.state.picks;
+    const groups = this.BALLOT.map(g => ({
+      num: g.num,
+      label: g.label,
+      opts: g.opts.map(o => {
+        const on = (picks[g.key] || []).includes(o);
+        return { text: o, on, css: this.chipCss(on), pick: () => this.toggleBallot(g.key, o) };
+      })
+    }));
+    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length;
+    const note = (this.state.ballotNote || '').trim();
+    const body = this.BALLOT.map(g => g.label + '\n' + ((picks[g.key] || []).join(', ') || '—')).join('\n\n');
+    return {
+      ballotNote: this.state.ballotNote || '',
+      setBallotNote: e => this.setState({ ballotNote: e.target.value }),
+      ballotGroups: groups,
+      ballotProgress: answered + ' OF 4 ANSWERED',
+      ballotHint: answered === 4 ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
+      ballotMailto: 'mailto:leagues@parout.golf?subject=' + encodeURIComponent('League card') + '&body=' + encodeURIComponent(body + "\n\nAnything we didn't ask\n" + (note || '—') + "\n\nAnything that made a past league work:\n")
+    };
+  }
+
+  HEAVY = 'cubic-bezier(.16,.84,.3,1)';
+  TENS = { peak: { public: 6, member: 5 }, offpeak: { public: 5, member: 4 }, night: { public: 3, member: 2 } };
+
+  validEmail(v) { return /^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test((v || '').trim()); }
+
+  componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.motionOn = this.props.motion !== false && !this.reduced;
+    this._lastView = this.state.view;
+    this.setReels(false);
+    this.syncToggle(false);
+    this.initReveals();
+    this.initFaq();
+    this.initMagnets();
+    this.initPutt();
+    this.initMenu();
+    this.initCtaBar();
+    this.initHeaderHide();
+    this.buildClock();
+    this.buildDispersion();
+    this.initMotifs();
+    this.initScroll();
+    this.lazyMap();
+    this.jumpToHash();
+  }
+
+  /* The page mounts client-side, so the browser's own hash jump fires before
+     the target exists. Re-run it once the DOM is here. */
+  jumpToHash() {
+    const id = (window.location.hash || '').slice(1);
+    if (!id) return;
+    const go = () => {
+      const el = document.getElementById(decodeURIComponent(id));
+      if (!el) return false;
+      const prev = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 150;
+      window.scrollTo(0, Math.max(0, top));
+      document.documentElement.style.scrollBehavior = prev;
+      return true;
+    };
+    requestAnimationFrame(() => { if (!go()) setTimeout(go, 300); });
+  }
+
+  componentDidUpdate() {
+    if (this._lastView === this.state.view) return;
+    this._lastView = this.state.view;
+    requestAnimationFrame(() => {
+      this.syncToggle(true);
+      this.setReels(this.motionOn);
+      this.flipLabel();
+    });
+  }
+
+  /* ---------- reveals: headings wipe, groups rise ---------- */
+
+  /* Visible is the default state. Elements are hidden ONLY at the moment we
+     take ownership of them, and a rAF scroll tick — not a one-shot timer — is
+     the authority on releasing them, so nothing can strand off-screen. */
+  initReveals() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const rules = Array.from(document.querySelectorAll('[data-rule]'));
+    this.armed = [];
+    this.rules = rules;
+    /* The wipe runs at every width — it is the section's signature. Only a
+       reduced-motion preference retires it. */
+    this.ruleWipe = this.motionOn;
+    if (!this.ruleWipe) { this.drawRules(); return; }
+    const groups = new Map();
+    els.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const rule = el.querySelector('[data-rule]');
+      /* Already on screen at mount: no reveal to hang a wipe on, so the rule
+         is snapped, not transitioned. Letting it transition here fired every
+         in-view rule at once on load — the clunk. */
+      if (r.top < window.innerHeight * 0.92) {
+        if (rule) {
+          rule.dataset.drawn = '1';
+          rule.style.transition = 'none';
+          rule.style.transform = 'scaleX(1)';
+        }
+        return;
+      }
+      if (rule && this.ruleWipe) { rule.style.transform = 'scaleX(0)'; rule.style.willChange = 'transform'; }
+      const key = el.closest('section') || document.body;
+      const i = groups.get(key) || 0;
+      groups.set(key, i + 1);
+      el.dataset.revealDelay = String(Math.min(i, 5) * 80);
+      const wipe = el.getAttribute('data-reveal') === 'wipe';
+      el.dataset.revealArmed = '1';
+      if (wipe) {
+        el.style.clipPath = 'inset(102% 0 0 0)';
+        el.style.transform = 'translateY(10px)';
+        el.style.transition = 'clip-path 820ms ' + this.HEAVY + ', transform 820ms ' + this.HEAVY;
+      } else {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(12px)';
+        el.style.transition = 'opacity 620ms ' + this.HEAVY + ', transform 620ms ' + this.HEAVY;
+      }
+      this.armed.push(el);
+    });
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) this.release(e.target); });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+      this.armed.forEach(el => this.io.observe(el));
+    }
+    this.checkReveals();
+  }
+
+  release(el) {
+    if (!el || el.dataset.revealArmed !== '1') return;
+    el.dataset.revealArmed = '0';
+    const d = parseInt(el.dataset.revealDelay || '0', 10);
+    el.style.transitionDelay = d + 'ms';
+    el.style.opacity = '1';
+    el.style.clipPath = 'inset(0 0 0 0)';
+    el.style.transform = 'none';
+    /* The rule waits for the row to finish rising. Overlapping the two meant a
+       1px line scaling inside a parent that was itself translating — the line
+       tracked diagonally, then snapped. Sequenced, it reads as one gesture. */
+    const rule = el.querySelector('[data-rule]');
+    if (rule && this.ruleWipe) {
+      const go = () => {
+        if (rule.dataset.drawn === '1') return;
+        rule.dataset.drawn = '1';
+        rule.style.transform = 'scaleX(1)';
+        setTimeout(() => { rule.style.willChange = 'auto'; }, 820);
+      };
+      const onEnd = ev => {
+        if (ev.target !== el || ev.propertyName !== 'transform') return;
+        el.removeEventListener('transitionend', onEnd);
+        go();
+      };
+      el.addEventListener('transitionend', onEnd);
+      setTimeout(go, d + 700);
+    }
+    setTimeout(() => { el.style.transitionDelay = '0ms'; el.style.clipPath = 'none'; }, d + 900);
+    if (this.io) this.io.unobserve(el);
+    this.armed = this.armed.filter(x => x !== el);
+  }
+
+  /* Paint every rule in its finished state and retire the wipe. */
+  drawRules() {
+    (this.rules || []).forEach(r => {
+      r.dataset.drawn = '1';
+      r.style.transition = 'none';
+      r.style.transform = 'scaleX(1)';
+      r.style.willChange = 'auto';
+    });
+  }
+
+  checkReveals() {
+    if (!this.armed || !this.armed.length) return;
+    const h = window.innerHeight;
+    this.armed.slice().forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < h * 0.94) this.release(el);
+    });
+  }
+
+  /* ---------- scoreboard rates ---------- */
+
+  syncToggle(animate) {
+    const pill = document.querySelector('[data-pill]');
+    const active = document.querySelector('[data-rate-btn="' + this.state.view + '"]');
+    if (!pill || !active) return;
+    if (!animate) pill.style.transition = 'none';
+    pill.style.width = active.offsetWidth + 'px';
+    pill.style.transform = 'translateX(' + active.offsetLeft + 'px)';
+    if (!animate) {
+      void pill.getBoundingClientRect();
+      pill.style.transition = 'transform 480ms ' + this.HEAVY + ', width 480ms ' + this.HEAVY;
+    }
+    document.querySelectorAll('[data-rate-btn]').forEach(b => {
+      b.style.color = b.getAttribute('data-rate-btn') === this.state.view ? '#FDF5E6' : '#04563E';
+    });
+  }
+
+  setReels(animate) {
+    ['peak', 'offpeak', 'night'].forEach((k, i) => {
+      const strip = document.querySelector('[data-reel="' + k + '"] [data-reel-strip]');
+      if (!strip) return;
+      const d = this.TENS[k][this.state.view];
+      strip.style.transition = animate
+        ? 'transform 700ms ' + this.HEAVY + ' ' + (i * 90) + 'ms'
+        : 'none';
+      strip.style.transform = 'translateY(-' + d + 'em)';
+    });
+  }
+
+  flipLabel() {
+    const el = document.querySelector('[data-col-label]');
+    if (!el || !this.motionOn) return;
+    el.style.transition = 'none';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-7px)';
+    void el.getBoundingClientRect();
+    el.style.transition = 'opacity 320ms ease 60ms, transform 460ms ' + this.HEAVY + ' 60ms';
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  }
+
+  /* ---------- FAQ ---------- */
+
+  initFaq() {
+    document.querySelectorAll('details[data-faq]').forEach(d => {
+      if (d.dataset.faqBound) return;
+      d.dataset.faqBound = '1';
+      const chev = d.querySelector('[data-chev]');
+      const path = d.querySelector('[data-chev-path]');
+      const num = d.querySelector('[data-faq-num]');
+      const body = d.querySelector('p');
+      if (!path) return;
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      d.addEventListener('toggle', () => {
+        path.style.transition = 'none';
+        path.style.strokeDashoffset = len;
+        void path.getBoundingClientRect();
+        path.style.transition = 'stroke-dashoffset 440ms ' + this.HEAVY;
+        path.style.strokeDashoffset = '0';
+        chev.style.transform = d.open ? 'rotate(180deg)' : 'rotate(0deg)';
+        if (num) {
+          num.style.color = d.open ? '#B5551A' : '#04563E';
+          num.style.transform = d.open ? 'translateY(-2px)' : 'none';
+        }
+        if (body && d.open && this.motionOn) {
+          body.style.transition = 'none';
+          body.style.transform = 'translateY(-5px)';
+          void body.getBoundingClientRect();
+          body.style.transition = 'transform 420ms ' + this.HEAVY;
+          body.style.transform = 'none';
+        }
+      });
+    });
+  }
+
+  /* ---------- card magnets ---------- */
+
+  initMagnets() {
+    if (!this.motionOn || !window.matchMedia('(hover: hover)').matches) return;
+    document.querySelectorAll('[data-magnet]').forEach(card => {
+      const glow = card.querySelector('[data-glow]');
+      const rest = card.dataset.magnetRest || 'rgba(4,86,62,0.45)';
+      const hot = card.dataset.magnetHover || '#04563E';
+      const rgb = card.dataset.glowRgb || '181,85,26';
+      if (glow) glow.style.transition = 'opacity 700ms cubic-bezier(.4,0,.2,1)';
+      let tx = 0, ty = 0, cx = 0, cy = 0, tx2 = 0, ty2 = 0, gx = null, gy = null, raf = null, inside = false;
+      const frame = () => {
+        cx += (tx - cx) * 0.09; cy += (ty - cy) * 0.09;
+        if (gx !== null) { gx += (tx2 - gx) * 0.07; gy += (ty2 - gy) * 0.07; }
+        card.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0)';
+        if (glow && gx !== null) {
+          glow.style.background = 'radial-gradient(440px circle at ' + gx.toFixed(0) + 'px ' + gy.toFixed(0) + 'px, rgba(' + rgb + ',0.055), rgba(' + rgb + ',0) 72%)';
+        }
+        if (Math.abs(tx - cx) < 0.01 && Math.abs(ty - cy) < 0.01 && !inside) {
+          raf = null; card.style.transform = 'none';
+        } else { raf = requestAnimationFrame(frame); }
+      };
+      const start = () => { if (!raf) raf = requestAnimationFrame(frame); };
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        inside = true; tx2 = x; ty2 = y;
+        if (gx === null) { gx = x; gy = y; }
+        tx = ((x / r.width) - 0.5) * 1.6; ty = ((y / r.height) - 0.5) * 1.6;
+        card.style.transition = 'border-color 700ms cubic-bezier(.4,0,.2,1)';
+        card.style.borderColor = hot;
+        if (glow) glow.style.opacity = '1';
+        start();
+      });
+      card.addEventListener('pointerleave', () => {
+        inside = false; tx = 0; ty = 0;
+        card.style.transition = 'border-color 900ms cubic-bezier(.4,0,.2,1)';
+        card.style.borderColor = rest;
+        if (glow) glow.style.opacity = '0';
+        start();
+      });
+    });
+  }
+
+
+  /* ---------- join the list: putt it in ---------- */
+
+  initPutt() {
+    const green = document.querySelector('[data-green]');
+    if (!green) return;
+    const ball = green.querySelector('[data-ball]');
+    const cup = green.querySelector('[data-cup]');
+    const input = green.querySelector('#join-email');
+    const form = green.closest('form');
+    let x = 0, target = 0, sunk = false, ease = 0.16, tilt = 0, lastLen = 0;
+
+    const bounds = () => green.getBoundingClientRect().width - 40;
+    // rolls rather than slides: circumference of a 14px ball ≈ 44px per turn
+    const place = () => { ball.style.transform = 'translateX(' + x.toFixed(1) + 'px) rotate(' + (x * 8.2 + tilt).toFixed(1) + 'deg)'; };
+
+    if (this.motionOn) {
+      const tick = () => {
+        if (!sunk && !document.hidden && this.inView(green)) { x += (target - x) * ease; place(); }
+        this.puttRaf = requestAnimationFrame(tick);
+      };
+      this.puttRaf = requestAnimationFrame(tick);
+    }
+
+    // ball creeps toward the cup as the address is typed — one nudge per character,
+    // losing steam as it goes; the last stretch is reserved for a valid address
+    input.addEventListener('input', () => {
+      const ok = this.validEmail(input.value);
+      const len = input.value.length;
+      const back = len < lastLen;
+      lastLen = len;
+      ball.style.backgroundColor = ok ? '#F2C94C' : '#FDF5E6';
+      const t = Math.min(len, 20) / 20;
+      const decel = 1 - Math.pow(1 - t, 2.4);   // fast early, creeping at the end
+      target = bounds() * (ok ? 0.8 : decel * 0.66);
+      ease = back ? 0.34 : 0.14;                 // undo retreats quicker than it rolls
+      if (!this.motionOn) { x = target; place(); return; }
+      if (back) { tilt -= 5; return; }
+      const hop = ok ? 7 : 2.4 + Math.random() * 2.6;
+      tilt += (Math.random() - 0.5) * 9;
+      ball.animate([{ marginBottom: '0px' }, { marginBottom: hop.toFixed(1) + 'px' }, { marginBottom: '0px' }],
+        { duration: ok ? 360 : 180 + Math.random() * 90, easing: 'ease-out' });
+    });
+
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      if (!this.motionOn) return;
+      const end = bounds() + 27;
+      if (!this.validEmail(input.value)) {
+        ball.animate([
+          { transform: 'translateX(' + x.toFixed(1) + 'px) rotate(' + (x * 8.2 + tilt).toFixed(1) + 'deg)' },
+          { transform: 'translateX(' + (end - 4) + 'px) translateY(-6px) rotate(' + ((end - 4) * 8.2).toFixed(1) + 'deg)' },
+          { transform: 'translateX(' + (end + 16) + 'px) translateY(0) rotate(' + ((end + 16) * 8.2).toFixed(1) + 'deg)' }
+        ], { duration: 720, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = () => { x = 0; target = 0; tilt = 0; lastLen = input.value.length; place(); };
+        return;
+      }
+      sunk = true;
+      ball.animate([
+        { transform: 'translateX(' + x.toFixed(1) + 'px) rotate(' + (x * 8.2 + tilt).toFixed(1) + 'deg) scale(1)' },
+        { transform: 'translateX(' + end + 'px) rotate(' + (end * 8.2).toFixed(1) + 'deg) scale(1)', offset: 0.72 },
+        { transform: 'translateX(' + end + 'px) rotate(' + (end * 8.2).toFixed(1) + 'deg) scale(0.2)', opacity: 0.2 }
+      ], { duration: 820, easing: 'cubic-bezier(.3,.8,.2,1)', fill: 'forwards' });
+      setTimeout(() => {
+        cup.style.transform = 'scale(1.25)';
+        setTimeout(() => { cup.style.transform = 'scale(1)'; }, 260);
+      }, 640);
+    });
+  }
+
+  /* ---------- menu with focus trap ---------- */
+
+  initMenu() {
+    const panel = document.querySelector('[data-menu]');
+    const btn = document.querySelector('[data-menu-btn]');
+    const bar = document.querySelector('[data-cta-bar]');
+    if (!panel) return;
+    const items = panel.querySelectorAll('[data-menu-item]');
+    items.forEach(a => { a.style.transition = 'opacity 420ms ease, transform 460ms ' + this.HEAVY; });
+
+    const focusables = () => Array.from(panel.querySelectorAll('a[href], button')).filter(el => el.offsetParent !== null);
+
+    /* iOS Safari ignores `body { overflow: hidden }` for touch scrolling and
+       loses the scroll position, so we pin the body at a negative offset and
+       restore it on close — the page comes back exactly where it was. */
+    this.closeMenu = () => {
+      panel.style.opacity = '0';
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      this.menuTimer = setTimeout(() => { panel.style.display = 'none'; panel.scrollTop = 0; }, 280);
+      const b = document.body;
+      b.style.position = '';
+      b.style.top = '';
+      b.style.left = '';
+      b.style.right = '';
+      b.style.width = '';
+      b.style.overflow = '';
+      if (this.lockY != null) {
+        const prev = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, this.lockY);
+        const se = document.scrollingElement;
+        if (se && Math.abs(se.scrollTop - this.lockY) > 2) se.scrollTop = this.lockY;
+        document.documentElement.style.scrollBehavior = prev;
+        this.lockY = null;
+      }
+      if (bar) { bar.style.display = 'flex'; bar.removeAttribute('aria-hidden'); }
+      this.menuOpen = false;
+      if (btn) btn.focus();
+    };
+    this.showMenu = () => {
+      clearTimeout(this.menuTimer);
+      panel.style.display = 'flex';
+      panel.scrollTop = 0;
+      this.lockY = window.scrollY || window.pageYOffset || (document.scrollingElement ? document.scrollingElement.scrollTop : 0) || 0;
+      const b = document.body;
+      b.style.position = 'fixed';
+      b.style.top = (-this.lockY) + 'px';
+      b.style.left = '0';
+      b.style.right = '0';
+      b.style.width = '100%';
+      b.style.overflow = 'hidden';
+      if (bar) { bar.style.display = 'none'; bar.setAttribute('aria-hidden', 'true'); }
+      this.menuOpen = true;
+      items.forEach(a => { a.style.transition = 'none'; a.style.opacity = '0'; a.style.transform = 'translateY(16px)'; });
+      void panel.getBoundingClientRect();
+      panel.style.opacity = '1';
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+      items.forEach((a, i) => {
+        const t = 90 + i * 60;
+        a.style.transition = 'opacity 420ms ease ' + t + 'ms, transform 500ms ' + this.HEAVY + ' ' + t + 'ms';
+        a.style.opacity = '1';
+        a.style.transform = 'none';
+      });
+      const close = panel.querySelector('[data-menu-close]');
+      if (close) close.focus();
+    };
+    panel.querySelector('[data-menu-close]').addEventListener('click', this.closeMenu);
+    /* An in-page link must NOT restore the saved offset — the hash jump owns
+       where we land. Drop the lock position first, then unpin. */
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if ((a.getAttribute('href') || '').charAt(0) === '#') this.lockY = null;
+      this.closeMenu();
+    }));
+    this.onKey = e => {
+      if (!this.menuOpen) return;
+      if (e.key === 'Escape') { this.closeMenu(); return; }
+      if (e.key !== 'Tab') return;
+      const f = focusables();
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    document.addEventListener('keydown', this.onKey);
+  }
+
+  initCtaBar() {
+    const bar = document.querySelector('[data-cta-bar]');
+    const btn = bar && bar.querySelector('[data-cta-dismiss]');
+    if (!bar || !btn) return;
+    btn.addEventListener('click', () => {
+      bar.style.transform = 'translateY(110%)';
+      setTimeout(() => { bar.style.display = 'none'; }, 440);
+      const root = bar.parentElement;
+      if (root) root.style.paddingBottom = '0px';
+    });
+  }
+
+  /* ---------- motifs ---------- */
+
+  motifSvg(name) { return document.querySelector('[data-motif="' + name + '"]'); }
+
+  /* Driven by the same rAF scroll tick as the reveals — the one authority
+     proven to fire here. playMotif is idempotent via this.played. */
+  initMotifs() {
+    this.initArcs();
+    this.played = {};
+    if (!this.motionOn) {
+      ['clock', 'dispersion'].forEach(n => { this.played[n] = true; this.playMotif(n); });
+      return;
+    }
+    this.checkMotifs();
+  }
+
+  checkMotifs() {
+    ['clock', 'dispersion'].forEach(n => {
+      if (this.played[n]) return;
+      const el = this.motifSvg(n);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9) {
+        this.played[n] = true;
+        this.playMotif(n);
+      }
+    });
+  }
+
+  initArcs() {
+    const svg = this.motifSvg('arcs');
+    if (!svg) return;
+    const balls = Array.from(svg.querySelectorAll('[data-ball]'));
+    this.arcs = Array.from(svg.querySelectorAll('[data-draw]')).map((p, i) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      p.style.transition = 'none';
+      return { p, len, ball: balls[i] };
+    });
+    if (!this.motionOn) {
+      this.arcs.forEach(a => {
+        a.p.style.strokeDashoffset = '0';
+        if (a.ball) {
+          const pt = a.p.getPointAtLength(a.len);
+          a.ball.setAttribute('cx', pt.x.toFixed(1));
+          a.ball.setAttribute('cy', pt.y.toFixed(1));
+          a.ball.style.opacity = '0.75';
+        }
+      });
+      return;
+    }
+    this.paintArcs(this.arcProgress());
+    requestAnimationFrame(() => {
+      this.arcs.forEach(a => { a.p.style.transition = 'stroke-dashoffset 180ms linear'; });
+    });
+  }
+
+  arcProgress() {
+    const svg = this.motifSvg('arcs');
+    if (!svg || !svg.parentElement) return 0;
+    const hero = svg.parentElement.getBoundingClientRect();
+    const travel = Math.max(1, Math.min(window.innerHeight * 0.45, hero.height * 0.35));
+    return Math.max(0, Math.min(1, -hero.top / travel));
+  }
+
+  paintArcs(p) {
+    if (!this.arcs) return;
+    const n = this.arcs.length;
+    this.arcs.forEach((a, i) => {
+      const stagger = 0.1;
+      const span = 1 - stagger * (n - 1);
+      const t = Math.max(0, Math.min(1, (p - i * stagger) / span));
+      const e = 1 - Math.pow(1 - t, 2);
+      a.p.style.strokeDashoffset = (a.len * (1 - e)).toFixed(1);
+      if (a.ball) {
+        if (e <= 0.001) { a.ball.style.opacity = '0'; return; }
+        const pt = a.p.getPointAtLength(a.len * e);
+        a.ball.setAttribute('cx', pt.x.toFixed(1));
+        a.ball.setAttribute('cy', pt.y.toFixed(1));
+        a.ball.style.opacity = (e >= 0.999 ? 0.75 : 1).toFixed(2);
+      }
+    });
+  }
+
+  buildClock() {
+    const svg = this.motifSvg('clock');
+    if (!svg) return;
+    const g = svg.querySelector('[data-ticks]');
+    if (g.childElementCount) return;
+    g.innerHTML = '';
+    const hour = new Date().getHours();
+    const NS = 'http://www.w3.org/2000/svg';
+    for (let i = 0; i < 24; i++) {
+      const a = (i / 24) * Math.PI * 2 - Math.PI / 2;
+      const isNow = i === hour;
+      const major = i % 6 === 0;
+      const r1 = 196, r2 = isNow ? 166 : major ? 178 : 186;
+      const l = document.createElementNS(NS, 'line');
+      l.setAttribute('x1', (250 + Math.cos(a) * r1).toFixed(2));
+      l.setAttribute('y1', (250 + Math.sin(a) * r1).toFixed(2));
+      l.setAttribute('x2', (250 + Math.cos(a) * r2).toFixed(2));
+      l.setAttribute('y2', (250 + Math.sin(a) * r2).toFixed(2));
+      l.setAttribute('stroke', isNow ? '#B5551A' : '#F2C94C');
+      l.setAttribute('stroke-width', isNow ? '2.5' : '1');
+      l.setAttribute('opacity', '0');
+      l.setAttribute('data-tick', isNow ? 'now' : '');
+      g.appendChild(l);
+    }
+    const hand = svg.querySelector('[data-hand]');
+    const a = (hour / 24) * Math.PI * 2 - Math.PI / 2;
+    hand.setAttribute('cx', (250 + Math.cos(a) * 196).toFixed(2));
+    hand.setAttribute('cy', (250 + Math.sin(a) * 196).toFixed(2));
+    hand.style.transformOrigin = '250px 250px';
+  }
+
+  buildDispersion() {
+    const svg = this.motifSvg('dispersion');
+    if (!svg) return;
+    const g = svg.querySelector('[data-dots]');
+    if (g.childElementCount) return;
+    g.innerHTML = '';
+    const NS = 'http://www.w3.org/2000/svg';
+    let seed = 20260906;
+    const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+    const gauss = () => (rnd() + rnd() + rnd() + rnd() - 2) / 2;
+    for (let i = 0; i < 46; i++) {
+      const x = 350 + gauss() * 150;
+      const y = 330 + gauss() * 88;
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', x.toFixed(1));
+      c.setAttribute('cy', y.toFixed(1));
+      c.setAttribute('r', (2.2 + rnd() * 2).toFixed(1));
+      c.setAttribute('fill', i % 7 === 0 ? '#F2C94C' : '#FDF5E6');
+      c.setAttribute('opacity', '0');
+      c.setAttribute('data-dot', '');
+      g.appendChild(c);
+    }
+  }
+
+  playMotif(name) {
+    if (name === 'clock') {
+      const svg = this.motifSvg('clock');
+      const ticks = svg.querySelectorAll('[data-tick]');
+      const hand = svg.querySelector('[data-hand]');
+      ticks.forEach((t, i) => {
+        t.style.transition = 'opacity 420ms ease ' + (this.motionOn ? i * 34 : 0) + 'ms';
+        t.style.opacity = t.getAttribute('data-tick') === 'now' ? '0.95' : '0.45';
+      });
+      hand.style.transform = 'rotate(-90deg)';
+      void svg.getBoundingClientRect();
+      hand.style.transition = 'opacity 600ms ease 800ms, transform 1200ms ' + this.HEAVY + ' 700ms';
+      hand.style.opacity = '0.95';
+      hand.style.transform = 'rotate(0deg)';
+      const sec = svg.querySelector('[data-sec]');
+      if (sec) {
+        sec.style.transformOrigin = '250px 250px';
+        sec.style.transition = 'opacity 700ms ease ' + (this.motionOn ? 1750 : 0) + 'ms';
+        sec.style.opacity = '0.5';
+        this.startSeconds();
+      }
+    }
+    if (name === 'dispersion') {
+      const dots = this.motifSvg('dispersion').querySelectorAll('[data-dot]');
+      dots.forEach((d, i) => {
+        const delay = this.motionOn ? 60 + i * 26 : 0;
+        d.style.transformOrigin = d.getAttribute('cx') + 'px ' + d.getAttribute('cy') + 'px';
+        d.style.transform = 'scale(2.4)';
+        void d.getBoundingClientRect();
+        d.style.transition = 'opacity 320ms ease ' + delay + 'ms, transform 520ms ' + this.HEAVY + ' ' + delay + 'ms';
+        d.style.opacity = i % 7 === 0 ? '0.42' : '0.24';
+        d.style.transform = 'scale(1)';
+      });
+    }
+  }
+
+  inView(el, pad) {
+    if (!el) return false;
+    const r = el.getBoundingClientRect();
+    const p = pad == null ? 120 : pad;
+    return r.bottom > -p && r.top < window.innerHeight + p;
+  }
+
+  /* The seconds hand only runs while the clock is actually on screen and the
+     tab is visible; the scroll tick and visibilitychange restart it. */
+  startSeconds = () => {
+    if (!this.motionOn || this.secRaf || document.hidden) return;
+    if (!this.played || !this.played.clock) return;
+    const svg = this.motifSvg('clock');
+    if (!svg || !this.inView(svg)) return;
+    this.secRaf = requestAnimationFrame(this.sweepSeconds);
+  };
+
+  sweepSeconds = () => {
+    const svg = this.motifSvg('clock');
+    const sec = svg && svg.querySelector('[data-sec]');
+    if (!sec || document.hidden || !this.inView(svg)) { this.secRaf = null; return; }
+    const d = new Date();
+    sec.style.transform = 'rotate(' + ((d.getSeconds() + d.getMilliseconds() / 1000) / 60) * 360 + 'deg)';
+    this.secRaf = requestAnimationFrame(this.sweepSeconds);
+  };
+
+  /* ---------- one rAF-throttled scroll loop ---------- */
+
+  initScroll() {
+    if (!this.motionOn) return;
+    const tick = () => {
+      this.scrollRaf = null;
+      this.checkReveals();
+      this.checkMotifs();
+      this.startSeconds();
+      this.paintArcs(this.arcProgress());
+      this.headerHide();
+      const el = this.parallaxEl;
+      if (el && el.parentElement) {
+        const r = el.parentElement.getBoundingClientRect();
+        const p = Math.max(0, Math.min(1, (window.innerHeight - r.top) / (window.innerHeight + r.height)));
+        el.style.transform = 'translate3d(0,' + (p * 120 - 60).toFixed(1) + 'px,0)';
+      }
+    };
+    this.onScroll = () => { if (!this.scrollRaf) this.scrollRaf = requestAnimationFrame(tick); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll, { passive: true });
+    this.onVis = () => { if (document.hidden) { if (this.secRaf) { cancelAnimationFrame(this.secRaf); this.secRaf = null; } } else this.startSeconds(); };
+    document.addEventListener('visibilitychange', this.onVis);
+    tick();
+  }
+
+  /* ---------- map, loaded only when needed ---------- */
+
+  /* Leaflet + OSM tiles are ~140KB, so they load on approach rather than
+     at first paint — 400px of rootMargin means it's ready before it's seen. */
+  lazyMap() {
+    const host = document.getElementById('pog-map');
+    if (!host) return;
+    const start = () => this.loadLeaflet().then(() => this.initMap());
+    if (!('IntersectionObserver' in window)) { start(); return; }
+    this.mapIo = new IntersectionObserver(entries => {
+      if (!entries.some(e => e.isIntersecting)) return;
+      this.mapIo.disconnect();
+      start();
+    }, { rootMargin: '400px 0px' });
+    this.mapIo.observe(host);
+  }
+
+  /* Analytics hook. Works with Plausible, Fathom, or GA4 — whichever is
+     on the page. Silent no-op when none is. */
+  track(name, params) {
+    try {
+      if (typeof window.plausible === 'function') window.plausible(name, params ? { props: params } : undefined);
+      if (window.fathom && typeof window.fathom.trackEvent === 'function') window.fathom.trackEvent(name);
+      if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+      if (typeof window.clarity === 'function') window.clarity('event', name);
+    } catch (e) { /* analytics must never break the page */ }
+  }
+
+  loadLeaflet() {
+    if (this.leafletPromise) return this.leafletPromise;
+    this.leafletPromise = new Promise(resolve => {
+      if (window.L) { resolve(); return; }
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = './assets/leaflet.css';
+      document.head.appendChild(css);
+      const js = document.createElement('script');
+      js.src = './assets/leaflet.js';
+      js.onload = () => resolve();
+      js.onerror = () => resolve();
+      document.head.appendChild(js);
+    });
+    return this.leafletPromise;
+  }
+
+  initMap() {
+    const el = document.getElementById('pog-map');
+    if (!window.L || !el || this.map || el._leaflet_id) return;
+    const site = [42.72790417575961, -73.8459286112816];
+    this.map = L.map(el, { center: site, zoom: 16, scrollWheelZoom: false });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors', maxZoom: 19
+    }).addTo(this.map);
+    L.circleMarker(site, { radius: 9, color: '#FDF5E6', weight: 3, fillColor: '#B5551A', fillOpacity: 1 })
+      .addTo(this.map).bindPopup('Par Out Golf — 1770 Central Ave');
+    setTimeout(() => this.map && this.map.invalidateSize(), 250);
+  }
+
+  /* Sticky header + sticky CTA bar together claim ~130px of a phone screen.
+     Below 880px the header retreats on scroll-down and returns on scroll-up;
+     desktop and reduced-motion keep it pinned. */
+  initHeaderHide() {
+    this.headerEl = document.querySelector('[data-header]');
+    this.headerLastY = window.scrollY || 0;
+    this.headerOff = false;
+  }
+
+  headerHide() {
+    const el = this.headerEl;
+    if (!el || !this.motionOn) return;
+    const y = Math.max(0, window.scrollY || 0);
+    const d = y - this.headerLastY;
+    if (window.innerWidth > 880) {
+      if (this.headerOff) { el.style.transform = 'translateY(0)'; this.headerOff = false; }
+      this.headerLastY = y;
+      return;
+    }
+    const menuOpen = document.body.style.overflow === 'hidden';
+    if (!menuOpen && y > 260 && d > 6 && !this.headerOff) {
+      el.style.transform = 'translateY(-100%)';
+      this.headerOff = true;
+    } else if ((d < -6 || y < 260 || menuOpen) && this.headerOff) {
+      el.style.transform = 'translateY(0)';
+      this.headerOff = false;
+    }
+    if (Math.abs(d) > 2) this.headerLastY = y;
+  }
+
+  componentWillUnmount() {
+    if (this.secRaf) cancelAnimationFrame(this.secRaf);
+    if (this.puttRaf) cancelAnimationFrame(this.puttRaf);
+    if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
+    if (this.onVis) document.removeEventListener('visibilitychange', this.onVis);
+    if (this.menuTimer) clearTimeout(this.menuTimer);
+    if (this.map) { this.map.remove(); this.map = null; }
+    if (this.io) this.io.disconnect();
+    if (this.mapIo) this.mapIo.disconnect();
+    if (this.onKey) document.removeEventListener('keydown', this.onKey);
+    if (this.onScroll) {
+      window.removeEventListener('scroll', this.onScroll);
+      window.removeEventListener('resize', this.onScroll);
+    }
+    document.body.style.overflow = '';
+  }
+
+  techVals() {
+    const rows = [
+      { num: '01', label: 'Course library', kicker: 'COURSE LIBRARY', val: '250+ courses',
+        copy: 'Pebble Beach, St Andrews, Torrey Pines, Bethpage Black. Trackman\u2019s library is the deepest in the business, and it plays like the real thing \u2014 real elevation, real wind, real green speed.',
+        chips: ['PEBBLE BEACH', 'ST ANDREWS', 'TORREY PINES', 'BETHPAGE BLACK'], meta: 'CARRY 214Y \u00b7 7-IRON' },
+      { num: '02', label: 'Unmatched data', kicker: 'BALL & CLUB DATA', val: 'Every metric',
+        copy: 'Trackman iO combines radar, infrared and high-speed imaging to deliver real ball and club data \u2014 including measured 3D spin and spin axis \u2014 in real time.',
+        chips: ['RADAR', 'INFRARED', 'HIGH-SPEED IMAGING', '3D SPIN'], meta: 'SPIN 6,240 RPM' },
+      { num: '03', label: 'Session history', kicker: 'YOUR TRACKMAN ACCOUNT', val: 'Every session',
+        copy: 'Sessions save automatically, sorted by club, course and date. Your 7-iron carry last month against this month is one tap away \u2014 progress you can prove.',
+        chips: ['BY CLUB', 'BY COURSE', 'BY DATE', 'TRENDS'], meta: 'SESSION 14 SAVED' }
+    ];
+    const i = Math.min(this.state.techTab || 0, rows.length - 1);
+    const t = rows[i];
+    return {
+      techTabs: rows.map((x, n) => ({
+        num: x.num,
+        label: x.label,
+        on: n === i,
+        pick: () => this.setState({ techTab: n }),
+        css: 'display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; text-align: left; width: 100%; background: ' + (n === i ? 'rgba(242,201,76,0.12)' : 'transparent') + '; color: ' + (n === i ? '#F2C94C' : '#FDF5E6') + '; border: 0; border-bottom: 1px solid rgba(253,245,230,0.28); border-left: 2px solid ' + (n === i ? '#F2C94C' : 'transparent') + '; padding: 16px 14px; min-height: 44px; cursor: pointer; transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;'
+      })),
+      techPanels: rows.map((x, n) => ({
+        kicker: x.kicker,
+        val: x.val,
+        copy: x.copy,
+        chips: x.chips,
+        css: 'grid-area: 1 / 1; display: flex; flex-direction: column; gap: 22px; opacity: ' + (n === i ? '1' : '0') + '; visibility: ' + (n === i ? 'visible' : 'hidden') + '; pointer-events: ' + (n === i ? 'auto' : 'none') + '; transition: opacity 320ms ease;'
+      })),
+      techCount: t.num + ' / ' + String(rows.length).padStart(2, '0'),
+      techKicker: t.kicker,
+      techVal: t.val,
+      techCopy: t.copy,
+      techChips: t.chips,
+      techMeta: t.meta
+    };
+  }
+
+  renderVals() {
+    const member = this.state.view === 'member';
+    return Object.assign(this.ballotVals(), this.techVals(), {
+      isPublic: !member,
+      isMember: member,
+      showPublic: () => this.setState({ view: 'public' }),
+      showMember: () => this.setState({ view: 'member' }),
+      colLabel: member ? 'MEMBER RATE' : 'PUBLIC RATE',
+      note: member
+        ? 'MEMBER RATES SHOWN — $10/HR OFF EVERY WINDOW.'
+        : 'PUBLIC RATES SHOWN — MEMBERS PAY $10/HR LESS.',
+      parallaxRef: el => { this.parallaxEl = el; },
+      openMenu: () => { if (this.showMenu) this.showMenu(); },
+      emailErr: this.state.emailErr,
+      onEmailInput: e => { if (this.state.emailErr && this.validEmail(e.target.value)) this.setState({ emailErr: false }); },
+      onEmailBlur: e => {
+        const v = e.target.value.trim();
+        this.setState({ emailErr: v.length > 0 && !this.validEmail(v) });
+      },
+      onJoin: e => {
+        e.preventDefault();
+        const field = e.target.elements.email;
+        const email = (field.value || '').trim();
+        if (!this.validEmail(email)) {
+          this.setState({ joinState: 'error', joinErr: 'THAT ADDRESS LOOKS OFF — TRY YOU@EXAMPLE.COM.' });
+          field.focus();
+          return;
+        }
+        this.setState({ joinState: 'sending', joinErr: '' });
+        this.track('waitlist_submit');
+        this.postForm('waitlist', { email })
+          .then(() => this.setState({ joinState: 'sent' }))
+          .catch(() => {
+            this.mailHandoff('Join the Par Out Golf list', 'Add me to the list: ' + email + '\n');
+            this.setState({ joinState: 'mail' });
+          });
+      },
+      onContact: e => {
+        e.preventDefault();
+        const els = e.target.elements;
+        const email = (els.email.value || '').trim();
+        if (!this.validEmail(email)) { this.setState({ emailErr: true, sent: false }); els.email.focus(); return; }
+        const payload = { name: (els.name.value || '').trim(), email, message: (els.message.value || '').trim() };
+        this.setState({ emailErr: false, sending: true });
+        this.track('contact_submit');
+        this.postForm('contact', payload)
+          .then(() => this.setState({ sending: false, sent: true, sentVia: 'post' }))
+          .catch(() => {
+            this.mailHandoff('Par Out Golf — ' + (payload.name || 'website message'),
+              payload.message + '\n\n— ' + payload.name + '\n' + payload.email + '\n');
+            this.setState({ sending: false, sent: true, sentVia: 'mail' });
+          });
+      },
+      resetContact: () => this.setState({ sent: false, sentVia: '', emailErr: false }),
+      sent: !!this.state.sent,
+      notSent: !this.state.sent,
+      sentKicker: this.state.sentVia === 'mail' ? 'ONE MORE TAP' : 'MESSAGE SENT',
+      sentTitle: this.state.sentVia === 'mail' ? 'Your email app is open.' : "It's at Contact@parout.golf.",
+      sentBody: this.state.sentVia === 'mail'
+        ? "We've prefilled the whole message — hit send in your mail app and it lands at Contact@parout.golf."
+        : "Nobody's at a desk, but somebody reads it. Most messages get an answer within a day.",
+      joinMsg: {
+        idle: '',
+        sending: 'SENDING…',
+        sent: "YOU'RE ON THE LIST — WE'LL EMAIL YOU THE DAY BOOKING OPENS.",
+        mail: "YOUR EMAIL APP IS OPENING WITH THE MESSAGE READY — HIT SEND AND YOU'RE ON THE LIST.",
+        error: this.state.joinErr
+      }[this.state.joinState] || ''
+    });
+  }
+}
+</script>
+</body>
+</html>

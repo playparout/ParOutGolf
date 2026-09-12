@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script>
+(function(){
+  var KEY='pog_preview_ok';
+  try{ if(localStorage.getItem(KEY)==='1') return; }catch(e){}
+  function hash(s){var x=5381;for(var i=0;i<s.length;i++){x=(((x<<5)+x)+s.charCodeAt(i))>>>0;}return x;}
+  var TARGET=hash('POG123');
+  var de=document.documentElement;
+  de.setAttribute('data-gated','');
+  var st=document.createElement('style');
+  st.textContent="@font-face{font-family:'PGArchivo';font-weight:400;font-display:swap;src:url('./fonts/Archivo-Regular.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGArchivo';font-weight:700;font-display:swap;src:url('./fonts/Archivo-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGBric';font-weight:700;font-display:swap;src:url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGMono';font-weight:400;font-display:swap;src:url('./fonts/JetBrainsMono-Regular.woff2') format('woff2')}"
+    +"html[data-gated] body{display:none!important}"
+    +"html[data-gated]{background:#04563E}";
+  document.head.appendChild(st);
+  function build(){
+    if(document.getElementById('pog-gate'))return;
+    var w=document.createElement('div');
+    w.id='pog-gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:#04563E;color:#FDF5E6;display:flex;align-items:center;justify-content:center;padding:24px;font-family:PGArchivo,Helvetica,Arial,sans-serif;box-sizing:border-box');
+    w.innerHTML='<div style="width:100%;max-width:380px;display:flex;flex-direction:column;gap:18px">'
+      +'<div style="font-family:PGMono,monospace;font-size:13px;letter-spacing:.14em;opacity:.75">PAR OUT GOLF &middot; PRIVATE PREVIEW</div>'
+      +'<h1 style="margin:0;font-family:PGBric,PGArchivo,sans-serif;font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em">Not open to the public yet.</h1>'
+      +'<p style="margin:0;font-size:16px;line-height:1.5;opacity:.85">Enter the preview password to view the site.</p>'
+      +'<form id="pog-form" style="display:flex;flex-direction:column;gap:12px">'
+      +'<input id="pog-pass" type="password" autocomplete="current-password" placeholder="Password" style="box-sizing:border-box;width:100%;padding:14px 16px;border:1.5px solid #FDF5E6;border-radius:10px;background:transparent;color:#FDF5E6;font-size:17px;font-family:inherit;outline:none">'
+      +'<button type="submit" style="padding:15px 16px;border:none;border-radius:999px;background:#B5551A;color:#FDF5E6;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;min-height:48px">Enter site</button>'
+      +'<div id="pog-err" style="min-height:20px;font-family:PGMono,monospace;font-size:13px;letter-spacing:.1em;color:#F3B58A"></div>'
+      +'</form></div>';
+    de.appendChild(w);
+    var inp=w.querySelector('#pog-pass');
+    inp.focus();
+    w.querySelector('#pog-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      if(hash(inp.value.trim())===TARGET){
+        try{localStorage.setItem(KEY,'1');}catch(err){}
+        location.reload();
+      } else {
+        w.querySelector('#pog-err').textContent='INCORRECT PASSWORD';
+        inp.value='';inp.focus();
+      }
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',build);}else{build();}
+  window.addEventListener('load',build);
+})();
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>FAQ — Par Out Golf | 24/7 indoor golf in Colonie, NY</title>
+<meta name="description" content="Everything about playing at Par Out Golf: door access links, cancellations, food and drink rules, group bookings, member rates, and how to unstick a Trackman sim at 2am.">
+<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<style>
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
+body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #A24A14; text-decoration: none; }
+a:hover { color: #04563E; }
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; cursor: pointer; }
+:root { interpolate-size: allow-keywords; }
+details > summary > span { display: inline-block; transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1); will-change: transform; }
+details[open] > summary > span { transform: rotate(45deg); }
+details::details-content {
+  block-size: 0;
+  overflow: clip;
+  opacity: 0;
+  transition: block-size 340ms cubic-bezier(0.32, 0.72, 0, 1), content-visibility 340ms allow-discrete, opacity 240ms ease;
+}
+details[open]::details-content { block-size: auto; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  details::details-content, details > summary > span { transition: none; }
+}
+:focus-visible { outline: 3px solid #B5551A; outline-offset: 3px; }
+@media (max-width: 760px) { nav[data-hide-narrow] { display: none !important; } }
+@media (max-width: 860px) { aside[data-toc] { position: static !important; } }
+
+/* --- mobile nav + sticky CTA (mirrors the homepage) --- */
+@media (max-width: 880px) {
+  nav[data-hide-narrow] { display: none !important; }
+  [data-menu-btn] { display: inline-flex !important; }
+  [data-header-cta] { display: none !important; }
+  [data-sub-root] { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
+  [data-toc] a { min-height: 44px; display: flex !important; align-items: center; }
+  [data-back-link] { min-height: 44px; display: inline-flex !important; align-items: center; font-size: 13px !important; }
+  [data-foot-nav] { gap: 0 !important; }
+  [data-foot-nav] > a { min-height: 44px; display: flex !important; align-items: center; border-bottom: 1px solid rgba(4,86,62,0.16); }
+  [data-foot-nav] > a:last-child { border-bottom: 0; }
+  [data-foot-meta] { font-size: 13px !important; }
+  [data-foot-meta] a { min-height: 44px; display: inline-flex !important; align-items: center; }
+  [data-mono-12] { font-size: 13px !important; }
+}
+@media (min-width: 881px) { [data-cta-bar] { display: none !important; } }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get in at 3am?","acceptedAnswer":{"@type":"Answer","text":"Your booking confirmation email contains a door access link. It activates 10 minutes before your session starts and expires 10 minutes after it ends. Tap the link in the email, door unlocks, walk in."}},{"@type":"Question","name":"Is anyone actually there?","acceptedAnswer":{"@type":"Answer","text":"Nope. Par Out is unstaffed by design — that's how we keep the 24/7 hours viable. Cameras are active throughout the facility for everyone's safety."}},{"@type":"Question","name":"What if my access link doesn't work?","acceptedAnswer":{"@type":"Answer","text":"First, double-check that you're within your booking window. If it still won't open, contact us and we'll sort it out as fast as we can."}},{"@type":"Question","name":"What's your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Cancel at least 2 hours before your start time and you're refunded or credited. Later than that and the session is forfeited."}},{"@type":"Question","name":"How long should I book for 9 or 18 holes?","acceptedAnswer":{"@type":"Answer","text":"About 30 minutes per person for 9 holes, about an hour per person for 18."}},{"@type":"Question","name":"Do I need to be a member to play?","acceptedAnswer":{"@type":"Answer","text":"No — anyone can book. Members save $10/hr on every session and get a 30-day advance booking window; the public gets 7 days."}},{"@type":"Question","name":"Do I need to bring my own clubs?","acceptedAnswer":{"@type":"Answer","text":"Yes. At this time we do not have loaner clubs. This is something we're actively looking into."}},{"@type":"Question","name":"Can I bring food?","acceptedAnswer":{"@type":"Answer","text":"Yes. Par Out is bring-your-own-food. Order a pizza, pack a cooler, grab takeout on the way."}},{"@type":"Question","name":"Alcohol?","acceptedAnswer":{"@type":"Answer","text":"Non-alcoholic drinks only, please. We're not licensed to serve or allow alcohol on the premises."}}]}</script>
+</helmet>
+
+<div data-sub-root="" style="font-family: 'Archivo', system-ui, sans-serif; color: #04563E; background: #FDF5E6;">
+
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true"><symbol id="pm" viewBox="0 0 1222 2107"><rect y="1244" width="190" height="863" fill="#04563E"></rect>
+<path d="M600 834C373.563 834 190 1017.56 190 1244C190 1470.44 373.563 1654 600 1654C826.437 1654 1010 1470.44 1010 1244C1010 1037.94 857.995 867.392 660 838.358V646.965C963.199 677.068 1200 932.879 1200 1244C1200 1575.37 931.371 1844 600 1844C268.629 1844 0 1575.37 0 1244C0 912.629 268.629 644 600 644V834Z" fill="#04563E"></path>
+<path d="M600 1261H630C646.569 1261 660 1247.57 660 1231V1037.48C749.543 1063.45 815 1146.08 815 1244C815 1362.74 718.741 1459 600 1459C481.259 1459 385 1362.74 385 1244C385 1125.26 481.259 1029 600 1029V1261Z" fill="#B5551A"></path>
+<path d="M928.577 214.747C855.919 171.672 705.762 144.969 660 199.944V598.249C721.636 499.469 815.246 456.939 947.82 448.989C1152.67 424.685 1178.69 355.949 1221.03 296.181C1133.35 313.649 1017.19 265.916 928.577 214.747Z" fill="#B5551A"></path>
+<path d="M600 152H540V1261H600V152Z" fill="#04563E"></path>
+<path d="M570 0C619.706 0 660 40.2944 660 90C660 139.706 619.706 180 570 180C520.294 180 480 139.706 480 90C480 40.2944 520.294 0 570 0Z" fill="#B5551A"></path></symbol></svg>
+
+  <header style="position: sticky; top: 0; z-index: 40; background: #FDF5E6; border-bottom: 1px solid #04563E;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="index.html" style="flex: 1 0 auto; display: flex; align-items: center; gap: 10px; color: #04563E;" aria-label="Par Out home">
+        <svg width="27" height="47" viewBox="0 0 1222 2107" aria-hidden="true" style="flex: none; display: block; overflow: visible;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
+        <span style="font-weight: 700; font-size: 17px; letter-spacing: 0.11em; white-space: nowrap; margin-top: 9px;">PAR OUT</span>
+      </a>
+      <nav data-hide-narrow="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 22px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
+        <a href="index.html#access" style="color: #04563E;">Access</a>
+        <a href="index.html#rates" style="color: #04563E;">Rates</a>
+        <a href="index.html#memberships" style="color: #04563E;">Memberships</a>
+        <a href="index.html#technology" style="color: #04563E;">Technology</a>
+        <a href="index.html#faq" style="color: #04563E;">FAQ</a>
+      </nav>
+      <div style="flex: 1 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 9px;">
+        <button type="button" data-menu-btn="" aria-label="Open menu" aria-expanded="false" style="display: none; align-items: center; gap: 8px; background: transparent; border: 1.5px solid #04563E; color: #04563E; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 14px; border-radius: 999px; cursor: pointer; min-height: 44px;">MENU</button>
+        <a href="index.html#join" data-header-cta="" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 14px; padding: 11px 20px; border-radius: 999px; white-space: nowrap;" style-hover="background: #04563E;">Join the list</a>
+      </div>
+    </div>
+  </header>
+
+  <div data-menu="" role="dialog" aria-modal="true" aria-label="Menu" style="position: fixed; left: 0; right: 0; top: 0; height: 100dvh; max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; z-index: 60; background: #04382A; color: #FDF5E6; display: none; flex-direction: column; padding: calc(16px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)); opacity: 0; transition: opacity 280ms ease;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">PAR OUT · COLONIE, NY</span>
+      <button type="button" data-menu-close="" aria-label="Close menu" style="background: transparent; border: 1.5px solid #F2C94C; color: #F2C94C; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 16px; border-radius: 999px; cursor: pointer; min-height: 44px;">CLOSE</button>
+    </div>
+    <nav aria-label="Sections" style="margin-top: auto; margin-bottom: auto; padding: 24px 0; display: flex; flex-direction: column; gap: 2px;">
+      <a href="index.html" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Home</a>
+      <a href="index.html#access" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Access</a>
+      <a href="index.html#rates" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Rates</a>
+      <a href="index.html#memberships" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Memberships</a>
+      <a href="index.html#lessons" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Lessons</a>
+      <a href="#top" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">FAQ</a>
+      <a href="index.html#contact" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Contact</a>
+    </nav>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <a href="index.html#join" data-menu-item="" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 17px; padding: 17px 28px; border-radius: 999px; text-align: center; min-height: 44px;">Join the list</a>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; letter-spacing: 0.06em; color: #F2C94C;">OPEN 24/7 · UNSTAFFED · RATES FROM $25/HR</span>
+    </div>
+  </div>
+
+  <main style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
+    <a href="index.html" data-back-link="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;">← BACK TO HOMEPAGE</a>
+    <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(38px, 7.6vw, 88px); line-height: 1.0; letter-spacing: -0.030em; text-wrap: balance;">Everything else you'd ask a person, if there were one.</h1>
+    <p style="margin: 22px 0 0; font-size: clamp(18px, 2.3vw, 22px); line-height: 1.45; max-width: 44ch; text-wrap: pretty;">Eighteen answers, grouped by when you'd need them.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; margin-top: 48px; align-items: start;">
+
+      <aside data-toc="" style="position: sticky; top: 88px; display: flex; flex-direction: column; gap: 10px; max-width: 320px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">ON THIS PAGE</div>
+        <a href="#getting-in" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">Getting in <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">3</span></a>
+        <a href="#booking" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">Booking, rates &amp; lessons <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">6</span></a>
+        <a href="#in-the-bay" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">In the bay <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">5</span></a>
+        <a href="#tech" style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E; padding: 10px 0; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">When the tech acts up <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">4</span></a>
+        <div style="margin-top: 14px; background: #04382A; color: #FDF5E6; padding: 20px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">STUCK RIGHT NOW?</div>
+          <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5;">Give us a call or send us an email.</p>
+          <div style="margin-top: 10px; font-weight: 700; font-size: 20px;">[PHONE]</div>
+          <a href="mailto:Contact@parout.golf" style="display: inline-block; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">CONTACT@PAROUT.GOLF</a>
+        </div>
+      </aside>
+
+      <div style="display: flex; flex-direction: column; gap: 56px; min-width: 0;">
+
+        <section id="getting-in">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">01 · AT THE DOOR</div>
+          <h2 style="margin: 12px 0 20px; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(27px, 3.8vw, 40px); line-height: 0.98; letter-spacing: -0.024em;">Getting in</h2>
+          <details open="" style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How do I get in at 3am?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Your booking confirmation email contains a door access link. It activates 10 minutes before your session starts and expires 10 minutes after it ends. Tap the link in the email, door unlocks, walk in.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Is anyone actually there?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Nope. Par Out is unstaffed by design — that's how we keep the 24/7 hours viable. Cameras are active throughout the facility for everyone's safety.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">What if my access link doesn't work?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">First, double-check that you're within your booking window — the link goes live 10 minutes before your start time, not earlier. If it still won't open, <a href="index.html#contact">contact us</a> and we'll sort it out as fast as we can.</p>
+          </details>
+        </section>
+
+        <section id="booking">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">02 · BEFORE YOU ARRIVE</div>
+          <h2 style="margin: 12px 0 20px; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(27px, 3.8vw, 40px); line-height: 0.98; letter-spacing: -0.024em;">Booking, rates &amp; lessons</h2>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">What's your cancellation policy?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Cancel at least 2 hours before your start time and you're refunded or credited. Later than that and the session is forfeited.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How long should I book for 9 or 18 holes?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Rough math: about 30 minutes per person for 9 holes, about an hour per person for 18. Book your block to match so you're not racing the clock on the back nine.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Can I host a group or party?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Yes — book multiple bays at once for bigger groups. For full facility buyouts (private events, corporate outings, parties), <a href="index.html#contact">email us</a> and we'll set it up.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Do I need to be a member to play?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">No — anyone can book. Members save $10/hr on every session and get a 30-day advance booking window; the public gets 7 days. <a href="index.html#memberships">Full breakdown here.</a></p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Does my whole group get the member rate?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">The member rate applies to the bay, but the account holder must be in the bay during the session. Bring whoever — they play at your rate.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How do lessons work?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Each coach sets their own price and availability. You book directly with them; they meet you in the bay. Par Out covers the bay and the tech; the coach covers the teaching. Coaches are being lined up now — <a href="index.html#lessons">see the lessons section</a>.</p>
+          </details>
+        </section>
+
+        <section id="in-the-bay">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">03 · MID-SESSION</div>
+          <h2 style="margin: 12px 0 20px; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(27px, 3.8vw, 40px); line-height: 0.98; letter-spacing: -0.024em;">In the bay</h2>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Do I need to bring my own clubs?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Yes. At this time we do not have loaner clubs. This is something we're actively looking into.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How many people fit in a bay?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Up to 4 players on the simulator per session. The lounge area around each bay comfortably seats 4 — fine for a small group hanging out while a foursome plays. If you're planning a special event, <a href="index.html#contact">reach out</a> and we'll try to work with you.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Can I bring food?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Yes. Par Out is bring-your-own-food. Order a pizza, pack a cooler, grab takeout on the way.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Alcohol?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Non-alcoholic drinks only, please. We're not licensed to serve or allow alcohol on the premises.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">Are kids allowed?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Yes — anyone under 18 must be accompanied by a parent or guardian who's also in the bay. Great first-golf experience; no one's watching if their swing looks weird.</p>
+          </details>
+        </section>
+
+        <section id="tech">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">04 · WHEN IT BREAKS</div>
+          <h2 style="margin: 12px 0 8px; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(27px, 3.8vw, 40px); line-height: 0.98; letter-spacing: -0.024em;">When the tech acts up</h2>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.55; max-width: 58ch;">Nobody's on site to reboot it for you, so here's exactly what we'd do if we were standing in the bay with you. Any of it not working? Call <span style="font-weight: 700;">[PHONE]</span>.</p>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">The sim froze mid-round. How do I unstick it?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Treat it like any frozen app. Hit the Windows key to bring up the taskbar, right-click the Trackman software, and close it. Re-open it with the orange TPS icon — it reboots clean and you're back on the tee.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How do I recalibrate?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Open the menu and look top-right for the Calibrate button. Tap Auto-target and the sim dials itself in. No tools, no guesswork.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">My session started but the projector's dark.<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Give us a call first. If the projector's blinking red, its power button sits on the underside — a gentle tap with a club brings it back.</p>
+          </details>
+          <details style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">The sim glitched mid-round — now what?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">We apologize for any technical issues. Most clear with a quick restart: Windows key, close the software on the taskbar, reload, log back in, pick up where you left off. Still stuck? Call us. We'll add time if the bay's free or move you to another bay. If neither is possible, we'll work with you to make it right.</p>
+          </details>
+        </section>
+
+        <div style="background: #04382A; color: #FDF5E6; padding: 32px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">STILL UNANSWERED</div>
+          <h2 style="margin: 12px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(25px, 3.5vw, 35px); line-height: 1; letter-spacing: -0.020em;">Ask us anything else.</h2>
+          <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.55; max-width: 46ch;">Nobody's at a desk, but somebody reads every message — and the phone is answered at any hour.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
+            <a href="index.html#contact" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px;" style-hover="background: #F2C94C; color: #04563E;">Send a message</a>
+            <a href="index.html#join" style="border: 1.5px solid #FDF5E6; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 12px 22px; border-radius: 999px;" style-hover="background: #FDF5E6; color: #04382A;">Join the list</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer style="max-width: 1240px; margin: 88px auto 0; padding: 28px 20px 40px; border-top: 1px solid #04563E; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; align-items: start;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <svg width="18" height="31" viewBox="0 0 1222 2107" aria-hidden="true" style="display: block;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
+      <span style="font-weight: 700; font-size: 14px; letter-spacing: 0.11em;">PAR OUT</span>
+    </div>
+    <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br>[PHONE]</div>
+    <div data-foot-nav="" style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+      <a href="index.html#access" style="color: #04563E;">How access works</a>
+      <a href="index.html#rates" style="color: #04563E;">Rates</a>
+      <a href="index.html#memberships" style="color: #04563E;">Memberships</a>
+      <a href="faq.html" style="color: #04563E;">Full FAQ</a>
+      <a href="index.html#contact" style="color: #04563E;">Contact</a>
+      <a href="privacy.html" style="color: #04563E;">Privacy Policy</a>
+      <a href="terms.html" style="color: #04563E;">Terms of Use</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div data-foot-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>UNSTAFFED BY DESIGN<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf">CONTACT@PAROUT.GOLF</a></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM ↗</a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+    <div style="min-width: 0;">
+      <div data-mono-12="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER '27</div>
+      <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: #FDF5E6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rates from $25/hr</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex: none;">
+      <a href="index.html#join" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; white-space: nowrap; transition: background-color 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04563E;">Join the list</a>
+      <button type="button" data-cta-dismiss="" aria-label="Dismiss banner" style="background: transparent; border: 1.5px solid rgba(242,201,76,0.5); color: #F2C94C; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1; width: 44px; height: 44px; border-radius: 999px; cursor: pointer; flex: none; transition: border-color 260ms ease, color 260ms ease;" style-hover="border-color: #F2C94C; color: #FDF5E6;">✕</button>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.initMenu(); this.initCtaBar(); }
+
+  initMenu() {
+    const panel = document.querySelector('[data-menu]');
+    const btn = document.querySelector('[data-menu-btn]');
+    const bar = document.querySelector('[data-cta-bar]');
+    if (!panel || !btn) return;
+    const HEAVY = 'cubic-bezier(.16,.84,.3,1)';
+    const items = panel.querySelectorAll('[data-menu-item]');
+    const focusables = () => Array.from(panel.querySelectorAll('a[href], button')).filter(el => el.offsetParent !== null);
+
+    /* iOS Safari ignores body{overflow:hidden} for touch scrolling, so the
+       body is pinned at a negative offset and restored on close. */
+    const close = () => {
+      panel.style.opacity = '0';
+      btn.setAttribute('aria-expanded', 'false');
+      this.menuTimer = setTimeout(() => { panel.style.display = 'none'; panel.scrollTop = 0; }, 280);
+      const b = document.body;
+      b.style.position = ''; b.style.top = ''; b.style.left = ''; b.style.right = ''; b.style.width = ''; b.style.overflow = '';
+      if (this.lockY != null) {
+        const prev = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, this.lockY);
+        document.documentElement.style.scrollBehavior = prev;
+        this.lockY = null;
+      }
+      if (bar && !this.barDismissed) { bar.style.display = 'flex'; bar.removeAttribute('aria-hidden'); }
+      this.menuOpen = false;
+      btn.focus();
+    };
+    const open = () => {
+      clearTimeout(this.menuTimer);
+      panel.style.display = 'flex';
+      panel.scrollTop = 0;
+      this.lockY = window.scrollY || 0;
+      const b = document.body;
+      b.style.position = 'fixed'; b.style.top = (-this.lockY) + 'px'; b.style.left = '0'; b.style.right = '0'; b.style.width = '100%'; b.style.overflow = 'hidden';
+      if (bar) { bar.style.display = 'none'; bar.setAttribute('aria-hidden', 'true'); }
+      this.menuOpen = true;
+      items.forEach(a => { a.style.transition = 'none'; a.style.opacity = '0'; a.style.transform = 'translateY(16px)'; });
+      void panel.getBoundingClientRect();
+      panel.style.opacity = '1';
+      btn.setAttribute('aria-expanded', 'true');
+      items.forEach((a, i) => {
+        const t = 90 + i * 60;
+        a.style.transition = 'opacity 420ms ease ' + t + 'ms, transform 500ms ' + HEAVY + ' ' + t + 'ms';
+        a.style.opacity = '1';
+        a.style.transform = 'none';
+      });
+      const c = panel.querySelector('[data-menu-close]');
+      if (c) c.focus();
+    };
+    btn.addEventListener('click', open);
+    panel.querySelector('[data-menu-close]').addEventListener('click', close);
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if ((a.getAttribute('href') || '').charAt(0) === '#') this.lockY = null;
+      close();
+    }));
+    document.addEventListener('keydown', e => {
+      if (!this.menuOpen) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      const f = focusables();
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+
+  initCtaBar() {
+    const bar = document.querySelector('[data-cta-bar]');
+    const btn = bar && bar.querySelector('[data-cta-dismiss]');
+    if (!bar || !btn) return;
+    btn.addEventListener('click', () => {
+      this.barDismissed = true;
+      bar.style.transform = 'translateY(110%)';
+      setTimeout(() => { bar.style.display = 'none'; }, 440);
+      const root = document.querySelector('[data-sub-root]');
+      if (root) root.style.paddingBottom = '0px';
+    });
+  }
+}
+</script>
+</body>
+</html>

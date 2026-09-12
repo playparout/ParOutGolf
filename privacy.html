@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script>
+(function(){
+  var KEY='pog_preview_ok';
+  try{ if(localStorage.getItem(KEY)==='1') return; }catch(e){}
+  function hash(s){var x=5381;for(var i=0;i<s.length;i++){x=(((x<<5)+x)+s.charCodeAt(i))>>>0;}return x;}
+  var TARGET=hash('POG123');
+  var de=document.documentElement;
+  de.setAttribute('data-gated','');
+  var st=document.createElement('style');
+  st.textContent="@font-face{font-family:'PGArchivo';font-weight:400;font-display:swap;src:url('./fonts/Archivo-Regular.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGArchivo';font-weight:700;font-display:swap;src:url('./fonts/Archivo-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGBric';font-weight:700;font-display:swap;src:url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGMono';font-weight:400;font-display:swap;src:url('./fonts/JetBrainsMono-Regular.woff2') format('woff2')}"
+    +"html[data-gated] body{display:none!important}"
+    +"html[data-gated]{background:#04563E}";
+  document.head.appendChild(st);
+  function build(){
+    if(document.getElementById('pog-gate'))return;
+    var w=document.createElement('div');
+    w.id='pog-gate';
+    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:#04563E;color:#FDF5E6;display:flex;align-items:center;justify-content:center;padding:24px;font-family:PGArchivo,Helvetica,Arial,sans-serif;box-sizing:border-box');
+    w.innerHTML='<div style="width:100%;max-width:380px;display:flex;flex-direction:column;gap:18px">'
+      +'<div style="font-family:PGMono,monospace;font-size:13px;letter-spacing:.14em;opacity:.75">PAR OUT GOLF &middot; PRIVATE PREVIEW</div>'
+      +'<h1 style="margin:0;font-family:PGBric,PGArchivo,sans-serif;font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em">Not open to the public yet.</h1>'
+      +'<p style="margin:0;font-size:16px;line-height:1.5;opacity:.85">Enter the preview password to view the site.</p>'
+      +'<form id="pog-form" style="display:flex;flex-direction:column;gap:12px">'
+      +'<input id="pog-pass" type="password" autocomplete="current-password" placeholder="Password" style="box-sizing:border-box;width:100%;padding:14px 16px;border:1.5px solid #FDF5E6;border-radius:10px;background:transparent;color:#FDF5E6;font-size:17px;font-family:inherit;outline:none">'
+      +'<button type="submit" style="padding:15px 16px;border:none;border-radius:999px;background:#B5551A;color:#FDF5E6;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;min-height:48px">Enter site</button>'
+      +'<div id="pog-err" style="min-height:20px;font-family:PGMono,monospace;font-size:13px;letter-spacing:.1em;color:#F3B58A"></div>'
+      +'</form></div>';
+    de.appendChild(w);
+    var inp=w.querySelector('#pog-pass');
+    inp.focus();
+    w.querySelector('#pog-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      if(hash(inp.value.trim())===TARGET){
+        try{localStorage.setItem(KEY,'1');}catch(err){}
+        location.reload();
+      } else {
+        w.querySelector('#pog-err').textContent='INCORRECT PASSWORD';
+        inp.value='';inp.focus();
+      }
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',build);}else{build();}
+  window.addEventListener('load',build);
+})();
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Privacy Policy — Par Out Golf</title>
+<meta name="description" content="How Par Out Golf LLC collects, uses, and shares information when you visit parout.golf, book a bay, join our email list, or contact us.">
+<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<style>
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
+body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #A24A14; text-decoration: none; }
+a:hover { color: #04563E; }
+:focus-visible { outline: 3px solid #B5551A; outline-offset: 3px; }
+@media (max-width: 760px) { nav[data-hide-narrow] { display: none !important; } }
+@media (max-width: 900px) { aside[data-toc] { position: static !important; } }
+
+/* --- mobile nav + sticky CTA (mirrors the homepage) --- */
+@media (max-width: 880px) {
+  nav[data-hide-narrow] { display: none !important; }
+  [data-menu-btn] { display: inline-flex !important; }
+  [data-header-cta] { display: none !important; }
+  [data-sub-root] { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
+  [data-toc] a { min-height: 44px; display: flex !important; align-items: center; }
+  [data-back-link] { min-height: 44px; display: inline-flex !important; align-items: center; font-size: 13px !important; }
+  [data-foot-nav] { gap: 0 !important; }
+  [data-foot-nav] > a { min-height: 44px; display: flex !important; align-items: center; border-bottom: 1px solid rgba(4,86,62,0.16); }
+  [data-foot-nav] > a:last-child { border-bottom: 0; }
+  [data-foot-meta] { font-size: 13px !important; }
+  [data-foot-meta] a { min-height: 44px; display: inline-flex !important; align-items: center; }
+  [data-mono-12] { font-size: 13px !important; }
+}
+@media (min-width: 881px) { [data-cta-bar] { display: none !important; } }
+</style>
+</helmet>
+
+<div data-sub-root="" style="font-family: 'Archivo', system-ui, sans-serif; color: #04563E; background: #FDF5E6;">
+
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true"><symbol id="pm" viewBox="0 0 1222 2107"><rect y="1244" width="190" height="863" fill="#04563E"></rect>
+<path d="M600 834C373.563 834 190 1017.56 190 1244C190 1470.44 373.563 1654 600 1654C826.437 1654 1010 1470.44 1010 1244C1010 1037.94 857.995 867.392 660 838.358V646.965C963.199 677.068 1200 932.879 1200 1244C1200 1575.37 931.371 1844 600 1844C268.629 1844 0 1575.37 0 1244C0 912.629 268.629 644 600 644V834Z" fill="#04563E"></path>
+<path d="M600 1261H630C646.569 1261 660 1247.57 660 1231V1037.48C749.543 1063.45 815 1146.08 815 1244C815 1362.74 718.741 1459 600 1459C481.259 1459 385 1362.74 385 1244C385 1125.26 481.259 1029 600 1029V1261Z" fill="#B5551A"></path>
+<path d="M928.577 214.747C855.919 171.672 705.762 144.969 660 199.944V598.249C721.636 499.469 815.246 456.939 947.82 448.989C1152.67 424.685 1178.69 355.949 1221.03 296.181C1133.35 313.649 1017.19 265.916 928.577 214.747Z" fill="#B5551A"></path>
+<path d="M600 152H540V1261H600V152Z" fill="#04563E"></path>
+<path d="M570 0C619.706 0 660 40.2944 660 90C660 139.706 619.706 180 570 180C520.294 180 480 139.706 480 90C480 40.2944 520.294 0 570 0Z" fill="#B5551A"></path></symbol></svg>
+
+  <header style="position: sticky; top: 0; z-index: 40; background: #FDF5E6; border-bottom: 1px solid #04563E;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="index.html" style="flex: 1 0 auto; display: flex; align-items: center; gap: 10px; color: #04563E;" aria-label="Par Out home">
+        <svg width="27" height="47" viewBox="0 0 1222 2107" aria-hidden="true" style="flex: none; display: block; overflow: visible;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
+        <span style="font-weight: 700; font-size: 17px; letter-spacing: 0.11em; white-space: nowrap; margin-top: 9px;">PAR OUT</span>
+      </a>
+      <nav data-hide-narrow="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 22px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
+        <a href="index.html#access" style="color: #04563E;">Access</a>
+        <a href="index.html#rates" style="color: #04563E;">Rates</a>
+        <a href="faq.html" style="color: #04563E;">FAQ</a>
+        <a href="terms.html" style="color: #04563E;">Terms</a>
+      </nav>
+      <div style="flex: 1 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 9px;">
+        <button type="button" data-menu-btn="" aria-label="Open menu" aria-expanded="false" style="display: none; align-items: center; gap: 8px; background: transparent; border: 1.5px solid #04563E; color: #04563E; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 14px; border-radius: 999px; cursor: pointer; min-height: 44px;">MENU</button>
+        <a href="index.html#join" data-header-cta="" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 14px; padding: 11px 20px; border-radius: 999px;" style-hover="background: #04563E;">Join the list</a>
+      </div>
+    </div>
+  </header>
+
+  <div data-menu="" role="dialog" aria-modal="true" aria-label="Menu" style="position: fixed; left: 0; right: 0; top: 0; height: 100dvh; max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; z-index: 60; background: #04382A; color: #FDF5E6; display: none; flex-direction: column; padding: calc(16px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)); opacity: 0; transition: opacity 280ms ease;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">PAR OUT · COLONIE, NY</span>
+      <button type="button" data-menu-close="" aria-label="Close menu" style="background: transparent; border: 1.5px solid #F2C94C; color: #F2C94C; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 16px; border-radius: 999px; cursor: pointer; min-height: 44px;">CLOSE</button>
+    </div>
+    <nav aria-label="Sections" style="margin-top: auto; margin-bottom: auto; padding: 24px 0; display: flex; flex-direction: column; gap: 2px;">
+      <a href="index.html" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Home</a>
+      <a href="index.html#access" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Access</a>
+      <a href="index.html#rates" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Rates</a>
+      <a href="index.html#memberships" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Memberships</a>
+      <a href="index.html#lessons" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Lessons</a>
+      <a href="faq.html" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">FAQ</a>
+      <a href="index.html#contact" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Contact</a>
+    </nav>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <a href="index.html#join" data-menu-item="" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 17px; padding: 17px 28px; border-radius: 999px; text-align: center; min-height: 44px;">Join the list</a>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; letter-spacing: 0.06em; color: #F2C94C;">OPEN 24/7 · UNSTAFFED · RATES FROM $25/HR</span>
+    </div>
+  </div>
+
+  <main style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
+    <a href="index.html" data-back-link="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;">← BACK TO HOMEPAGE</a>
+    <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(38px, 6.8vw, 80px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">Privacy Policy</h1>
+    <div style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">LAST UPDATED · SEPTEMBER 7, 2026</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; margin-top: 44px; align-items: start;">
+
+      <aside data-toc="" style="position: sticky; top: 88px; display: flex; flex-direction: column; gap: 10px; max-width: 320px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">ON THIS PAGE</div>
+        <a href="#p1" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">1 · Information we collect</a>
+        <a href="#p2" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">2 · How we use it</a>
+        <a href="#p3" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">3 · Tools &amp; services</a>
+        <a href="#p4" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">4 · Cookies</a>
+        <a href="#p5" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">5 · How we share</a>
+        <a href="#p6" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">6 · Your choices &amp; rights</a>
+        <a href="#p7" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">7 · Children's privacy</a>
+        <a href="#p8" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">8 · Security &amp; retention</a>
+        <a href="#p9" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">9 · Changes</a>
+        <a href="#p10" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px;">10 · Contact us</a>
+        <div style="border-top: 1px solid #04563E; padding-top: 10px; margin-top: 4px;"><a href="terms.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em;">TERMS OF USE →</a></div>
+      </aside>
+
+      <div style="max-width: 68ch; display: flex; flex-direction: column; gap: 40px;">
+
+        <p style="margin: 0; font-size: clamp(17px, 2.2vw, 20px); line-height: 1.5; text-wrap: pretty;">This Privacy Policy explains how Par Out Golf LLC (“Par Out,” “we,” “us,” or “our”) collects, uses, and shares information when you visit parout.golf, book a bay, join our email list, or contact us. By using our website, you agree to the practices described here.</p>
+
+        <section id="p1" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">01</span>Information we collect</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">We only collect what we need to run the business and stay in touch with you:</p>
+          <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
+            <li><strong>Information you give us directly.</strong> Your email address when you join our list; your name, email, and message details when you submit a private-events inquiry or email us; and booking details (name, contact info, payment) when you reserve a bay.</li>
+            <li><strong>Information collected automatically.</strong> When you visit the site, standard analytics data such as pages viewed, approximate location (city/region), device and browser type, and how you arrived at the site. This is collected through cookies and similar technologies.</li>
+          </ul>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">We do not knowingly collect more than this, and we do not sell your personal information.</p>
+        </section>
+
+        <section id="p2" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">02</span>How we use your information</h2>
+          <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.6;">
+            <li>To send you news, offers, and updates you've signed up for.</li>
+            <li>To respond to your inquiries and provide customer support.</li>
+            <li>To process and manage your bookings and payments.</li>
+            <li>To understand how the site is used so we can improve it.</li>
+            <li>To keep the facility and our systems secure, and to comply with the law.</li>
+          </ul>
+        </section>
+
+        <section id="p3" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">03</span>The tools and services we use</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">We rely on a few trusted third-party services to operate. Each only receives the information needed to do its job, and each has its own privacy policy:</p>
+          <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
+            <li><strong>MailerLite</strong> — manages our email list and sends our newsletters and offers.</li>
+            <li><strong>Google Analytics</strong> — helps us understand website traffic using cookies. You can opt out with <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google's browser add-on</a>.</li>
+            <li><strong>Microsoft Clarity</strong> — shows us how pages are used, including anonymized recordings of mouse movement, clicks, and scrolling, so we can fix confusing layouts. Text you type into form fields is masked and not recorded. See <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft's privacy statement</a>.</li>
+            <li><strong>Alba Play</strong> — our booking provider; handles bay reservations and payment processing. Payment-card details are handled by Alba Play, not stored by us.</li>
+            <li><strong>FormSubmit</strong> — delivers private-events inquiry submissions to our inbox.</li>
+          </ul>
+        </section>
+
+        <section id="p4" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">04</span>Cookies</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">Cookies are small files stored on your device. We use them mainly for analytics (to count visits and understand usage). You can block or delete cookies in your browser settings; the site will still work, though some features may behave differently.</p>
+        </section>
+
+        <section id="p5" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">05</span>How we share information</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">We don't sell or rent your personal information. We share it only with the service providers listed above (so they can perform their function), or when required by law, or to protect the rights, property, or safety of Par Out, our customers, or others.</p>
+        </section>
+
+        <section id="p6" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">06</span>Your choices and rights</h2>
+          <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
+            <li><strong>Unsubscribe anytime.</strong> Every marketing email has an unsubscribe link at the bottom. One click and you're off the list.</li>
+            <li><strong>Access or delete your data.</strong> You can ask us what personal information we hold about you and request that we correct or delete it.</li>
+            <li><strong>Opt out of analytics.</strong> Use the Google opt-out linked above, or your browser's cookie controls.</li>
+          </ul>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">Depending on where you live (for example, California or the EU), you may have additional rights over your personal data. To exercise any of these, just email us at the address below and we'll help.</p>
+        </section>
+
+        <section id="p7" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">07</span>Children's privacy</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">Our website and email list are not directed at children under 13, and we do not knowingly collect personal information from them. If you believe a child has provided us information, contact us and we'll delete it.</p>
+        </section>
+
+        <section id="p8" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">08</span>Data security &amp; retention</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">We take reasonable steps to protect your information, and we rely on the security practices of the established providers listed above. No method of transmission over the internet is 100% secure, however, so we can't guarantee absolute security. We keep personal information only as long as needed for the purposes described here or as required by law.</p>
+        </section>
+
+        <section id="p9" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">09</span>Changes to this policy</h2>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6;">We may update this policy from time to time. When we do, we'll revise the “Last updated” date above. Significant changes may also be announced on the site or by email.</p>
+        </section>
+
+        <section id="p10" style="background: #04382A; color: #FDF5E6; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">10 · CONTACT US</div>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.02; letter-spacing: -0.020em;">Questions about your data?</h2>
+          <div style="font-size: 17px; line-height: 1.65;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br><a href="mailto:Contact@parout.golf" style="color: #F2C94C;">Contact@parout.golf</a><br>[PHONE]</div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer style="max-width: 1240px; margin: 88px auto 0; padding: 28px 20px 40px; border-top: 1px solid #04563E; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; align-items: start;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <svg width="18" height="31" viewBox="0 0 1222 2107" aria-hidden="true" style="display: block;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
+      <span style="font-weight: 700; font-size: 14px; letter-spacing: 0.11em;">PAR OUT</span>
+    </div>
+    <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br>[PHONE]</div>
+    <div data-foot-nav="" style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+      <a href="index.html#access" style="color: #04563E;">How access works</a>
+      <a href="index.html#rates" style="color: #04563E;">Rates</a>
+      <a href="index.html#memberships" style="color: #04563E;">Memberships</a>
+      <a href="faq.html" style="color: #04563E;">Full FAQ</a>
+      <a href="index.html#contact" style="color: #04563E;">Contact</a>
+      <a href="privacy.html" style="color: #04563E;">Privacy Policy</a>
+      <a href="terms.html" style="color: #04563E;">Terms of Use</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div data-foot-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>UNSTAFFED BY DESIGN<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf">CONTACT@PAROUT.GOLF</a></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM ↗</a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+    <div style="min-width: 0;">
+      <div data-mono-12="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER '27</div>
+      <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: #FDF5E6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rates from $25/hr</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex: none;">
+      <a href="index.html#join" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; white-space: nowrap; transition: background-color 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04563E;">Join the list</a>
+      <button type="button" data-cta-dismiss="" aria-label="Dismiss banner" style="background: transparent; border: 1.5px solid rgba(242,201,76,0.5); color: #F2C94C; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1; width: 44px; height: 44px; border-radius: 999px; cursor: pointer; flex: none; transition: border-color 260ms ease, color 260ms ease;" style-hover="border-color: #F2C94C; color: #FDF5E6;">✕</button>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.initMenu(); this.initCtaBar(); }
+
+  initMenu() {
+    const panel = document.querySelector('[data-menu]');
+    const btn = document.querySelector('[data-menu-btn]');
+    const bar = document.querySelector('[data-cta-bar]');
+    if (!panel || !btn) return;
+    const HEAVY = 'cubic-bezier(.16,.84,.3,1)';
+    const items = panel.querySelectorAll('[data-menu-item]');
+    const focusables = () => Array.from(panel.querySelectorAll('a[href], button')).filter(el => el.offsetParent !== null);
+
+    /* iOS Safari ignores body{overflow:hidden} for touch scrolling, so the
+       body is pinned at a negative offset and restored on close. */
+    const close = () => {
+      panel.style.opacity = '0';
+      btn.setAttribute('aria-expanded', 'false');
+      this.menuTimer = setTimeout(() => { panel.style.display = 'none'; panel.scrollTop = 0; }, 280);
+      const b = document.body;
+      b.style.position = ''; b.style.top = ''; b.style.left = ''; b.style.right = ''; b.style.width = ''; b.style.overflow = '';
+      if (this.lockY != null) {
+        const prev = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, this.lockY);
+        document.documentElement.style.scrollBehavior = prev;
+        this.lockY = null;
+      }
+      if (bar && !this.barDismissed) { bar.style.display = 'flex'; bar.removeAttribute('aria-hidden'); }
+      this.menuOpen = false;
+      btn.focus();
+    };
+    const open = () => {
+      clearTimeout(this.menuTimer);
+      panel.style.display = 'flex';
+      panel.scrollTop = 0;
+      this.lockY = window.scrollY || 0;
+      const b = document.body;
+      b.style.position = 'fixed'; b.style.top = (-this.lockY) + 'px'; b.style.left = '0'; b.style.right = '0'; b.style.width = '100%'; b.style.overflow = 'hidden';
+      if (bar) { bar.style.display = 'none'; bar.setAttribute('aria-hidden', 'true'); }
+      this.menuOpen = true;
+      items.forEach(a => { a.style.transition = 'none'; a.style.opacity = '0'; a.style.transform = 'translateY(16px)'; });
+      void panel.getBoundingClientRect();
+      panel.style.opacity = '1';
+      btn.setAttribute('aria-expanded', 'true');
+      items.forEach((a, i) => {
+        const t = 90 + i * 60;
+        a.style.transition = 'opacity 420ms ease ' + t + 'ms, transform 500ms ' + HEAVY + ' ' + t + 'ms';
+        a.style.opacity = '1';
+        a.style.transform = 'none';
+      });
+      const c = panel.querySelector('[data-menu-close]');
+      if (c) c.focus();
+    };
+    btn.addEventListener('click', open);
+    panel.querySelector('[data-menu-close]').addEventListener('click', close);
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if ((a.getAttribute('href') || '').charAt(0) === '#') this.lockY = null;
+      close();
+    }));
+    document.addEventListener('keydown', e => {
+      if (!this.menuOpen) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      const f = focusables();
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+
+  initCtaBar() {
+    const bar = document.querySelector('[data-cta-bar]');
+    const btn = bar && bar.querySelector('[data-cta-dismiss]');
+    if (!bar || !btn) return;
+    btn.addEventListener('click', () => {
+      this.barDismissed = true;
+      bar.style.transform = 'translateY(110%)';
+      setTimeout(() => { bar.style.display = 'none'; }, 440);
+      const root = document.querySelector('[data-sub-root]');
+      if (root) root.style.paddingBottom = '0px';
+    });
+  }
+}
+</script>
+</body>
+</html>
