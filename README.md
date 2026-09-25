@@ -4,17 +4,20 @@ Static export of the site, password-gated for private review.
 
 **Password:** `POG123` (stored in the browser after first entry; clear site data to see the gate again.)
 
-## Deploy to GitHub Pages
-1. Create a repo (public repos are fine — the gate keeps casual visitors out).
-2. Upload the entire contents of this folder to the repo root (index.html must be at the top level).
-3. Settings → Pages → Source: "Deploy from a branch" → branch `main`, folder `/ (root)` → Save.
-4. Wait ~1 minute, then open https://<user>.github.io/<repo>/
+## Hosting
+Hosted on Netlify (project `parout-golf`) at https://parout.golf. Netlify deploys
+automatically whenever `main` changes; pull requests get a preview link. There is
+no build step — Netlify publishes the repo root as-is.
+
+DNS is managed at Porkbun: an ALIAS record for `parout.golf` pointing to
+`apex-loadbalancer.netlify.com`, and a CNAME for `www` pointing to
+`parout-golf.netlify.app`.
 
 ## Files
 - index.html, faq.html, privacy.html, terms.html — the four pages
 - support.js, fonts/, assets/ — required; keep the folder structure intact
 - robots.txt — blocks search engines while the site is private
-- .nojekyll — stops GitHub from reprocessing the files
+- assets/robots.txt, assets/sitemap.xml — launch versions; move to the root at launch
 - 404.html — redirects stray URLs to the homepage
 
 ## Note on the password
