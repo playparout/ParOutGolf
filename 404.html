@@ -4,54 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<script>
-(function(){
-  var KEY='pog_preview_ok';
-  try{ if(localStorage.getItem(KEY)==='1') return; }catch(e){}
-  function hash(s){var x=5381;for(var i=0;i<s.length;i++){x=(((x<<5)+x)+s.charCodeAt(i))>>>0;}return x;}
-  var TARGET=hash('POG123');
-  var de=document.documentElement;
-  de.setAttribute('data-gated','');
-  var st=document.createElement('style');
-  st.textContent="@font-face{font-family:'PGArchivo';font-weight:400;font-display:swap;src:url('/fonts/Archivo-Regular.woff2') format('woff2')}"
-    +"@font-face{font-family:'PGArchivo';font-weight:700;font-display:swap;src:url('/fonts/Archivo-Bold.woff2') format('woff2')}"
-    +"@font-face{font-family:'PGBric';font-weight:700;font-display:swap;src:url('/fonts/BricolageGrotesque-Bold.woff2') format('woff2')}"
-    +"@font-face{font-family:'PGMono';font-weight:400;font-display:swap;src:url('/fonts/JetBrainsMono-Regular.woff2') format('woff2')}"
-    +"html[data-gated] body{display:none!important}"
-    +"html[data-gated]{background:#04563E}";
-  document.head.appendChild(st);
-  function build(){
-    if(document.getElementById('pog-gate'))return;
-    var w=document.createElement('div');
-    w.id='pog-gate';
-    w.setAttribute('style','position:fixed;inset:0;z-index:2147483647;background:#04563E;color:#FDF5E6;display:flex;align-items:center;justify-content:center;padding:24px;font-family:PGArchivo,Helvetica,Arial,sans-serif;box-sizing:border-box');
-    w.innerHTML='<div style="width:100%;max-width:380px;display:flex;flex-direction:column;gap:18px">'
-      +'<div style="font-family:PGMono,monospace;font-size:13px;letter-spacing:.14em;opacity:.75">PAR OUT GOLF &middot; PRIVATE PREVIEW</div>'
-      +'<h1 style="margin:0;font-family:PGBric,PGArchivo,sans-serif;font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em">Not open to the public yet.</h1>'
-      +'<p style="margin:0;font-size:16px;line-height:1.5;opacity:.85">Enter the preview password to view the site.</p>'
-      +'<form id="pog-form" style="display:flex;flex-direction:column;gap:12px">'
-      +'<input id="pog-pass" type="password" autocomplete="current-password" placeholder="Password" style="box-sizing:border-box;width:100%;padding:14px 16px;border:1.5px solid #FDF5E6;border-radius:10px;background:transparent;color:#FDF5E6;font-size:17px;font-family:inherit;outline:none">'
-      +'<button type="submit" style="padding:15px 16px;border:none;border-radius:999px;background:#B5551A;color:#FDF5E6;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;min-height:48px">Enter site</button>'
-      +'<div id="pog-err" style="min-height:20px;font-family:PGMono,monospace;font-size:13px;letter-spacing:.1em;color:#F3B58A"></div>'
-      +'</form></div>';
-    de.appendChild(w);
-    var inp=w.querySelector('#pog-pass');
-    inp.focus();
-    w.querySelector('#pog-form').addEventListener('submit',function(e){
-      e.preventDefault();
-      if(hash(inp.value.trim())===TARGET){
-        try{localStorage.setItem(KEY,'1');}catch(err){}
-        location.reload();
-      } else {
-        w.querySelector('#pog-err').textContent='INCORRECT PASSWORD';
-        inp.value='';inp.focus();
-      }
-    });
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',build);}else{build();}
-  window.addEventListener('load',build);
-})();
-</script>
 <script src="/support.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
