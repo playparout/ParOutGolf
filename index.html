@@ -1926,5 +1926,41 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+/* TEST BUILD ONLY: on-screen readout for the iPhone hero-arc bug. Shows only
+   with ?debug=1 in the URL. Remove before merging. */
+(function(){
+  if (!/[?&]debug=1/.test(location.search)) return;
+  var box = document.createElement('pre');
+  box.style.cssText = 'position:fixed;left:6px;top:80px;z-index:99999;margin:0;padding:8px;background:rgba(0,0,0,.82);color:#0f0;font:12px/1.35 monospace;pointer-events:none;white-space:pre';
+  document.body.appendChild(box);
+  var ev = { scroll: 0, resize: 0, vvresize: 0, vvscroll: 0 }, hist = [];
+  window.addEventListener('scroll', function(){ ev.scroll++; }, { passive: true });
+  window.addEventListener('resize', function(){ ev.resize++; }, { passive: true });
+  if (window.visualViewport) {
+    visualViewport.addEventListener('resize', function(){ ev.vvresize++; });
+    visualViewport.addEventListener('scroll', function(){ ev.vvscroll++; });
+  }
+  function r(v){ return Math.round(v * 100) / 100; }
+  function range(k){ var a = hist.map(function(h){ return h[k]; }); return r(Math.min.apply(0, a)) + ' .. ' + r(Math.max.apply(0, a)); }
+  function frame(){
+    var svg = document.querySelector('[data-motif="arcs"]');
+    var ball = svg && svg.querySelector('[data-ball]');
+    var hero = svg && svg.parentElement ? svg.parentElement.getBoundingClientRect() : { top: 0, height: 0 };
+    var vv = window.visualViewport;
+    var s = {
+      scrollY: window.scrollY, innerH: window.innerHeight, clientH: document.documentElement.clientHeight,
+      vvH: vv ? vv.height : 0, vvTop: vv ? vv.offsetTop : 0, docH: document.documentElement.scrollHeight,
+      docW: document.documentElement.scrollWidth, heroTop: hero.top, heroH: hero.height,
+      ballX: ball ? +ball.getAttribute('cx') : 0
+    };
+    hist.push(s); if (hist.length > 90) hist.shift();
+    box.textContent = 'last ~1.5s: min .. max\n' + Object.keys(s).map(function(k){ return (k + '        ').slice(0, 8) + range(k); }).join('\n') +
+      '\nevents  scroll ' + ev.scroll + ' resize ' + ev.resize + '\n        vv-resize ' + ev.vvresize + ' vv-scroll ' + ev.vvscroll;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
