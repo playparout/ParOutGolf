@@ -245,6 +245,19 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
   [data-ballot-card] > div { padding-left: 18px !important; padding-right: 18px !important; }
   [data-chips] { display: grid !important; grid-template-columns: 1fr !important; }
   [data-chips] > button { width: 100% !important; }
+  /* League card: one question per step on phones, so readers who don't care
+     about leagues aren't scrolling two screens of chips. Desktop shows the
+     whole card at once (it fits in about one screen there). */
+  [data-chip-sub] { display: none !important; }
+  [data-ballot-intro-full] { display: none !important; }
+  [data-ballot-intro-short] { display: inline !important; }
+  [data-ballot-q][data-active="0"], [data-ballot-send][data-active="0"] { display: none !important; }
+  [data-ballot-q] { border-bottom: 0 !important; }
+  [data-ballot-body] { display: flex; flex-direction: column; min-height: 388px; }
+  [data-ballot-nav] { display: flex !important; margin-top: auto !important; padding-top: 20px; }
+  [data-ballot-nav] [data-on="0"] { visibility: hidden; }
+  [data-ballot-pick] { display: block !important; }
+  [data-ballot-hint][data-complete="0"] { display: none !important; }
   [data-cta-bar-sub] { display: none !important; }
   /* Standalone stacked links need real tap targets; inline links inside
      sentences are exempt (WCAG 2.5.8) and stay as-is. */
@@ -256,6 +269,14 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
   /* iOS Safari force-zooms the page on focus of any field under 16px. */
   #ballot-note { font-size: 16px !important; }
 }
+</style>
+<style>
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  [data-ballot-q][data-active="1"] { animation: ballot-in 320ms cubic-bezier(.16,.84,.3,1); }
+  [data-ballot-body][data-dir="back"] [data-ballot-q][data-active="1"] { animation-name: ballot-back; }
+}
+@keyframes ballot-in { from { opacity: 0; transform: translateX(18px); } }
+@keyframes ballot-back { from { opacity: 0; transform: translateX(-18px); } }
 </style>
 <noscript><style>
 [data-nojs] { display: block !important; }
@@ -536,34 +557,40 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
       <div data-reveal="rise" data-ballot-card="" style="max-width: 880px; margin: 0 auto; border: 1.5px solid #04563E; background: #FDF5E6; box-shadow: 7px 7px 0 rgba(4,86,62,0.13);">
           <div style="border-bottom: 1.5px solid #04563E; padding: 30px 26px 28px;">
             <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 0.94; letter-spacing: -0.024em; max-width: 19ch; text-wrap: balance;">Tell us what league you want.</h2>
-            <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.55; max-width: 52ch; text-wrap: pretty;">From serious competition to casual formats, we’re building our first season around what you actually want to play. Help shape season one.</p>
+            <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.55; max-width: 52ch; text-wrap: pretty;"><span data-ballot-intro-full="">From serious competition to casual formats, we’re building our first season around what you actually want to play. Help shape season one.</span><span data-ballot-intro-short="" style="display: none;">We’re building season one around what you want to play.</span></p>
             <p style="margin: 18px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; font-size: 16px; line-height: 1.5;"><span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FDF5E6; background: #04563E; padding: 4px 8px;">FLEXTIME LEAGUE</span><span>Play your weekly round whenever your schedule allows.</span></p>
           </div>
           <div data-mono-meta="" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; border-bottom: 1.5px solid #04563E; padding: 12px 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14;">
             <span>MARK YOUR CARD</span><span aria-live="polite">{{ ballotProgress }}</span>
           </div>
-          <div style="padding: 6px 26px 26px;">
+          <div data-ballot-body="" data-dir="{{ ballotDir }}" style="padding: 6px 26px 26px;">
             <sc-for list="{{ ballotGroups }}" as="g" hint-placeholder-count="4">
-              <div style="border-bottom: 1px dashed rgba(4,86,62,0.32); padding: 18px 0 16px;">
-                <div style="display: flex; align-items: baseline; gap: 10px;">
+              <div data-ballot-q="" data-active="{{ g.active }}" role="group" aria-labelledby="{{ g.labelId }}" style="border-bottom: 1px dashed rgba(4,86,62,0.32); padding: 18px 0 16px;">
+                <div id="{{ g.labelId }}" data-ballot-label="" tabIndex="-1" style="display: flex; align-items: baseline; gap: 10px;">
                   <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">{{ g.num }}</span>
                   <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">{{ g.label }}</span>
                 </div>
+                <div data-ballot-pick="" data-mono-meta="" style="display: none; margin-top: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14;">PICK AS MANY AS APPLY</div>
                 <div data-chips="" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
                   <sc-for list="{{ g.opts }}" as="o" hint-placeholder-count="4">
-                    <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.css }}"><span>{{ o.text }}</span><span style="font-size: 13px; font-weight: 400; line-height: 1.35; opacity: 0.85;">{{ o.sub }}</span></button>
+                    <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.css }}"><span>{{ o.text }}</span><span data-chip-sub="" style="font-size: 13px; font-weight: 400; line-height: 1.35; opacity: 0.85;">{{ o.sub }}</span></button>
                   </sc-for>
                 </div>
               </div>
             </sc-for>
-            <div style="padding: 18px 0 4px;">
-              <label for="ballot-note" data-mono-meta="" style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">05 &nbsp;ANYTHING WE DIDN’T ASK <span style="color: #A24A14;">(OPTIONAL)</span></label>
+            <div data-ballot-q="" data-active="{{ ballotNoteActive }}" style="padding: 18px 0 4px;">
+              <label for="ballot-note" data-ballot-label="" tabIndex="-1" data-mono-meta="" style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">05 &nbsp;ANYTHING WE DIDN’T ASK <span style="color: #A24A14;">(OPTIONAL)</span></label>
               <textarea id="ballot-note" rows="2" maxLength="500" aria-describedby="ballot-note-count" value="{{ ballotNote }}" onChange="{{ setBallotNote }}" placeholder="A format we missed, a specific prize you would like to see…" style="margin-top: 12px; width: 100%; box-sizing: border-box; resize: vertical; min-height: 5.6em; font-family: 'Archivo', system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: #04563E; background: #FDF5E6; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 0; padding: 12px 14px; transition: border-color 300ms ease;" style-focus="border-color: #04563E;"></textarea>
               <span id="ballot-note-count" aria-live="polite" data-mono-meta="" style="display: block; min-height: 1.5em; margin-top: 6px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #A24A14;">{{ ballotNoteCount }}</span>
             </div>
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px;">
+            <div data-ballot-send="" data-active="{{ ballotNoteActive }}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px;">
               <a href="{{ ballotMailto }}" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Send my card</a>
-              <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14; line-height: 1.6; max-width: 40ch; text-wrap: balance;">{{ ballotHint }}</span>
+              <span data-ballot-hint="" data-complete="{{ ballotComplete }}" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14; line-height: 1.6; max-width: 40ch; text-wrap: balance;">{{ ballotHint }}</span>
+            </div>
+            <div data-ballot-nav="" style="display: none; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px;">
+              <button type="button" onClick="{{ ballotBack }}" data-ballot-back="" data-on="{{ ballotBackOn }}" aria-hidden="{{ ballotBackHidden }}" tabIndex="{{ ballotBackTab }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #04563E; background: transparent; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 999px; cursor: pointer;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Back</button>
+              <span data-sr="" aria-live="polite">{{ ballotStepSr }}</span>
+              <button type="button" onClick="{{ ballotNext }}" data-ballot-next="" data-on="{{ ballotNextOn }}" aria-hidden="{{ ballotNextHidden }}" tabIndex="{{ ballotNextTab }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 20px; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #FDF5E6; background: #04563E; border: 1.5px solid #04563E; border-radius: 999px; cursor: pointer;">Next<svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
             </div>
           </div>
       </div>
@@ -849,7 +876,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 </form>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[BOOKING_URL]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
 class Component extends DCLogic {
-  state = { techTab: 0, view: 'public', joinState: 'idle', joinErr: '', sent: false, sentVia: '', sending: false, emailErr: false, picks: {} };
+  state = { techTab: 0, view: 'public', joinState: 'idle', joinErr: '', sent: false, sentVia: '', sending: false, emailErr: false, picks: {}, ballotStep: 0, ballotDir: 'next' };
 
   /* Delivery. With a formEndpoint set, both forms POST to it as JSON. Otherwise
      they go to Netlify Forms (the hidden "waitlist" and "contact" forms after
@@ -912,6 +939,22 @@ class Component extends DCLogic {
     });
   }
 
+  /* Phone-only stepper; the CSS hides inactive steps below 760px. Focus
+     follows to the new question so keyboard and screen-reader users land on
+     it, and the card is nudged into view if the step change moved it. */
+  goBallot(delta) {
+    const last = this.BALLOT.length;
+    const step = Math.max(0, Math.min(last, (this.state.ballotStep || 0) + delta));
+    if (step === this.state.ballotStep) return;
+    this.setState({ ballotStep: step, ballotDir: delta < 0 ? 'back' : 'next' }, () => {
+      const label = document.querySelector('[data-ballot-q][data-active="1"] [data-ballot-label]');
+      if (!label) return;
+      label.focus({ preventScroll: true });
+      const q = label.closest('[data-ballot-q]');
+      if (q.getBoundingClientRect().top < 72) q.scrollIntoView({ block: 'start', behavior: this.motionOn ? 'smooth' : 'auto' });
+    });
+  }
+
   chipCss(on) {
     return [
       "font-family: 'Archivo', sans-serif", 'font-size: 15px', 'font-weight: 700',
@@ -927,24 +970,40 @@ class Component extends DCLogic {
 
   ballotVals() {
     const picks = this.state.picks;
-    const groups = this.BALLOT.map(g => ({
+    const step = this.state.ballotStep || 0;
+    const last = this.BALLOT.length;
+    const groups = this.BALLOT.map((g, i) => ({
       num: g.num,
       label: g.label,
+      labelId: 'ballot-q-' + g.key,
+      active: i === step ? '1' : '0',
       opts: g.opts.map(([o, sub]) => {
         const on = (picks[g.key] || []).includes(o);
         return { text: o, sub, on, css: this.chipCss(on), pick: () => this.toggleBallot(g.key, o) };
       })
     }));
-    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length;
     const note = (this.state.ballotNote || '').trim().slice(0, 500);
+    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length;
     const body = this.BALLOT.map(g => g.label + '\n' + ((picks[g.key] || []).join(', ') || '—')).join('\n\n');
     return {
       ballotNote: this.state.ballotNote || '',
       setBallotNote: e => this.setState({ ballotNote: e.target.value }),
       ballotNoteCount: this.lenHint((this.state.ballotNote || '').length, 500),
       ballotGroups: groups,
-      ballotProgress: answered + ' OF 4 ANSWERED',
-      ballotHint: answered === 4 ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
+      ballotNoteActive: step === last ? '1' : '0',
+      ballotComplete: answered === last ? '1' : '0',
+      ballotDir: this.state.ballotDir || 'next',
+      ballotStepSr: 'Step ' + (step + 1) + ' of ' + (last + 1),
+      ballotBack: () => this.goBallot(-1),
+      ballotNext: () => this.goBallot(1),
+      ballotBackOn: step > 0 ? '1' : '0',
+      ballotBackHidden: step > 0 ? 'false' : 'true',
+      ballotBackTab: step > 0 ? '0' : '-1',
+      ballotNextOn: step < last ? '1' : '0',
+      ballotNextHidden: step < last ? 'false' : 'true',
+      ballotNextTab: step < last ? '0' : '-1',
+      ballotProgress: answered + ' OF ' + last + ' ANSWERED',
+      ballotHint: answered === last ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
       ballotMailto: 'mailto:leagues@parout.golf?subject=' + encodeURIComponent('League card') + '&body=' + encodeURIComponent(body + "\n\nAnything we didn't ask\n" + (note || '—') + "\n\nAnything that made a past league work:\n")
     };
   }
@@ -1455,10 +1514,24 @@ class Component extends DCLogic {
       });
       return;
     }
-    this.paintArcs(this.arcProgress());
-    requestAnimationFrame(() => {
-      this.arcs.forEach(a => { a.p.style.transition = 'stroke-dashoffset 180ms linear'; });
-    });
+    this.arcNow = this.arcProgress();
+    this.paintArcs(this.arcNow);
+  }
+
+  /* Line and ball are painted from one eased value in one frame. A CSS
+     transition on the line (restarted every scroll tick) left it trailing the
+     ball by half an arc while scrolling, then snapping to catch up. */
+  easeArcs() {
+    if (!this.arcs) return;
+    this.arcTarget = this.arcProgress();
+    if (this.arcRaf) return;
+    const step = () => {
+      const d = this.arcTarget - this.arcNow;
+      this.arcNow = Math.abs(d) < 0.001 ? this.arcTarget : this.arcNow + d * 0.2;
+      this.paintArcs(this.arcNow);
+      this.arcRaf = this.arcNow === this.arcTarget ? null : requestAnimationFrame(step);
+    };
+    this.arcRaf = requestAnimationFrame(step);
   }
 
   arcProgress() {
@@ -1614,7 +1687,7 @@ class Component extends DCLogic {
       this.checkReveals();
       this.checkMotifs();
       this.startSeconds();
-      this.paintArcs(this.arcProgress());
+      this.easeArcs();
       this.headerHide();
       const el = this.parallaxEl;
       if (el && el.parentElement) {
@@ -1723,6 +1796,7 @@ class Component extends DCLogic {
     if (this.secRaf) cancelAnimationFrame(this.secRaf);
     if (this.puttRaf) cancelAnimationFrame(this.puttRaf);
     if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
+    if (this.arcRaf) cancelAnimationFrame(this.arcRaf);
     if (this.onVis) document.removeEventListener('visibilitychange', this.onVis);
     if (this.menuTimer) clearTimeout(this.menuTimer);
     if (this.map) { this.map.remove(); this.map = null; }
