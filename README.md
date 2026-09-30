@@ -16,8 +16,9 @@ DNS is managed at Porkbun: an ALIAS record for `parout.golf` pointing to
 ## Files
 - index.html, faq.html, privacy.html, terms.html — the four pages
 - support.js, fonts/, assets/ — required; keep the folder structure intact
-- robots.txt — blocks search engines while the site is private
-- assets/robots.txt, assets/sitemap.xml — launch versions; move to the root at launch
+- robots.txt — blocks search engines while the site is private; at launch replace with
+  `User-agent: *`, `Allow: /`, `Sitemap: https://parout.golf/sitemap.xml`
+- sitemap.xml — list of pages for search engines (at the root, where robots.txt points)
 - 404.html — branded "page not found" page (Netlify serves it for any missing URL; uses root-absolute paths so it works at any depth)
 - favicon.ico, assets/favicon.svg, assets/apple-touch-icon.png — site icons
 

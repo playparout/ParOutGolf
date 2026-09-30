@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -57,42 +57,83 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<!-- Analytics and font preloads live here in <head> (not in <helmet>): the page runtime re-runs anything in <helmet>, which counted every visit twice. -->
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preload" href="/fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<!-- Search and link-preview tags live here in <head> (not in <helmet>) so crawlers that don't run JavaScript see them. -->
+<title>Page not found — Par Out Golf</title>
 </head>
 <body>
 <x-dc>
 <helmet>
-<title>Page not found — Par Out Golf</title>
-<link rel="preload" href="/fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="/fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <style>
 @media (max-width: 880px) { [data-404-ctas] > a { flex: 1 1 100%; text-align: center; } }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/Archivo-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/Archivo-Bold.woff2') format('woff2'); }
-@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
 @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
 a { color: #A24A14; text-decoration: none; }
+/* Links inside sentences are underlined so they don’t rely on color alone (WCAG 1.4.1). */
+p a, li a { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+[data-sr] { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 a:hover { color: #04563E; }
 :focus-visible { outline: 3px solid #B5551A; outline-offset: 3px; }
 @media (max-width: 760px) { nav[data-hide-narrow] { display: none !important; } [data-cta-bar-sub] { display: none !important; } }
-@media (max-width: 900px) { aside[data-toc] { position: static !important; } }
 
 /* --- mobile nav + sticky CTA (mirrors the homepage) --- */
+@media (max-width: 1120px) { nav[data-hide-narrow] { gap: 18px !important; font-size: 14px !important; } }
 @media (max-width: 880px) {
   nav[data-hide-narrow] { display: none !important; }
   [data-menu-btn] { display: inline-flex !important; }
   [data-header-cta] { display: none !important; }
   [data-sub-root] { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
-  [data-toc] a { min-height: 44px; display: flex !important; align-items: center; }
-  [data-back-link] { min-height: 44px; display: inline-flex !important; align-items: center; font-size: 13px !important; }
   [data-foot-nav] { gap: 0 !important; }
   [data-foot-nav] > a { min-height: 44px; display: flex !important; align-items: center; border-bottom: 1px solid rgba(4,86,62,0.16); }
   [data-foot-nav] > a:last-child { border-bottom: 0; }
   [data-foot-meta] { font-size: 13px !important; }
   [data-foot-meta] a { min-height: 44px; display: inline-flex !important; align-items: center; }
+  [data-foot-tel] { min-height: 44px; align-items: center; display: inline-flex !important; }
   [data-mono-12] { font-size: 13px !important; }
 }
 @media (min-width: 881px) { [data-cta-bar] { display: none !important; } }
@@ -108,17 +149,23 @@ a:hover { color: #04563E; }
 <path d="M600 152H540V1261H600V152Z" fill="#04563E"></path>
 <path d="M570 0C619.706 0 660 40.2944 660 90C660 139.706 619.706 180 570 180C520.294 180 480 139.706 480 90C480 40.2944 520.294 0 570 0Z" fill="#B5551A"></path></symbol></svg>
 
+  <a href="#top" style="position: absolute; left: -9999px; top: 0; background: #04563E; color: #FDF5E6; padding: 12px 18px; z-index: 100; font-size: 14px; font-weight: 700;" style-focus="left: 12px; top: 12px;">Skip to content</a>
+
   <header style="position: sticky; top: 0; z-index: 40; background: #FDF5E6; border-bottom: 1px solid #04563E;">
     <div style="max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
       <a href="/" style="flex: 1 0 auto; display: flex; align-items: center; gap: 10px; color: #04563E;" aria-label="Par Out home">
         <svg width="27" height="47" viewBox="0 0 1222 2107" aria-hidden="true" style="flex: none; display: block; overflow: visible;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
         <span style="font-weight: 700; font-size: 17px; letter-spacing: 0.11em; white-space: nowrap; margin-top: 9px;">PAR OUT</span>
       </a>
-      <nav data-hide-narrow="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 22px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
+      <nav data-hide-narrow="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 24px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
         <a href="/#access" style="color: #04563E;">Access</a>
         <a href="/#rates" style="color: #04563E;">Rates</a>
+        <a href="/#memberships" style="color: #04563E;">Memberships</a>
+        <a href="/#leagues" style="color: #04563E;">Leagues</a>
+        <a href="/#lessons" style="color: #04563E;">Lessons</a>
+        <a href="/#technology" style="color: #04563E;">Technology</a>
         <a href="/faq.html" style="color: #04563E;">FAQ</a>
-        <a href="/terms.html" style="color: #04563E;">Terms</a>
+        <a href="/#contact" style="color: #04563E;">Contact</a>
       </nav>
       <div style="flex: 1 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 9px;">
         <button type="button" data-menu-btn="" aria-label="Open menu" aria-expanded="false" style="display: none; align-items: center; gap: 8px; background: transparent; border: 1.5px solid #04563E; color: #04563E; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 14px; border-radius: 999px; cursor: pointer; min-height: 44px;">MENU</button>
@@ -137,7 +184,9 @@ a:hover { color: #04563E; }
       <a href="/#access" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Access</a>
       <a href="/#rates" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Rates</a>
       <a href="/#memberships" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Memberships</a>
+      <a href="/#leagues" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Leagues</a>
       <a href="/#lessons" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Lessons</a>
+      <a href="/#technology" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Technology</a>
       <a href="/faq.html" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">FAQ</a>
       <a href="/#contact" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Contact</a>
     </nav>
@@ -147,9 +196,9 @@ a:hover { color: #04563E; }
     </div>
   </div>
 
-  <main data-404="" style="max-width: 1240px; margin: 0 auto; padding: clamp(48px, 9vw, 110px) 20px 0;">
+  <main id="top" data-404="" style="max-width: 1240px; margin: 0 auto; padding: clamp(48px, 9vw, 110px) 20px 0;">
     <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">ERROR 404 · PAGE NOT FOUND</div>
-    <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(50px, 10.4vw, 132px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">This one’s out of <em style="color: #B5551A; font-style: normal;">bounds</em></h1>
+    <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(50px, 10.4vw, 132px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">This one’s out of <em style="color: #B5551A; font-style: normal;">bounds.</em></h1>
     <p style="margin: 30px 0 0; font-size: clamp(18px, 2.3vw, 22px); line-height: 1.45; max-width: 40ch; text-wrap: pretty;">The page you’re looking for doesn’t exist or has moved. Take a drop and head back to the course.</p>
     <div data-404-ctas="" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px;">
       <a href="/" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 999px; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Back to homepage</a>
@@ -168,11 +217,12 @@ a:hover { color: #04563E; }
       <svg width="18" height="31" viewBox="0 0 1222 2107" aria-hidden="true" style="display: block;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
       <span style="font-weight: 700; font-size: 14px; letter-spacing: 0.11em; position: relative; top: 3px;">PAR OUT</span>
     </div>
-    <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br>(518) 727-3442</div>
+    <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br><a href="tel:+15187273442" data-foot-tel="" style="color: #04563E; display: inline-block;">(518) 727-3442</a></div>
     <div data-foot-nav="" style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
       <a href="/#access" style="color: #04563E;">How access works</a>
       <a href="/#rates" style="color: #04563E;">Rates</a>
       <a href="/#memberships" style="color: #04563E;">Memberships</a>
+        <a href="/#visit" style="color: #04563E;">Visit</a>
       <a href="/faq.html" style="color: #04563E;">Full FAQ</a>
       <a href="/#contact" style="color: #04563E;">Contact</a>
       <a href="/privacy.html" style="color: #04563E;">Privacy Policy</a>
@@ -181,13 +231,14 @@ a:hover { color: #04563E; }
     <div style="display: flex; flex-direction: column; gap: 14px;">
       <div data-foot-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf">CONTACT@PAROUT.GOLF</a></div>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
       </div>
     </div>
+    <p data-trademark="" style="grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid rgba(4,86,62,0.16); font-size: 13px; line-height: 1.5; color: #04563E;">TRACKMAN® and the Tracer Logo are registered trademarks of Trackman A/S</p>
   </footer>
 
-  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+  <div data-cta-bar="" role="region" aria-label="Join the list" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
     <div style="min-width: 0;">
       <div data-cta-bar-sub="" data-mono-12="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER ’27</div>
       <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: #FDF5E6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rates from $35/hr</div>

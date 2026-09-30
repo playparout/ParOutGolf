@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -57,39 +57,82 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-</head>
-<body>
-<x-dc>
-<helmet>
+<!-- Analytics and font preloads live here in <head> (not in <helmet>): the page runtime re-runs anything in <helmet>, which counted every visit twice. -->
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<!-- Search and link-preview tags live here in <head> (not in <helmet>) so crawlers that don't run JavaScript see them. -->
 <title>FAQ — Par Out Golf | 24/7 indoor golf in Colonie, NY</title>
-<meta name="description" content="Everything about playing at Par Out Golf: door access links, cancellations, food and drink rules, group bookings, member rates, and how to unstick a Trackman sim at 2am.">
+<meta name="description" content="Door access links, cancellations, food and drink, group bookings, member rates, and how to unstick a Trackman sim at 2am.">
 <meta property="og:title" content="FAQ — Par Out Golf | 24/7 indoor golf in Colonie, NY">
 <meta property="og:description" content="Door access links, cancellations, food and drink rules, group bookings, member rates, and how to unstick a Trackman sim at 2am.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://parout.golf/faq">
 <meta property="og:site_name" content="Par Out Golf">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://parout.golf/assets/og-card-v7.png">
+<meta property="og:image" content="https://parout.golf/assets/og-card-v8.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Par Out Golf — Pure Golf. Zero Distractions. Four public Trackman iO bays in Colonie, NY. Just premium simulators for solo practice, group sessions, or a quick round with friends.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FAQ — Par Out Golf | 24/7 indoor golf in Colonie, NY">
 <meta name="twitter:description" content="Door access links, cancellations, food and drink rules, group bookings, member rates, and how to unstick a Trackman sim at 2am.">
-<meta name="twitter:image" content="https://parout.golf/assets/og-card-v7.png">
+<meta name="twitter:image" content="https://parout.golf/assets/og-card-v8.png">
 <link rel="canonical" href="https://parout.golf/faq">
-<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I access the facility?","acceptedAnswer":{"@type":"Answer","text":"Ten minutes before your session, we email you a door access link. It works from then until 10 minutes after your session ends. Tap the link, the door unlocks, walk in."}},{"@type":"Question","name":"Is the facility staffed?","acceptedAnswer":{"@type":"Answer","text":"Par Out is unstaffed by design. If you have issues, please call or email us. Cameras are active throughout the facility for everyone’s safety."}},{"@type":"Question","name":"What if my access link doesn’t work?","acceptedAnswer":{"@type":"Answer","text":"First, double-check that you’re within your booking window — the link goes live 10 minutes before your start time, not earlier. If it still won’t open, contact us and we’ll sort it out as fast as we can."}},{"@type":"Question","name":"What’s your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Cancel at least 2 hours before your start time and you’re refunded or credited. Later cancellations and no-shows aren’t refunded."}},{"@type":"Question","name":"How long does 9 or 18 holes take?","acceptedAnswer":{"@type":"Answer","text":"Plan for 30 minutes per person for 9 holes and 1 hour per person for 18 holes."}},{"@type":"Question","name":"Can I host a group or party?","acceptedAnswer":{"@type":"Answer","text":"Yes — book multiple bays at once for bigger groups. For full facility buyouts (private events, corporate outings, parties), email us and we’ll set it up."}},{"@type":"Question","name":"Do I need to be a member to book?","acceptedAnswer":{"@type":"Answer","text":"No — anyone can book. Members save $10/hr on every session and get a 30-day advance booking window; the public gets 7 days. Full breakdown here."}},{"@type":"Question","name":"Does my whole group get the member rate?","acceptedAnswer":{"@type":"Answer","text":"The member rate applies to the bay, but the account holder must be in the bay during the session. Bring whoever — they play at your rate."}},{"@type":"Question","name":"How do lessons work?","acceptedAnswer":{"@type":"Answer","text":"Each coach sets their own price and availability. You book through Alba Play; they meet you in the bay. Par Out covers the bay and the tech; the coach covers the teaching. Coaches are being lined up now — see the lessons section."}},{"@type":"Question","name":"Do I need to bring my own clubs?","acceptedAnswer":{"@type":"Answer","text":"Yes. At this time we don’t have loaner clubs. It’s something we’re actively looking into."}},{"@type":"Question","name":"How many players fit in a bay?","acceptedAnswer":{"@type":"Answer","text":"Up to 4 players per bay. Each bay has 4 seats. If you want to plan something bigger, please reach out and we will work with you."}},{"@type":"Question","name":"Can I bring food and drinks?","acceptedAnswer":{"@type":"Answer","text":"You’re welcome to bring in any outside food and non-alcoholic drinks. Please clean up at the end of your session to keep the space ready for the next group."}},{"@type":"Question","name":"Alcohol?","acceptedAnswer":{"@type":"Answer","text":"Non-alcoholic drinks only, please. We’re not licensed to serve or allow alcohol on the premises."}},{"@type":"Question","name":"Are kids allowed?","acceptedAnswer":{"@type":"Answer","text":"Yes — anyone under 18 must be accompanied by a parent or guardian who’s also in the bay. Great first-golf experience; no one’s watching if their swing looks weird."}},{"@type":"Question","name":"The sim froze or glitched mid-round. What now?","acceptedAnswer":{"@type":"Answer","text":"Treat it like any frozen app. Hit the Windows key to bring up the taskbar, right-click the Trackman software, and close it. Re-open it with the orange TPS icon, log back in, and pick up where you left off. Still stuck? Call us. We’ll add time if the bay’s free or move you to another bay. If neither is possible, we’ll work with you to make it right."}},{"@type":"Question","name":"How do I recalibrate?","acceptedAnswer":{"@type":"Answer","text":"Open the menu and look top-right for the Calibrate button. Tap Auto-target and the sim dials itself in. No tools, no guesswork."}},{"@type":"Question","name":"My session started but the projector’s dark.","acceptedAnswer":{"@type":"Answer","text":"Call us at (518) 727-3442 and we’ll get it back on for you."}}]}</script>
+</head>
+<body>
+<x-dc>
+<helmet>
 <style>
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
-@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
 @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
 a { color: #A24A14; text-decoration: none; }
+/* Links inside sentences are underlined so they don’t rely on color alone (WCAG 1.4.1). */
+p a, li a { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+[data-sr] { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 a:hover { color: #04563E; }
 summary::-webkit-details-marker { display: none; }
 summary { list-style: none; cursor: pointer; }
@@ -111,6 +154,7 @@ details[open]::details-content { block-size: auto; opacity: 1; }
 @media (max-width: 860px) { aside[data-toc] { position: static !important; } }
 
 /* --- mobile nav + sticky CTA (mirrors the homepage) --- */
+@media (max-width: 1120px) { nav[data-hide-narrow] { gap: 18px !important; font-size: 14px !important; } }
 @media (max-width: 880px) {
   nav[data-hide-narrow] { display: none !important; }
   [data-menu-btn] { display: inline-flex !important; }
@@ -123,11 +167,11 @@ details[open]::details-content { block-size: auto; opacity: 1; }
   [data-foot-nav] > a:last-child { border-bottom: 0; }
   [data-foot-meta] { font-size: 13px !important; }
   [data-foot-meta] a { min-height: 44px; display: inline-flex !important; align-items: center; }
+  [data-foot-tel] { min-height: 44px; align-items: center; display: inline-flex !important; }
   [data-mono-12] { font-size: 13px !important; }
 }
 @media (min-width: 881px) { [data-cta-bar] { display: none !important; } }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I access the facility?","acceptedAnswer":{"@type":"Answer","text":"Ten minutes before your session, we email you a door access link. It works from then until 10 minutes after your session ends. Tap the link, the door unlocks, walk in."}},{"@type":"Question","name":"Is the facility staffed?","acceptedAnswer":{"@type":"Answer","text":"Par Out is unstaffed by design. If you have issues, please call or email us. Cameras are active throughout the facility for everyone’s safety."}},{"@type":"Question","name":"What if my access link doesn’t work?","acceptedAnswer":{"@type":"Answer","text":"First, double-check that you’re within your booking window. If it still won’t open, contact us and we’ll sort it out as fast as we can."}},{"@type":"Question","name":"What’s your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Cancel at least 2 hours before your start time and you’re refunded or credited. Later than that and the session is forfeited."}},{"@type":"Question","name":"How long does 9 or 18 holes take?","acceptedAnswer":{"@type":"Answer","text":"Plan for 30 minutes per person for 9 holes and 1 hour per person for 18 holes."}},{"@type":"Question","name":"Do I need to be a member to book?","acceptedAnswer":{"@type":"Answer","text":"No — anyone can book. Members save $10/hr on every session and get a 30-day advance booking window; the public gets 7 days."}},{"@type":"Question","name":"Do I need to bring my own clubs?","acceptedAnswer":{"@type":"Answer","text":"Yes. At this time we don’t have loaner clubs. It’s something we’re actively looking into."}},{"@type":"Question","name":"Can I bring food and drinks?","acceptedAnswer":{"@type":"Answer","text":"You’re welcome to bring in any outside food and non-alcoholic drinks. Please clean up at the end of your session to keep the space ready for the next group."}},{"@type":"Question","name":"Alcohol?","acceptedAnswer":{"@type":"Answer","text":"Non-alcoholic drinks only, please. We’re not licensed to serve or allow alcohol on the premises."}}]}</script>
 </helmet>
 
 <div data-sub-root="" style="font-family: 'Archivo', system-ui, sans-serif; color: #04563E; background: #FDF5E6;">
@@ -139,18 +183,23 @@ details[open]::details-content { block-size: auto; opacity: 1; }
 <path d="M600 152H540V1261H600V152Z" fill="#04563E"></path>
 <path d="M570 0C619.706 0 660 40.2944 660 90C660 139.706 619.706 180 570 180C520.294 180 480 139.706 480 90C480 40.2944 520.294 0 570 0Z" fill="#B5551A"></path></symbol></svg>
 
+  <a href="#top" style="position: absolute; left: -9999px; top: 0; background: #04563E; color: #FDF5E6; padding: 12px 18px; z-index: 100; font-size: 14px; font-weight: 700;" style-focus="left: 12px; top: 12px;">Skip to content</a>
+
   <header style="position: sticky; top: 0; z-index: 40; background: #FDF5E6; border-bottom: 1px solid #04563E;">
     <div style="max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
       <a href="index.html" style="flex: 1 0 auto; display: flex; align-items: center; gap: 10px; color: #04563E;" aria-label="Par Out home">
         <svg width="27" height="47" viewBox="0 0 1222 2107" aria-hidden="true" style="flex: none; display: block; overflow: visible;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
         <span style="font-weight: 700; font-size: 17px; letter-spacing: 0.11em; white-space: nowrap; margin-top: 9px;">PAR OUT</span>
       </a>
-      <nav data-hide-narrow="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 22px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
+      <nav data-hide-narrow="" style="flex: none; display: flex; flex-wrap: nowrap; gap: 24px; font-size: 15px; white-space: nowrap; margin-top: 9px;" aria-label="Sections">
         <a href="index.html#access" style="color: #04563E;">Access</a>
         <a href="index.html#rates" style="color: #04563E;">Rates</a>
         <a href="index.html#memberships" style="color: #04563E;">Memberships</a>
+        <a href="index.html#leagues" style="color: #04563E;">Leagues</a>
+        <a href="index.html#lessons" style="color: #04563E;">Lessons</a>
         <a href="index.html#technology" style="color: #04563E;">Technology</a>
-        <a href="index.html#faq" style="color: #04563E;">FAQ</a>
+        <a href="#top" style="color: #04563E;">FAQ</a>
+        <a href="index.html#contact" style="color: #04563E;">Contact</a>
       </nav>
       <div style="flex: 1 0 auto; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 9px;">
         <button type="button" data-menu-btn="" aria-label="Open menu" aria-expanded="false" style="display: none; align-items: center; gap: 8px; background: transparent; border: 1.5px solid #04563E; color: #04563E; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; padding: 12px 14px; border-radius: 999px; cursor: pointer; min-height: 44px;">MENU</button>
@@ -169,7 +218,9 @@ details[open]::details-content { block-size: auto; opacity: 1; }
       <a href="index.html#access" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Access</a>
       <a href="index.html#rates" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Rates</a>
       <a href="index.html#memberships" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Memberships</a>
+      <a href="index.html#leagues" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Leagues</a>
       <a href="index.html#lessons" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Lessons</a>
+      <a href="index.html#technology" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Technology</a>
       <a href="#top" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">FAQ</a>
       <a href="index.html#contact" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Contact</a>
     </nav>
@@ -179,10 +230,10 @@ details[open]::details-content { block-size: auto; opacity: 1; }
     </div>
   </div>
 
-  <main style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
-    <a href="index.html" data-back-link="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> BACK TO HOMEPAGE</a>
+  <main id="top" style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
+    <a href="index.html" data-back-link="" style="font-size: 13px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> BACK TO HOMEPAGE</span></a>
     <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(38px, 7.6vw, 88px); line-height: 1.0; letter-spacing: -0.030em; text-wrap: balance;">Everything else you’d ask a person, if there were one.</h1>
-    <p style="margin: 22px 0 0; font-size: clamp(18px, 2.3vw, 22px); line-height: 1.45; max-width: 44ch; text-wrap: pretty;">Eighteen answers, grouped by when you’d need them.</p>
+    <p style="margin: 22px 0 0; font-size: clamp(18px, 2.3vw, 22px); line-height: 1.45; max-width: 44ch; text-wrap: pretty;">Seventeen answers, grouped by when you’d need them.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; margin-top: 48px; align-items: start;">
 
@@ -191,11 +242,11 @@ details[open]::details-content { block-size: auto; opacity: 1; }
         <a href="#getting-in" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">Getting in <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">3</span></a>
         <a href="#booking" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">Booking, rates &amp; lessons <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">6</span></a>
         <a href="#in-the-bay" style="border-top: 1px solid #04563E; padding-top: 10px; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">In the bay <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">5</span></a>
-        <a href="#tech" style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E; padding: 10px 0; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">When the tech acts up <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">4</span></a>
+        <a href="#tech" style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E; padding: 10px 0; color: #04563E; font-size: 16px; display: flex; justify-content: space-between; gap: 10px;">When the tech acts up <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A24A14;">3</span></a>
         <div style="margin-top: 14px; background: #04382A; color: #FDF5E6; padding: 20px;">
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">STUCK RIGHT NOW?</div>
           <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5;">Give us a call or send us an email.</p>
-          <div style="margin-top: 10px; font-weight: 700; font-size: 20px;">(518) 727-3442</div>
+          <div style="margin-top: 10px; font-weight: 700; font-size: 20px;"><a href="tel:+15187273442" style="color: inherit;">(518) 727-3442</a></div>
           <a href="mailto:Contact@parout.golf" style="display: inline-block; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F2C94C;">CONTACT@PAROUT.GOLF</a>
         </div>
       </aside>
@@ -224,7 +275,7 @@ details[open]::details-content { block-size: auto; opacity: 1; }
           <h2 style="margin: 12px 0 20px; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(27px, 3.8vw, 40px); line-height: 0.98; letter-spacing: -0.024em;">Booking, rates &amp; lessons</h2>
           <details style="border-top: 1px solid #04563E;">
             <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">What’s your cancellation policy?<span style="color: #B5551A;">+</span></summary>
-            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Cancel at least 2 hours before your start time and you’re refunded or credited. Later than that and the session is forfeited.</p>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Cancel at least 2 hours before your start time and you’re refunded or credited. Later cancellations and no-shows aren’t refunded.</p>
           </details>
           <details style="border-top: 1px solid #04563E;">
             <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How long does 9 or 18 holes take?<span style="color: #B5551A;">+</span></summary>
@@ -244,7 +295,7 @@ details[open]::details-content { block-size: auto; opacity: 1; }
           </details>
           <details style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
             <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How do lessons work?<span style="color: #B5551A;">+</span></summary>
-            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Each coach sets their own price and availability. You book directly with them; they meet you in the bay. Par Out covers the bay and the tech; the coach covers the teaching. Coaches are being lined up now — <a href="index.html#lessons">see the lessons section</a>.</p>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Each coach sets their own price and availability. You book through Alba Play; they meet you in the bay. Par Out covers the bay and the tech; the coach covers the teaching. Coaches are being lined up now — <a href="index.html#lessons">see the lessons section</a>.</p>
           </details>
         </section>
 
@@ -276,29 +327,25 @@ details[open]::details-content { block-size: auto; opacity: 1; }
         <section id="tech">
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">04 · WHEN IT BREAKS</div>
           <h2 style="margin: 12px 0 8px; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(27px, 3.8vw, 40px); line-height: 0.98; letter-spacing: -0.024em;">When the tech acts up</h2>
-          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.55; max-width: 58ch;">Nobody’s on site to reboot it for you, so here’s exactly what we’d do if we were standing in the bay with you. Any of it not working? Call <span style="font-weight: 700;">(518) 727-3442</span>.</p>
+          <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.55; max-width: 58ch;">Nobody’s on site to reboot it for you, so here’s exactly what we’d do if we were standing in the bay with you. Any of it not working? Call <a href="tel:+15187273442" style="font-weight: 700; white-space: nowrap;">(518) 727-3442</a>.</p>
           <details style="border-top: 1px solid #04563E;">
-            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">The sim froze mid-round. How do I unstick it?<span style="color: #B5551A;">+</span></summary>
-            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Treat it like any frozen app. Hit the Windows key to bring up the taskbar, right-click the Trackman software, and close it. Re-open it with the orange TPS icon — it reboots clean and you’re back on the tee.</p>
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">The sim froze or glitched mid-round. What now?<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Treat it like any frozen app. Hit the Windows key to bring up the taskbar, right-click the Trackman software, and close it. Re-open it with the orange TPS icon, log back in, and pick up where you left off. Still stuck? Call us. We’ll add time if the bay’s free or move you to another bay. If neither is possible, we’ll work with you to make it right.</p>
           </details>
           <details style="border-top: 1px solid #04563E;">
             <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">How do I recalibrate?<span style="color: #B5551A;">+</span></summary>
             <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Open the menu and look top-right for the Calibrate button. Tap Auto-target and the sim dials itself in. No tools, no guesswork.</p>
           </details>
-          <details style="border-top: 1px solid #04563E;">
-            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">My session started but the projector’s dark.<span style="color: #B5551A;">+</span></summary>
-            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Give us a call first. If the projector’s blinking red, its power button sits on the underside — a gentle tap with a club brings it back.</p>
-          </details>
           <details style="border-top: 1px solid #04563E; border-bottom: 1px solid #04563E;">
-            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">The sim glitched mid-round — now what?<span style="color: #B5551A;">+</span></summary>
-            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">We apologize for any technical issues. Most clear with a quick restart: Windows key, close the software on the taskbar, reload, log back in, pick up where you left off. Still stuck? Call us. We’ll add time if the bay’s free or move you to another bay. If neither is possible, we’ll work with you to make it right.</p>
+            <summary style="padding: 18px 0; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 700; color: #04563E;">My session started but the projector’s dark.<span style="color: #B5551A;">+</span></summary>
+            <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; max-width: 62ch;">Call us at <a href="tel:+15187273442" style="font-weight: 700; white-space: nowrap;">(518) 727-3442</a> and we’ll get it back on for you.</p>
           </details>
         </section>
 
         <div style="background: #04382A; color: #FDF5E6; padding: 32px;">
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #F2C94C;">STILL UNANSWERED</div>
           <h2 style="margin: 12px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(25px, 3.5vw, 35px); line-height: 1; letter-spacing: -0.020em;">Ask us anything else.</h2>
-          <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.55; max-width: 46ch;">Nobody’s at a desk, but somebody reads every message — and the phone is answered at any hour.</p>
+          <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.55; max-width: 46ch;">Nobody’s at a desk, but somebody reads every message. Call us anytime and we’ll get back to you fast.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
             <a href="index.html#contact" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px;" style-hover="background: #F2C94C; color: #04563E;">Send a message</a>
             <a href="index.html#join" style="border: 1.5px solid #FDF5E6; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 12px 22px; border-radius: 999px;" style-hover="background: #FDF5E6; color: #04382A;">Join the list</a>
@@ -314,11 +361,12 @@ details[open]::details-content { block-size: auto; opacity: 1; }
       <svg width="18" height="31" viewBox="0 0 1222 2107" aria-hidden="true" style="display: block;"><use href="#pm" x="0" y="0" width="1222" height="2107"></use></svg>
       <span style="font-weight: 700; font-size: 14px; letter-spacing: 0.11em; position: relative; top: 3px;">PAR OUT</span>
     </div>
-    <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br>(518) 727-3442</div>
+    <div style="font-size: 15px; line-height: 1.5;">Par Out Golf LLC<br>1770 Central Avenue<br>Colonie, NY 12205<br><a href="tel:+15187273442" data-foot-tel="" style="color: #04563E; display: inline-block;">(518) 727-3442</a></div>
     <div data-foot-nav="" style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
       <a href="index.html#access" style="color: #04563E;">How access works</a>
       <a href="index.html#rates" style="color: #04563E;">Rates</a>
       <a href="index.html#memberships" style="color: #04563E;">Memberships</a>
+      <a href="index.html#visit" style="color: #04563E;">Visit</a>
       <a href="faq.html" style="color: #04563E;">Full FAQ</a>
       <a href="index.html#contact" style="color: #04563E;">Contact</a>
       <a href="privacy.html" style="color: #04563E;">Privacy Policy</a>
@@ -327,13 +375,14 @@ details[open]::details-content { block-size: auto; opacity: 1; }
     <div style="display: flex; flex-direction: column; gap: 14px;">
       <div data-foot-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf">CONTACT@PAROUT.GOLF</a></div>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
       </div>
     </div>
+    <p data-trademark="" style="grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid rgba(4,86,62,0.16); font-size: 13px; line-height: 1.5; color: #04563E;">TRACKMAN® and the Tracer Logo are registered trademarks of Trackman A/S</p>
   </footer>
 
-  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+  <div data-cta-bar="" role="region" aria-label="Join the list" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
     <div style="min-width: 0;">
       <div data-cta-bar-sub="" data-mono-12="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER ’27</div>
       <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: #FDF5E6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rates from $35/hr</div>
