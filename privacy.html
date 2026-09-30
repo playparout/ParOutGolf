@@ -57,6 +57,48 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<!-- Analytics and font preloads live here in <head> (not in <helmet>): the page runtime re-runs anything in <helmet>, which counted every visit twice. -->
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <!-- Search and link-preview tags live here in <head> (not in <helmet>) so crawlers that don't run JavaScript see them. -->
 <title>Privacy Policy — Par Out Golf</title>
 <meta name="description" content="How Par Out Golf LLC collects, uses, and shares information when you visit parout.golf, book a bay, join our email list, or contact us.">
@@ -79,51 +121,9 @@
 <body>
 <x-dc>
 <helmet>
-<script>
-/* Clarity is a session recorder and the heaviest third party on the page, so
-   the queue stub goes up immediately (nothing is lost) and the tag itself
-   loads on first interaction, or 5s after load — whichever comes first. */
-(function(w,d,a,i){
-  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
-  var done=false;
-  function load(){
-    if(done)return; done=true;
-    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
-    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
-    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
-  }
-  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
-  w.addEventListener('load',function(){setTimeout(load,5000);});
-})(window, document, "clarity", "yh5ln13v7q");
-</script>
-<link rel="dns-prefetch" href="https://www.clarity.ms">
-<script>
-/* GA is queued immediately but the tag itself loads on first interaction,
-   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-K7S36LVFBM');
-(function(d,w){
-  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
-  function load(){
-    if(done)return; done=true;
-    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
-    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
-    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
-  }
-  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
-  w.addEventListener('load',function(){setTimeout(load,5000);});
-})(document, window);
-</script>
-<link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <style>
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
-@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
 @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
@@ -242,7 +242,7 @@ a:hover { color: #04563E; }
         <p style="margin: 0; font-size: clamp(17px, 2.2vw, 20px); line-height: 1.5; text-wrap: pretty;">This Privacy Policy explains how Par Out Golf LLC (“Par Out,” “we,” “us,” or “our”) collects, uses, and shares information when you visit parout.golf, book a bay, join our email list, or contact us. By using our website, you agree to the practices described here.</p>
 
         <section id="p1" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">01</span>Information we collect</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">01</span>Information we collect</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We only collect what we need to run the business and stay in touch with you:</p>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
             <li><strong>Information you give us directly.</strong> Your email address when you join our list; your name, email, and message details when you use our contact form or email us; and booking details (name, contact info, payment) when you reserve a bay.</li>
@@ -252,7 +252,7 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="p2" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">02</span>How we use your information</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">02</span>How we use your information</h2>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.6;">
             <li>To send you news, offers, and updates you’ve signed up for.</li>
             <li>To respond to your inquiries and provide customer support.</li>
@@ -263,7 +263,7 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="p3" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">03</span>The tools and services we use</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">03</span>The tools and services we use</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We rely on a few trusted third-party services to operate. Each only receives the information needed to do its job, and each has its own privacy policy:</p>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
             <li><strong>Google Analytics</strong> — helps us understand website traffic using cookies. You can opt out with <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google’s browser add-on<span data-sr=""> (opens in a new tab)</span></a>.</li>
@@ -275,17 +275,17 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="p4" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">04</span>Cookies</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">04</span>Cookies</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">Cookies are small files stored on your device. We use them mainly for analytics (to count visits and understand usage). You can block or delete cookies in your browser settings; the site will still work, though some features may behave differently.</p>
         </section>
 
         <section id="p5" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">05</span>How we share information</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">05</span>How we share information</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We don’t sell or rent your personal information. We share it only with the service providers listed above (so they can perform their function), or when required by law, or to protect the rights, property, or safety of Par Out, our customers, or others.</p>
         </section>
 
         <section id="p6" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">06</span>Your choices and rights</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">06</span>Your choices and rights</h2>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
             <li><strong>Unsubscribe anytime.</strong> Every marketing email has an unsubscribe link at the bottom. One click and you’re off the list.</li>
             <li><strong>Access or delete your data.</strong> You can ask us what personal information we hold about you and request that we correct or delete it.</li>
@@ -295,17 +295,17 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="p7" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">07</span>Children’s privacy</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">07</span>Children’s privacy</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">Our website and email list are not directed at children under 13, and we do not knowingly collect personal information from them. If you believe a child has provided us information, contact us and we’ll delete it.</p>
         </section>
 
         <section id="p8" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">08</span>Data security &amp; retention</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">08</span>Data security &amp; retention</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We take reasonable steps to protect your information, and we rely on the security practices of the established providers listed above. No method of transmission over the internet is 100% secure, however, so we can’t guarantee absolute security. We keep personal information only as long as needed for the purposes described here or as required by law.</p>
         </section>
 
         <section id="p9" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">09</span>Changes to this policy</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">09</span>Changes to this policy</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We may update this policy from time to time. When we do, we’ll revise the “Last updated” date above. Significant changes may also be announced on the site or by email.</p>
         </section>
 

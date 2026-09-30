@@ -56,6 +56,8 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   `/` so the 404 page works at any path). If the export changes the React version, replace the vendor files too.
   A fresh export may also point `index.html` back at the old `.png` placeholder photos, which are deleted —
   change those references to the `.webp` files.
+- The analytics snippets (GA, Clarity) and font preload/dns-prefetch links also live in `<head>`, not `<helmet>`:
+  the runtime re-runs `<helmet>` contents, which fired analytics twice per visit and downloaded fonts twice.
 - Search/link-preview tags (title, description, og:/twitter: meta, canonical, icons, JSON-LD) live in each page's
   real `<head>`, just before `</head>` — not in `<helmet>`, which only JavaScript moves into the head, so link
   previews in iMessage, Facebook, Slack, etc. would come up blank. A design export puts them back in `<helmet>`;
@@ -64,6 +66,35 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   update the JSON-LD to match. The homepage has no FAQPage markup (one copy per site).
 - `sitemap.xml` is at the repo root; bump its `<lastmod>` dates when pages change. `robots.txt` blocks all
   crawlers until launch.
+
+## Where each fact lives (change all of them together)
+
+The site has no build step, so facts are repeated. Search for the old value in all five pages before and after
+editing, and remember the pieces that aren't plain text.
+
+- **Rates** (Peak $60 / Off-peak $50 / Night Owl $35; members $10/hr less):
+  - `index.html` price cells: the `TENS` table in the script sets the tens digit; the ones digit is fixed in each
+    price cell's markup (0, 0, 5) and `spokenRate()` assumes those. Rate notes in `renderVals()` ("$10/HR").
+  - `index.html` text: hero "RATES FROM $35/hr", membership perks ("$10/hr off", "Night Owl at $25/hr"), rates
+    intro ("Members save $10 an hour"), homepage FAQ answer, the hidden no-JavaScript block (`data-nojs`), meta
+    description ("from $35/hr"), JSON-LD (`priceRange`, Night Owl offer price, membership descriptions).
+  - Every page: phone bottom bar "Rates from $35/hr" and phone menu tagline "RATES FROM $35/HR".
+  - `404.html` cards "FROM $35/HR" and "$10/HR OFF". `faq.html` "Members save $10/hr" answer + its JSON-LD.
+  - Share image `assets/og-card-v8.png` has "RATES FROM $35/HR" drawn in (regenerate it).
+- **Memberships** ($199 Early Bird, 50 spots; $249 Annual; "fifty dollars less"): `index.html` membership cards,
+  "first call on the 50 Early Bird memberships", no-JS block, JSON-LD offers.
+- **Booking windows** (members 30 days, public 7): `index.html` step 01, perks, homepage FAQ, no-JS block,
+  JSON-LD; `faq.html` answer + JSON-LD.
+- **Cancellation** (2 hours): `faq.html` answer + JSON-LD, `terms.html` section 2.
+- **Access link timing** (10 minutes before/after): `index.html` step 02, homepage FAQ, no-JS block;
+  `faq.html` two answers + JSON-LD.
+- **Address, phone, emails**: every footer, `index.html` Visit and Contact sections, no-JS block, JSON-LD;
+  privacy/terms contact boxes; FAQ "Stuck right now?" box and tech section. Phone is always `tel:+15187273442`.
+- **"Opening Winter ’27"**: `index.html` hero, join section, bottom bar; every page's menu footer label; no-JS
+  block ("Opening winter 2027").
+- **FAQ count** ("Seventeen answers") and the per-section counts in the FAQ page's "On this page" list.
+- **Policy dates**: "LAST UPDATED" on `privacy.html` / `terms.html` when their wording changes; `sitemap.xml`
+  `<lastmod>`.
 
 ## Taking screenshots in a cloud session
 

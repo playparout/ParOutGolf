@@ -57,6 +57,48 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<!-- Analytics and font preloads live here in <head> (not in <helmet>): the page runtime re-runs anything in <helmet>, which counted every visit twice. -->
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <!-- Search and link-preview tags live here in <head> (not in <helmet>) so crawlers that don't run JavaScript see them. -->
 <title>FAQ — Par Out Golf | 24/7 indoor golf in Colonie, NY</title>
 <meta name="description" content="Door access links, cancellations, food and drink, group bookings, member rates, and how to unstick a Trackman sim at 2am.">
@@ -80,51 +122,9 @@
 <body>
 <x-dc>
 <helmet>
-<script>
-/* Clarity is a session recorder and the heaviest third party on the page, so
-   the queue stub goes up immediately (nothing is lost) and the tag itself
-   loads on first interaction, or 5s after load — whichever comes first. */
-(function(w,d,a,i){
-  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
-  var done=false;
-  function load(){
-    if(done)return; done=true;
-    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
-    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
-    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
-  }
-  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
-  w.addEventListener('load',function(){setTimeout(load,5000);});
-})(window, document, "clarity", "yh5ln13v7q");
-</script>
-<link rel="dns-prefetch" href="https://www.clarity.ms">
-<script>
-/* GA is queued immediately but the tag itself loads on first interaction,
-   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-K7S36LVFBM');
-(function(d,w){
-  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
-  function load(){
-    if(done)return; done=true;
-    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
-    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
-    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
-  }
-  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
-  w.addEventListener('load',function(){setTimeout(load,5000);});
-})(document, window);
-</script>
-<link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <style>
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
-@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
 @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }

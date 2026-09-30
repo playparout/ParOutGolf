@@ -57,12 +57,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<!-- Search and link-preview tags live here in <head> (not in <helmet>) so crawlers that don't run JavaScript see them. -->
-<title>Page not found — Par Out Golf</title>
-</head>
-<body>
-<x-dc>
-<helmet>
+<!-- Analytics and font preloads live here in <head> (not in <helmet>): the page runtime re-runs anything in <helmet>, which counted every visit twice. -->
 <script>
 /* Clarity is a session recorder and the heaviest third party on the page, so
    the queue stub goes up immediately (nothing is lost) and the tag itself
@@ -80,7 +75,6 @@
   w.addEventListener('load',function(){setTimeout(load,5000);});
 })(window, document, "clarity", "yh5ln13v7q");
 </script>
-<link rel="dns-prefetch" href="https://www.clarity.ms">
 <script>
 /* GA is queued immediately but the tag itself loads on first interaction,
    or 5s after load — same deferral as Clarity, so neither blocks the phone. */
@@ -100,15 +94,21 @@ gtag('config', 'G-K7S36LVFBM');
   w.addEventListener('load',function(){setTimeout(load,5000);});
 })(document, window);
 </script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="preload" href="/fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="/fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<!-- Search and link-preview tags live here in <head> (not in <helmet>) so crawlers that don't run JavaScript see them. -->
+<title>Page not found — Par Out Golf</title>
+</head>
+<body>
+<x-dc>
+<helmet>
 <style>
 @media (max-width: 880px) { [data-404-ctas] > a { flex: 1 1 100%; text-align: center; } }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/Archivo-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/Archivo-Bold.woff2') format('woff2'); }
-@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/BricolageGrotesque-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
 @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
@@ -120,7 +120,6 @@ p a, li a { text-decoration: underline; text-underline-offset: 0.18em; text-deco
 a:hover { color: #04563E; }
 :focus-visible { outline: 3px solid #B5551A; outline-offset: 3px; }
 @media (max-width: 760px) { nav[data-hide-narrow] { display: none !important; } [data-cta-bar-sub] { display: none !important; } }
-@media (max-width: 900px) { aside[data-toc] { position: static !important; } }
 
 /* --- mobile nav + sticky CTA (mirrors the homepage) --- */
 @media (max-width: 1120px) { nav[data-hide-narrow] { gap: 18px !important; font-size: 14px !important; } }
@@ -129,8 +128,6 @@ a:hover { color: #04563E; }
   [data-menu-btn] { display: inline-flex !important; }
   [data-header-cta] { display: none !important; }
   [data-sub-root] { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
-  [data-toc] a { min-height: 44px; display: flex !important; align-items: center; }
-  [data-back-link] { min-height: 44px; display: inline-flex !important; align-items: center; font-size: 13px !important; }
   [data-foot-nav] { gap: 0 !important; }
   [data-foot-nav] > a { min-height: 44px; display: flex !important; align-items: center; border-bottom: 1px solid rgba(4,86,62,0.16); }
   [data-foot-nav] > a:last-child { border-bottom: 0; }
