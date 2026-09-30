@@ -35,8 +35,9 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   ← `M13 8H3M7 4L3 8l4 4` (back links), → `M3 8h10M9 4l4 4-4 4`, ↗ `M4.5 11.5l7-7M6 4.5h5.5V10`,
   ✕ `M4 4l8 8M12 4l-8 8`.
 - Phone number (518) 727-3442 is always a tap-to-call link (`tel:+15187273442`), on every page.
-- The phone menu and footer links are copied into every page. Keep them identical: menu = Access, Rates,
-  Memberships, Leagues, Lessons, Technology, FAQ, Contact (subpages add Home first); footer = How access works,
+- The desktop header links, phone menu and footer links are copied into every page. Keep them identical:
+  header and menu = Access, Rates, Memberships, Leagues, Lessons, Technology, FAQ, Contact (the phone menu on
+  subpages adds Home first; on subpages FAQ goes to faq.html); footer = How access works,
   Rates, Memberships, Visit, Full FAQ, Contact, Privacy Policy, Terms of Use. The phone bottom bar reads
   "Rates from $35/hr" on every page.
 - Standalone links on phones need a 44px tap area: add `data-tap=""` (the phone media query gives it
