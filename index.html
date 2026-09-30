@@ -589,7 +589,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
             </div>
             <div data-ballot-nav="" style="display: none; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px;">
               <button type="button" onClick="{{ ballotBack }}" data-ballot-back="" data-on="{{ ballotBackOn }}" aria-hidden="{{ ballotBackHidden }}" tabIndex="{{ ballotBackTab }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #04563E; background: transparent; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 999px; cursor: pointer;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Back</button>
-              <span data-mono-meta="" aria-live="polite" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;"><span aria-hidden="true">{{ ballotStepNum }}</span><span data-sr="">{{ ballotStepSr }}</span></span>
+              <span data-sr="" aria-live="polite">{{ ballotStepSr }}</span>
               <button type="button" onClick="{{ ballotNext }}" data-ballot-next="" data-on="{{ ballotNextOn }}" aria-hidden="{{ ballotNextHidden }}" tabIndex="{{ ballotNextTab }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 20px; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #FDF5E6; background: #04563E; border: 1.5px solid #04563E; border-radius: 999px; cursor: pointer;">Next<svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
             </div>
           </div>
@@ -982,8 +982,9 @@ class Component extends DCLogic {
         return { text: o, sub, on, css: this.chipCss(on), pick: () => this.toggleBallot(g.key, o) };
       })
     }));
-    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length;
     const note = (this.state.ballotNote || '').trim().slice(0, 500);
+    /* The note is the card's fifth line, so it counts toward the total. */
+    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length + (note ? 1 : 0);
     const body = this.BALLOT.map(g => g.label + '\n' + ((picks[g.key] || []).join(', ') || '—')).join('\n\n');
     return {
       ballotNote: this.state.ballotNote || '',
@@ -991,9 +992,8 @@ class Component extends DCLogic {
       ballotNoteCount: this.lenHint((this.state.ballotNote || '').length, 500),
       ballotGroups: groups,
       ballotNoteActive: step === last ? '1' : '0',
-      ballotComplete: answered === last ? '1' : '0',
+      ballotComplete: answered === last + 1 ? '1' : '0',
       ballotDir: this.state.ballotDir || 'next',
-      ballotStepNum: String(step + 1).padStart(2, '0') + ' / ' + String(last + 1).padStart(2, '0'),
       ballotStepSr: 'Step ' + (step + 1) + ' of ' + (last + 1),
       ballotBack: () => this.goBallot(-1),
       ballotNext: () => this.goBallot(1),
@@ -1003,8 +1003,8 @@ class Component extends DCLogic {
       ballotNextOn: step < last ? '1' : '0',
       ballotNextHidden: step < last ? 'false' : 'true',
       ballotNextTab: step < last ? '0' : '-1',
-      ballotProgress: answered + ' OF 4 ANSWERED',
-      ballotHint: answered === 4 ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
+      ballotProgress: answered + ' OF ' + (last + 1) + ' ANSWERED',
+      ballotHint: answered === last + 1 ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
       ballotMailto: 'mailto:leagues@parout.golf?subject=' + encodeURIComponent('League card') + '&body=' + encodeURIComponent(body + "\n\nAnything we didn't ask\n" + (note || '—') + "\n\nAnything that made a past league work:\n")
     };
   }
