@@ -366,7 +366,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 
     <!-- ================= HERO — ball-flight arcs ================= -->
     <section style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
-      <svg data-motif="arcs" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 620px; max-height: 100%; pointer-events: none; overflow: visible; will-change: transform;">
+      <svg data-motif="arcs" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 620px; max-height: 100%; pointer-events: none; overflow: visible;">
         <path data-draw="" d="M20 600 C 300 180, 660 90, 1190 380" fill="none" stroke="#04563E" stroke-width="1.25" opacity="0.16"></path>
         <path data-draw="" d="M20 600 C 350 260, 720 190, 1190 470" fill="none" stroke="#B5551A" stroke-width="1.25" opacity="0.2"></path>
         <path data-draw="" d="M20 600 C 260 110, 740 40, 1190 280" fill="none" stroke="#F2C94C" stroke-width="1.5" opacity="0.5"></path>
@@ -1495,66 +1495,39 @@ class Component extends DCLogic {
     const svg = this.motifSvg('arcs');
     if (!svg) return;
     const balls = Array.from(svg.querySelectorAll('[data-ball]'));
-    /* Ball positions are sampled once here: getPointAtLength on every frame
-       was measurable main-thread work on iPhones mid-scroll. */
-    const N = 96;
     this.arcs = Array.from(svg.querySelectorAll('[data-draw]')).map((p, i) => {
       const len = p.getTotalLength();
       p.style.strokeDasharray = len;
       p.style.strokeDashoffset = len;
       p.style.transition = 'none';
-      const pts = [];
-      for (let k = 0; k <= N; k++) { const pt = p.getPointAtLength(len * k / N); pts.push(pt.x, pt.y); }
-      return { p, len, pts, n: N, ball: balls[i], e: -1 };
+      return { p, len, ball: balls[i] };
     });
     if (!this.motionOn) {
       this.arcs.forEach(a => {
         a.p.style.strokeDashoffset = '0';
         if (a.ball) {
-          a.ball.setAttribute('cx', a.pts[a.n * 2].toFixed(1));
-          a.ball.setAttribute('cy', a.pts[a.n * 2 + 1].toFixed(1));
+          const pt = a.p.getPointAtLength(a.len);
+          a.ball.setAttribute('cx', pt.x.toFixed(1));
+          a.ball.setAttribute('cy', pt.y.toFixed(1));
           a.ball.style.opacity = '0.75';
         }
       });
       return;
     }
-    this.measureArcs();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { this.measureArcs(true); this.easeArcs(); });
     this.arcNow = this.arcProgress();
     this.paintArcs(this.arcNow);
   }
 
-  /* The scroll distance is measured once, and again only when the width
-     changes. iPhone Safari's toolbar shrinks as you scroll, changing
-     innerHeight (and firing resize) mid-gesture; reading it every frame made
-     the arcs jump back and stall. Progress then comes from scrollY alone, so
-     the scroll tick does no layout reads for the arcs. */
-  measureArcs(force) {
-    const svg = this.motifSvg('arcs');
-    if (!svg || !svg.parentElement) return;
-    const w = window.innerWidth;
-    if (!force && this.arcW === w) return;
-    this.arcW = w;
-    const y = window.scrollY || window.pageYOffset || 0;
-    const hero = svg.parentElement.getBoundingClientRect();
-    this.arcTop = hero.top + y;
-    this.arcTravel = Math.max(1, Math.min(window.innerHeight * 0.45, hero.height * 0.35));
-  }
-
-  /* Line and ball are painted from one value in one frame. The value follows
-     the scroll with light, time-based smoothing (~60ms), so it evens out
-     uneven scroll events without trailing behind the finger. */
+  /* Line and ball are painted from one eased value in one frame. A CSS
+     transition on the line (restarted every scroll tick) left it trailing the
+     ball by half an arc while scrolling, then snapping to catch up. */
   easeArcs() {
-    if (!this.arcs || !this.arcTravel) return;
-    this.measureArcs();
+    if (!this.arcs) return;
     this.arcTarget = this.arcProgress();
-    if (this.arcRaf || this.arcTarget === this.arcNow) return;
-    let last = performance.now();
-    const step = now => {
-      const dt = Math.min(64, Math.max(0, now - last));
-      last = now;
+    if (this.arcRaf) return;
+    const step = () => {
       const d = this.arcTarget - this.arcNow;
-      this.arcNow = Math.abs(d) < 0.002 ? this.arcTarget : this.arcNow + d * (1 - Math.exp(-dt / 60));
+      this.arcNow = Math.abs(d) < 0.001 ? this.arcTarget : this.arcNow + d * 0.2;
       this.paintArcs(this.arcNow);
       this.arcRaf = this.arcNow === this.arcTarget ? null : requestAnimationFrame(step);
     };
@@ -1562,9 +1535,11 @@ class Component extends DCLogic {
   }
 
   arcProgress() {
-    if (!this.arcTravel) return 0;
-    const y = window.scrollY || window.pageYOffset || 0;
-    return Math.max(0, Math.min(1, (y - this.arcTop) / this.arcTravel));
+    const svg = this.motifSvg('arcs');
+    if (!svg || !svg.parentElement) return 0;
+    const hero = svg.parentElement.getBoundingClientRect();
+    const travel = Math.max(1, Math.min(window.innerHeight * 0.45, hero.height * 0.35));
+    return Math.max(0, Math.min(1, -hero.top / travel));
   }
 
   paintArcs(p) {
@@ -1574,16 +1549,14 @@ class Component extends DCLogic {
       const stagger = 0.1;
       const span = 1 - stagger * (n - 1);
       const t = Math.max(0, Math.min(1, (p - i * stagger) / span));
-      const e = Math.round((1 - Math.pow(1 - t, 2)) * 2000) / 2000;
-      if (e === a.e) return;
-      a.e = e;
+      const e = 1 - Math.pow(1 - t, 2);
       a.p.style.strokeDashoffset = (a.len * (1 - e)).toFixed(1);
       if (a.ball) {
         if (e <= 0.001) { a.ball.style.opacity = '0'; return; }
-        const f = e * a.n, k = Math.min(a.n - 1, Math.floor(f)), r = f - k, q = a.pts;
-        a.ball.setAttribute('cx', (q[k * 2] + (q[k * 2 + 2] - q[k * 2]) * r).toFixed(1));
-        a.ball.setAttribute('cy', (q[k * 2 + 1] + (q[k * 2 + 3] - q[k * 2 + 1]) * r).toFixed(1));
-        a.ball.style.opacity = e >= 0.999 ? '0.75' : '1';
+        const pt = a.p.getPointAtLength(a.len * e);
+        a.ball.setAttribute('cx', pt.x.toFixed(1));
+        a.ball.setAttribute('cy', pt.y.toFixed(1));
+        a.ball.style.opacity = (e >= 0.999 ? 0.75 : 1).toFixed(2);
       }
     });
   }
@@ -1711,10 +1684,10 @@ class Component extends DCLogic {
     if (!this.motionOn) return;
     const tick = () => {
       this.scrollRaf = null;
-      this.easeArcs();
       this.checkReveals();
       this.checkMotifs();
       this.startSeconds();
+      this.easeArcs();
       this.headerHide();
       const el = this.parallaxEl;
       if (el && el.parentElement) {
