@@ -30,6 +30,8 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   league card questions (`BALLOT`), Technology tabs (`techVals()`), rate toggle notes.
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
   centered at the bottom of the Technology section.
+  Trackman's logo rules require this footer line wherever their logo appears; it's on every page's footer
+  (`data-trademark`), worded exactly: "TRACKMAN® and the Tracer Logo are registered trademarks of Trackman A/S".
 - Arrow and close icons: the site fonts don't include ← → ↗ ✕, so never type those symbols. Copy an
   existing inline `<svg>` icon (16×16 viewBox, `stroke="currentColor"`, sized at `1em`) instead. Its path is:
   ← `M13 8H3M7 4L3 8l4 4` (back links), → `M3 8h10M9 4l4 4-4 4`, ↗ `M4.5 11.5l7-7M6 4.5h5.5V10`,
