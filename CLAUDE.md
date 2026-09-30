@@ -56,6 +56,14 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   `/` so the 404 page works at any path). If the export changes the React version, replace the vendor files too.
   A fresh export may also point `index.html` back at the old `.png` placeholder photos, which are deleted —
   change those references to the `.webp` files.
+- Search/link-preview tags (title, description, og:/twitter: meta, canonical, icons, JSON-LD) live in each page's
+  real `<head>`, just before `</head>` — not in `<helmet>`, which only JavaScript moves into the head, so link
+  previews in iMessage, Facebook, Slack, etc. would come up blank. A design export puts them back in `<helmet>`;
+  move them out again. The share image is `assets/og-card-v8.png` (1200×630).
+- `faq.html` carries FAQPage JSON-LD with every visible question and answer (17). When an FAQ answer changes,
+  update the JSON-LD to match. The homepage has no FAQPage markup (one copy per site).
+- `sitemap.xml` is at the repo root; bump its `<lastmod>` dates when pages change. `robots.txt` blocks all
+  crawlers until launch.
 
 ## Taking screenshots in a cloud session
 
