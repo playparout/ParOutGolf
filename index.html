@@ -57,37 +57,42 @@
 <script>
 /* Clarity is a session recorder and the heaviest third party on the page, so
    the queue stub goes up immediately (nothing is lost) and the tag itself
-   loads on first interaction, or 5s after load — whichever comes first. */
+   loads once the page has been still for a moment after load. */
 (function(w,d,a,i){
   w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
-  var done=false;
+  var done=false, wait=0, evts=['pointerdown','keydown','scroll','touchstart'];
   function load(){
     if(done)return; done=true;
-    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    evts.forEach(function(e){w.removeEventListener(e,soon,{passive:true});});
     var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
     var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
   }
-  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
-  w.addEventListener('load',function(){setTimeout(load,5000);});
+  /* Clarity snapshots the whole page when it starts. Starting it on the
+     first scroll froze the hero animation mid-flick on phones, so it waits
+     until the page has been still for 1.5s. */
+  function soon(){ clearTimeout(wait); wait=setTimeout(load,1500); }
+  evts.forEach(function(e){w.addEventListener(e,soon,{passive:true});});
+  w.addEventListener('load',function(){setTimeout(soon,3500);});
 })(window, document, "clarity", "yh5ln13v7q");
 </script>
 <script>
-/* GA is queued immediately but the tag itself loads on first interaction,
-   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+/* GA is queued immediately but the tag itself waits for a still page —
+   same deferral as Clarity, so neither lands mid-scroll on a phone. */
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-K7S36LVFBM');
 (function(d,w){
-  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  var done=false, wait=0, evts=['pointerdown','keydown','scroll','touchstart'];
   function load(){
     if(done)return; done=true;
-    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    evts.forEach(function(e){w.removeEventListener(e,soon,{passive:true});});
     var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
     var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
   }
-  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
-  w.addEventListener('load',function(){setTimeout(load,5000);});
+  function soon(){ clearTimeout(wait); wait=setTimeout(load,1500); }
+  evts.forEach(function(e){w.addEventListener(e,soon,{passive:true});});
+  w.addEventListener('load',function(){setTimeout(soon,3500);});
 })(document, window);
 </script>
 <link rel="dns-prefetch" href="https://www.clarity.ms">
@@ -1520,8 +1525,28 @@ class Component extends DCLogic {
     }
     this.measureArcs();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { this.measureArcs(true); this.easeArcs(); });
-    this.arcNow = this.arcProgress();
+    /* Touch screens get a timed flight instead of a scroll-linked one. Phone
+       browsers scroll the page separately from the page's own code, and some
+       (Brave on iPhone) jump the whole page as their toolbar hides, so arcs
+       tied to the scroll position stuttered and stalled however they were
+       tuned. The first scroll now launches the balls; they fly on their own. */
+    this.arcTimed = !!(window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches);
+    this.arcNow = this.arcTimed ? (this.arcProgress() >= 1 ? 1 : 0) : this.arcProgress();
+    if (this.arcTimed && this.arcNow === 1) this.arcFlown = true;
     this.paintArcs(this.arcNow);
+  }
+
+  flyArcs() {
+    this.arcFlown = true;
+    const dur = 1600;
+    let start = null;
+    const step = now => {
+      if (start === null) start = now;
+      this.arcNow = Math.min(1, (now - start) / dur);
+      this.paintArcs(this.arcNow);
+      this.arcRaf = this.arcNow < 1 ? requestAnimationFrame(step) : null;
+    };
+    this.arcRaf = requestAnimationFrame(step);
   }
 
   /* The scroll distance is measured once, and again only when the width
@@ -1546,6 +1571,10 @@ class Component extends DCLogic {
      uneven scroll events without trailing behind the finger. */
   easeArcs() {
     if (!this.arcs || !this.arcTravel) return;
+    if (this.arcTimed) {
+      if (!this.arcFlown && (window.scrollY || window.pageYOffset || 0) > 8) this.flyArcs();
+      return;
+    }
     this.measureArcs();
     this.arcTarget = this.arcProgress();
     if (this.arcRaf || this.arcTarget === this.arcNow) return;
