@@ -365,6 +365,8 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
   <main id="top">
 
     <!-- ================= HERO — ball-flight arcs ================= -->
+    <!-- overflow-anchor: none on the arcs SVG is required: without it, iPhone Safari scroll-anchors on the
+         moving balls, nudges the page 1px, the arcs repaint, and the ball jitters back and forth forever. -->
     <section style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
       <svg data-motif="arcs" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 620px; max-height: 100%; pointer-events: none; overflow: hidden; overflow-anchor: none;">
         <path data-draw="" d="M20 600 C 300 180, 660 90, 1190 380" fill="none" stroke="#04563E" stroke-width="1.25" opacity="0.16"></path>
@@ -1925,41 +1927,6 @@ class Component extends DCLogic {
     });
   }
 }
-</script>
-<script>
-/* TEST BUILD ONLY: on-screen readout for the iPhone hero-arc bug. Always on in
-   this test build. Remove before merging. */
-(function(){
-  var box = document.createElement('pre');
-  box.style.cssText = 'position:fixed;left:6px;top:80px;z-index:99999;margin:0;padding:8px;background:rgba(0,0,0,.82);color:#0f0;font:12px/1.35 monospace;pointer-events:none;white-space:pre';
-  document.body.appendChild(box);
-  var ev = { scroll: 0, resize: 0, vvresize: 0, vvscroll: 0 }, hist = [];
-  window.addEventListener('scroll', function(){ ev.scroll++; }, { passive: true });
-  window.addEventListener('resize', function(){ ev.resize++; }, { passive: true });
-  if (window.visualViewport) {
-    visualViewport.addEventListener('resize', function(){ ev.vvresize++; });
-    visualViewport.addEventListener('scroll', function(){ ev.vvscroll++; });
-  }
-  function r(v){ return Math.round(v * 100) / 100; }
-  function range(k){ var a = hist.map(function(h){ return h[k]; }); return r(Math.min.apply(0, a)) + ' .. ' + r(Math.max.apply(0, a)); }
-  function frame(){
-    var svg = document.querySelector('[data-motif="arcs"]');
-    var ball = svg && svg.querySelector('[data-ball]');
-    var hero = svg && svg.parentElement ? svg.parentElement.getBoundingClientRect() : { top: 0, height: 0 };
-    var vv = window.visualViewport;
-    var s = {
-      scrollY: window.scrollY, innerH: window.innerHeight, clientH: document.documentElement.clientHeight,
-      vvH: vv ? vv.height : 0, vvTop: vv ? vv.offsetTop : 0, docH: document.documentElement.scrollHeight,
-      docW: document.documentElement.scrollWidth, heroTop: hero.top, heroH: hero.height,
-      ballX: ball ? +ball.getAttribute('cx') : 0
-    };
-    hist.push(s); if (hist.length > 90) hist.shift();
-    box.textContent = 'READOUT v3 · last ~1.5s: min .. max\n' + Object.keys(s).map(function(k){ return (k + '        ').slice(0, 8) + range(k); }).join('\n') +
-      '\nevents  scroll ' + ev.scroll + ' resize ' + ev.resize + '\n        vv-resize ' + ev.vvresize + ' vv-scroll ' + ev.vvscroll;
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-})();
 </script>
 </body>
 </html>
