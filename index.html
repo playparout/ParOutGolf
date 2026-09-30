@@ -1927,10 +1927,9 @@ class Component extends DCLogic {
 }
 </script>
 <script>
-/* TEST BUILD ONLY: on-screen readout for the iPhone hero-arc bug. Shows only
-   with ?debug=1 in the URL. Remove before merging. */
+/* TEST BUILD ONLY: on-screen readout for the iPhone hero-arc bug. Always on in
+   this test build. Remove before merging. */
 (function(){
-  if (!/[?&]debug=1/.test(location.search)) return;
   var box = document.createElement('pre');
   box.style.cssText = 'position:fixed;left:6px;top:80px;z-index:99999;margin:0;padding:8px;background:rgba(0,0,0,.82);color:#0f0;font:12px/1.35 monospace;pointer-events:none;white-space:pre';
   document.body.appendChild(box);
@@ -1955,7 +1954,7 @@ class Component extends DCLogic {
       ballX: ball ? +ball.getAttribute('cx') : 0
     };
     hist.push(s); if (hist.length > 90) hist.shift();
-    box.textContent = 'last ~1.5s: min .. max\n' + Object.keys(s).map(function(k){ return (k + '        ').slice(0, 8) + range(k); }).join('\n') +
+    box.textContent = 'READOUT v2 · last ~1.5s: min .. max\n' + Object.keys(s).map(function(k){ return (k + '        ').slice(0, 8) + range(k); }).join('\n') +
       '\nevents  scroll ' + ev.scroll + ' resize ' + ev.resize + '\n        vv-resize ' + ev.vvresize + ' vv-scroll ' + ev.vvscroll;
     requestAnimationFrame(frame);
   }
