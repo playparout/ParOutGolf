@@ -366,7 +366,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 
     <!-- ================= HERO — ball-flight arcs ================= -->
     <section style="position: relative; max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
-      <svg data-motif="arcs" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 620px; max-height: 100%; pointer-events: none; overflow: hidden;">
+      <svg data-motif="arcs" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 620px; max-height: 100%; pointer-events: none; overflow: hidden; overflow-anchor: none;">
         <path data-draw="" d="M20 600 C 300 180, 660 90, 1190 380" fill="none" stroke="#04563E" stroke-width="1.25" opacity="0.16"></path>
         <path data-draw="" d="M20 600 C 350 260, 720 190, 1190 470" fill="none" stroke="#B5551A" stroke-width="1.25" opacity="0.2"></path>
         <path data-draw="" d="M20 600 C 260 110, 740 40, 1190 280" fill="none" stroke="#F2C94C" stroke-width="1.5" opacity="0.5"></path>
@@ -1954,7 +1954,7 @@ class Component extends DCLogic {
       ballX: ball ? +ball.getAttribute('cx') : 0
     };
     hist.push(s); if (hist.length > 90) hist.shift();
-    box.textContent = 'READOUT v2 · last ~1.5s: min .. max\n' + Object.keys(s).map(function(k){ return (k + '        ').slice(0, 8) + range(k); }).join('\n') +
+    box.textContent = 'READOUT v3 · last ~1.5s: min .. max\n' + Object.keys(s).map(function(k){ return (k + '        ').slice(0, 8) + range(k); }).join('\n') +
       '\nevents  scroll ' + ev.scroll + ' resize ' + ev.resize + '\n        vv-resize ' + ev.vvresize + ' vv-scroll ' + ev.vvscroll;
     requestAnimationFrame(frame);
   }
