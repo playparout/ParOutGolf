@@ -830,22 +830,35 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 
 </div>
 </x-dc>
+<!-- Netlify Forms: the forms above render client-side, so these hidden copies are what Netlify's
+     deploy-time scan registers. Field names must match what postForm() sends. -->
+<form name="waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
+  <input type="email" name="email"><input name="bot-field">
+</form>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
+  <input name="name"><input type="email" name="email"><textarea name="message"></textarea><input name="bot-field">
+</form>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[BOOKING_URL]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
 class Component extends DCLogic {
   state = { techTab: 0, view: 'public', joinState: 'idle', joinErr: '', sent: false, sentVia: '', sending: false, emailErr: false, picks: {} };
 
-  /* Delivery. With a formEndpoint set, both forms POST to it and only claim
-     success on a 2xx. With no endpoint (or a failed POST) we hand off to the
+  /* Delivery. With a formEndpoint set, both forms POST to it as JSON. Otherwise
+     they go to Netlify Forms (the hidden "waitlist" and "contact" forms after
+     </x-dc>). Success is only claimed on a 2xx; a failed POST hands off to the
      visitor's mail client with the message prefilled — nothing is silently
      dropped, and nothing says "sent" that wasn't. */
   postForm(kind, data) {
     const url = (this.props.formEndpoint || '').trim();
-    if (!url) return Promise.reject(new Error('no endpoint'));
-    return fetch(url, {
+    const req = url ? fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(Object.assign({ form: kind, page: 'homepage' }, data))
-    }).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return true; });
+    }) : fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(Object.assign({ 'form-name': kind, 'bot-field': '' }, data)).toString()
+    });
+    return req.then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return true; });
   }
 
   /* Character counter for capped text boxes: blank until the visitor is

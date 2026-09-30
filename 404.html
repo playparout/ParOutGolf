@@ -62,6 +62,44 @@
 <x-dc>
 <helmet>
 <title>Page not found — Par Out Golf</title>
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="preload" href="/fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="/fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">

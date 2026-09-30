@@ -78,6 +78,44 @@
 <meta name="twitter:description" content="How Par Out Golf LLC collects, uses, and shares information when you visit parout.golf, book a bay, join our email list, or contact us.">
 <meta name="twitter:image" content="https://parout.golf/assets/og-card-v7.png">
 <link rel="canonical" href="https://parout.golf/privacy">
+<script>
+/* Clarity is a session recorder and the heaviest third party on the page, so
+   the queue stub goes up immediately (nothing is lost) and the tag itself
+   loads on first interaction, or 5s after load — whichever comes first. */
+(function(w,d,a,i){
+  w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(window, document, "clarity", "yh5ln13v7q");
+</script>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<script>
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-K7S36LVFBM');
+(function(d,w){
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
+  function load(){
+    if(done)return; done=true;
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+    var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
+    var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
+  }
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
+})(document, window);
+</script>
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="preload" href="./fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="./fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="./fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -166,7 +204,7 @@ a:hover { color: #04563E; }
   <main style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
     <a href="index.html" data-back-link="" style="font-size: 13px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> BACK TO HOMEPAGE</span></a>
     <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(38px, 6.8vw, 80px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">Privacy Policy</h1>
-    <div style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">LAST UPDATED · SEPTEMBER 7, 2026</div>
+    <div style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">LAST UPDATED · SEPTEMBER 30, 2026</div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; margin-top: 44px; align-items: start;">
 
@@ -193,7 +231,7 @@ a:hover { color: #04563E; }
           <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">01</span>Information we collect</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We only collect what we need to run the business and stay in touch with you:</p>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.6;">
-            <li><strong>Information you give us directly.</strong> Your email address when you join our list; your name, email, and message details when you submit a private-events inquiry or email us; and booking details (name, contact info, payment) when you reserve a bay.</li>
+            <li><strong>Information you give us directly.</strong> Your email address when you join our list; your name, email, and message details when you use our contact form or email us; and booking details (name, contact info, payment) when you reserve a bay.</li>
             <li><strong>Information collected automatically.</strong> When you visit the site, standard analytics data such as pages viewed, approximate location (city/region), device and browser type, and how you arrived at the site. This is collected through cookies and similar technologies.</li>
           </ul>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We do not knowingly collect more than this, and we do not sell your personal information.</p>
@@ -218,7 +256,7 @@ a:hover { color: #04563E; }
             <li><strong>Google Analytics</strong> — helps us understand website traffic using cookies. You can opt out with <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google’s browser add-on</a>.</li>
             <li><strong>Microsoft Clarity</strong> — shows us how pages are used, including anonymized recordings of mouse movement, clicks, and scrolling, so we can fix confusing layouts. Text you type into form fields is masked and not recorded. See <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft’s privacy statement</a>.</li>
             <li><strong>Alba Play</strong> — our booking provider; handles bay reservations and payment processing. Payment-card details are handled by Alba Play, not stored by us.</li>
-            <li><strong>FormSubmit</strong> — delivers private-events inquiry submissions to our inbox.</li>
+            <li><strong>Netlify</strong> — hosts this website and delivers our join-the-list and contact form submissions to our inbox.</li>
           </ul>
         </section>
 
