@@ -30,6 +30,11 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   league card questions (`BALLOT`), Technology tabs (`techVals()`), rate toggle notes.
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
   centered at the bottom of the Technology section.
+- Arrow and close icons: the site fonts don't include ← → ↗ ✕, so never type those symbols. Copy an
+  existing inline `<svg>` icon (16×16 viewBox, `stroke="currentColor"`, sized at `1em`) instead. Its path is:
+  ← `M13 8H3M7 4L3 8l4 4` (back links), → `M3 8h10M9 4l4 4-4 4`, ↗ `M4.5 11.5l7-7M6 4.5h5.5V10`,
+  ✕ `M4 4l8 8M12 4l-8 8`.
+- Phone number (518) 727-3442 is always a tap-to-call link (`tel:+15187273442`), on every page.
 
 ## Taking screenshots in a cloud session
 
