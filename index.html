@@ -152,6 +152,8 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 @keyframes contactRuleWipe { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 [data-contact-stamp] { animation: contactStampIn 420ms cubic-bezier(.16,.84,.3,1) both; }
 [data-contact-stamp-rule] { transform-origin: left center; animation: contactRuleWipe 520ms cubic-bezier(.16,.84,.3,1) 160ms both; }
+/* The hero kicker is ~4px too wide at 360px; tighten tracking so it stays on one line. */
+@media (max-width: 380px) { [data-hero-kicker] { letter-spacing: 0.12em !important; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-contact-stamp], [data-contact-stamp-rule] { animation: none !important; }
@@ -244,6 +246,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
   [data-foot-nav] > a { min-height: 44px; display: flex !important; align-items: center; border-bottom: 1px solid rgba(4,86,62,0.16); }
   [data-foot-nav] > a:last-child { border-bottom: 0; }
   [data-foot-tel] { min-height: 44px; align-items: center; display: inline-flex !important; }
+  [data-tap] { min-height: 44px; align-items: center; display: inline-flex !important; }
   /* iOS Safari force-zooms the page on focus of any field under 16px. */
   #ballot-note { font-size: 16px !important; }
 }
@@ -318,6 +321,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
       <a href="#lessons" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Lessons</a>
       <a href="#technology" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Technology</a>
       <a href="#faq" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">FAQ</a>
+      <a href="#contact" data-menu-item="" style="color: #FDF5E6; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.06; letter-spacing: -0.024em; padding: 6px 0;">Contact</a>
     </nav>
     <div style="display: flex; flex-direction: column; gap: 12px;">
       <a href="#join" data-menu-item="" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 17px; padding: 17px 28px; border-radius: 999px; text-align: center; min-height: 44px;">Join the list</a>
@@ -348,8 +352,8 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
       </svg>
       <div style="position: relative; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: end;">
         <div>
-          <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #A24A14;">COLONIE, NY · OPEN 24/7 · UNSTAFFED</div>
-          <h1 data-hero-h1="" style="margin: 16px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(50px, 10.4vw, 132px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">Pure Golf. Zero <em style="color: #B5551A; font-style: normal;">Distractions.</em></h1>
+          <div data-hero-kicker="" style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #A24A14;">COLONIE, NY · OPEN 24/7 · UNSTAFFED</div>
+          <h1 data-hero-h1="" style="margin: 16px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(50px, 10.4vw, 132px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">Pure Golf. <span style="white-space: nowrap;">Zero <em style="color: #B5551A; font-style: normal;">Distractions.</em></span></h1>
           <div data-hero-sub="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; align-items: end; margin-top: 34px;">
             <p style="margin: 0; font-size: clamp(18px, 2.3vw, 22px); line-height: 1.45; max-width: 36ch; text-wrap: pretty;">Four public Trackman iO bays in Colonie, NY. Just premium simulators for solo practice, group sessions, or a quick round with friends.</p>
             <div data-hero-cta-wrap="" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
@@ -722,8 +726,8 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
           <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.55; max-width: 40ch;">We’re on Central Avenue in Colonie, between Wolf Road and Fuller. Park out front. Your access link opens the door.</p>
           <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px; font-size: 16px;">
             <div style="border-top: 1px solid #04563E; padding-top: 12px;">1770 Central Avenue<br>Colonie, NY 12205</div>
-            <div style="border-top: 1px solid #04563E; padding-top: 12px;"><a href="mailto:Contact@parout.golf">Contact@parout.golf</a></div>
-            <div style="border-top: 1px solid #04563E; padding-top: 12px;"><a href="tel:+15187273442">(518) 727-3442</a></div>
+            <div style="border-top: 1px solid #04563E; padding-top: 12px;"><a href="mailto:Contact@parout.golf" data-tap="">Contact@parout.golf</a></div>
+            <div style="border-top: 1px solid #04563E; padding-top: 12px;"><a href="tel:+15187273442" data-tap="">(518) 727-3442</a></div>
           </div>
         </div>
         <div data-reveal="rise" style="border: 1.5px solid #04563E;">
@@ -819,7 +823,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
   <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
     <div style="min-width: 0;">
       <div data-cta-bar-sub="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER ’27 · COLONIE, NY</div>
-      <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.25; color: #FDF5E6;">Rates from $25/hr<br>for members</div>
+      <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.25; color: #FDF5E6;">Rates from $35/hr</div>
     </div>
     <div style="display: flex; align-items: center; gap: 8px; flex: none;">
       <a href="#join" style="background: #B5551A; color: #FDF5E6; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px; white-space: nowrap; transition: background-color 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04563E;">Join the list</a>

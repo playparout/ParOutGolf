@@ -35,6 +35,12 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   ← `M13 8H3M7 4L3 8l4 4` (back links), → `M3 8h10M9 4l4 4-4 4`, ↗ `M4.5 11.5l7-7M6 4.5h5.5V10`,
   ✕ `M4 4l8 8M12 4l-8 8`.
 - Phone number (518) 727-3442 is always a tap-to-call link (`tel:+15187273442`), on every page.
+- The phone menu and footer links are copied into every page. Keep them identical: menu = Access, Rates,
+  Memberships, Leagues, Lessons, Technology, FAQ, Contact (subpages add Home first); footer = How access works,
+  Rates, Memberships, Visit, Full FAQ, Contact, Privacy Policy, Terms of Use. The phone bottom bar reads
+  "Rates from $35/hr" on every page.
+- Standalone links on phones need a 44px tap area: add `data-tap=""` (the phone media query gives it
+  `min-height: 44px`). Links inside sentences are exempt.
 - Photos: save as WebP (quality ~80), sized to the dimensions on each placeholder's label (e.g. 1200×1600),
   under ~250 KB each. Never commit PNG photos — the three PNG placeholders were 5.5 MB and made the homepage
   take ~21 s to show on a slow phone.
