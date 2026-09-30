@@ -61,7 +61,7 @@
 (function(w,d,a,i){
   w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
   var done=false;
-  function load(){
+  function load(){ return; /* TEST BUILD ONLY: analytics off to test iPhone scroll. Restore before merging. */
     if(done)return; done=true;
     ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
     var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
@@ -80,7 +80,7 @@ gtag('js', new Date());
 gtag('config', 'G-K7S36LVFBM');
 (function(d,w){
   var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
-  function load(){
+  function load(){ return; /* TEST BUILD ONLY: analytics off to test iPhone scroll. Restore before merging. */
     if(done)return; done=true;
     evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
     var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
