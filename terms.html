@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -128,6 +128,9 @@ gtag('config', 'G-K7S36LVFBM');
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
 a { color: #A24A14; text-decoration: none; }
+/* Links inside sentences are underlined so they don’t rely on color alone (WCAG 1.4.1). */
+p a, li a { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+[data-sr] { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 a:hover { color: #04563E; }
 :focus-visible { outline: 3px solid #B5551A; outline-offset: 3px; }
 @media (max-width: 760px) { nav[data-hide-narrow] { display: none !important; } [data-cta-bar-sub] { display: none !important; } }
@@ -163,6 +166,8 @@ a:hover { color: #04563E; }
 <path d="M928.577 214.747C855.919 171.672 705.762 144.969 660 199.944V598.249C721.636 499.469 815.246 456.939 947.82 448.989C1152.67 424.685 1178.69 355.949 1221.03 296.181C1133.35 313.649 1017.19 265.916 928.577 214.747Z" fill="#B5551A"></path>
 <path d="M600 152H540V1261H600V152Z" fill="#04563E"></path>
 <path d="M570 0C619.706 0 660 40.2944 660 90C660 139.706 619.706 180 570 180C520.294 180 480 139.706 480 90C480 40.2944 520.294 0 570 0Z" fill="#B5551A"></path></symbol></svg>
+
+  <a href="#top" style="position: absolute; left: -9999px; top: 0; background: #04563E; color: #FDF5E6; padding: 12px 18px; z-index: 100; font-size: 14px; font-weight: 700;" style-focus="left: 12px; top: 12px;">Skip to content</a>
 
   <header style="position: sticky; top: 0; z-index: 40; background: #FDF5E6; border-bottom: 1px solid #04563E;">
     <div style="max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
@@ -209,7 +214,7 @@ a:hover { color: #04563E; }
     </div>
   </div>
 
-  <main style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
+  <main id="top" style="max-width: 1240px; margin: 0 auto; padding: 40px 20px 0;">
     <a href="index.html" data-back-link="" style="font-size: 13px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> BACK TO HOMEPAGE</span></a>
     <h1 style="margin: 18px 0 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(38px, 6.8vw, 80px); line-height: 0.9; letter-spacing: -0.030em; text-wrap: balance;">Terms of Use</h1>
     <div style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">LAST UPDATED · SEPTEMBER 30, 2026</div>
@@ -236,7 +241,7 @@ a:hover { color: #04563E; }
         <p style="margin: 0; font-size: clamp(17px, 2.2vw, 20px); line-height: 1.5; text-wrap: pretty;">Welcome to Par Out. These Terms of Use (“Terms”) govern your use of the parout.golf website and your access to and use of the Par Out Golf facility operated by Par Out Golf LLC (“Par Out,” “we,” “us,” or “our”). By using our website, booking a bay, or entering our facility, you agree to these Terms. If you don’t agree, please don’t use the site or the facility.</p>
 
         <section id="t1" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">01</span>Bookings &amp; payment</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">01</span>Bookings &amp; payment</h2>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.6;">
             <li>Bay reservations are made online and paid for at the time of booking. Your reservation is confirmed once payment is complete.</li>
             <li>Prices, hours, and availability are shown on the site and may change without notice.</li>
@@ -245,12 +250,12 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="t2" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">02</span>Cancellations &amp; refunds</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">02</span>Cancellations &amp; refunds</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">Cancel at least 2 hours before your start time and you’ll be refunded or credited. Late cancellations (less than 2 hours before your start time) and no-shows will not be refunded. If we ever have to close a session for technical or safety reasons, we’ll make it right with a refund or credit.</p>
         </section>
 
         <section id="t3" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">03</span>Access &amp; the self-serve facility</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">03</span>Access &amp; the self-serve facility</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">Par Out is an unstaffed, self-service facility. By booking, you agree that:</p>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.6;">
             <li>Your access link is personal to your booking. Don’t share it beyond the people playing in your group, and don’t let anyone in who doesn’t have a valid booking (“tailgating”).</li>
@@ -262,7 +267,7 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="t4" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">04</span>Conduct &amp; care of the space</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">04</span>Conduct &amp; care of the space</h2>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.6;">
             <li>Treat the equipment and space with care. Report any damage or malfunction to us right away.</li>
             <li>Clean up after your session — trash in the bins, wipe down surfaces — and leave the bay ready for the next group.</li>
@@ -273,27 +278,27 @@ a:hover { color: #04563E; }
         </section>
 
         <section id="t5" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">05</span>Assumption of risk &amp; liability</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">05</span>Assumption of risk &amp; liability</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">Golf and the use of simulator equipment involve inherent risks, including the risk of injury. You participate at your own risk and are responsible for your own safety and that of your guests. To the fullest extent permitted by law, Par Out Golf LLC is not liable for any injury, loss, or damage to persons or property arising from use of the facility, except where caused by our gross negligence or willful misconduct. Our total liability in connection with the site or facility is limited to the amount you paid for the relevant booking.</p>
         </section>
 
         <section id="t6" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">06</span>Website use &amp; intellectual property</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">06</span>Website use &amp; intellectual property</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">The content on this site — text, graphics, logos, and the Par Out name — belongs to Par Out Golf LLC and may not be copied or used without permission. Don’t use the site in any way that’s unlawful, harmful, or that interferes with its operation.</p>
         </section>
 
         <section id="t7" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">07</span>Privacy</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">07</span>Privacy</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">Your use of the site is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains how we handle your information.</p>
         </section>
 
         <section id="t8" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">08</span>Changes to these Terms</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">08</span>Changes to these Terms</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">We may update these Terms from time to time. The “Last updated” date above shows the latest version. Continuing to use the site or facility after changes means you accept the updated Terms.</p>
         </section>
 
         <section id="t9" style="display: flex; flex-direction: column; gap: 14px; border-top: 1.5px solid #04563E; padding-top: 20px;">
-          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">09</span>Governing law</h2>
+          <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2.7vw, 29px); line-height: 1.05; letter-spacing: -0.020em;"><span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14; margin-right: 12px; vertical-align: 0.18em;">09</span>Governing law</h2>
           <p style="margin: 0; font-size: 17px; line-height: 1.6;">These Terms are governed by the laws of the State of New York, without regard to its conflict-of-law rules. Any disputes will be handled in the courts located in New York.</p>
         </section>
 
@@ -326,13 +331,13 @@ a:hover { color: #04563E; }
     <div style="display: flex; flex-direction: column; gap: 14px;">
       <div data-foot-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf">CONTACT@PAROUT.GOLF</a></div>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
       </div>
     </div>
   </footer>
 
-  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+  <div data-cta-bar="" role="region" aria-label="Join the list" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
     <div style="min-width: 0;">
       <div data-cta-bar-sub="" data-mono-12="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER ’27</div>
       <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: #FDF5E6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rates from $35/hr</div>

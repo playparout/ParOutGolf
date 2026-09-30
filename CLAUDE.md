@@ -40,6 +40,11 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   subpages adds Home first; on subpages FAQ goes to faq.html); footer = How access works,
   Rates, Memberships, Visit, Full FAQ, Contact, Privacy Policy, Terms of Use. The phone bottom bar reads
   "Rates from $35/hr" on every page.
+- Accessibility: every page has `lang="en-US"` and a "Skip to content" link to `<main id="top">`. Links inside
+  sentences (`p a`, `li a`) are underlined automatically. `data-sr=""` is a visually hidden, screen-reader-only
+  span — use it for "(opens in a new tab)" on every `target="_blank"` link and for the spoken rate prices
+  (`spokenRate()` in `index.html`; the rolling digit reels are `aria-hidden`). Don't set `outline: none` on
+  fields; the site-wide orange `:focus-visible` ring is the keyboard focus indicator.
 - Standalone links on phones need a 44px tap area: add `data-tap=""` (the phone media query gives it
   `min-height: 44px`). Links inside sentences are exempt.
 - Photos: save as WebP (quality ~80), sized to the dimensions on each placeholder's label (e.g. 1200×1600),

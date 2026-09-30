@@ -132,6 +132,9 @@ body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
 html { overflow-x: clip; }
 * { box-sizing: border-box; }
 a { color: #A24A14; text-decoration: none; }
+/* Links inside sentences are underlined so they don’t rely on color alone (WCAG 1.4.1). */
+p a, li a { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+[data-sr] { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 a:hover { color: #04563E; }
 summary::-webkit-details-marker { display: none; }
 summary { list-style: none; cursor: pointer; }
@@ -466,21 +469,21 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
             <div data-rate-row="" style="position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; border-bottom: 1px solid rgba(4,86,62,0.3); padding: 18px 0;">
               <span style="font-size: 18px;">Peak<br><span style="font-size: 14px; color: #A24A14;">Fri–Sun, 9am–10pm</span></span>
               <span data-price-cell="" style="display: flex; justify-content: flex-end; align-items: flex-start; line-height: 1; font-weight: 700; font-size: clamp(30px, 5vw, 40px); font-variant-numeric: tabular-nums;">
-                <span>$</span><span data-reel="peak" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span>0</span><span style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span>
+                <span aria-hidden="true">$</span><span data-reel="peak" aria-hidden="true" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span aria-hidden="true">0</span><span aria-hidden="true" style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span><span data-sr="">{{ peakSr }}</span>
               </span>
             </div>
 
             <div data-rate-row="" style="position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; border-bottom: 1px solid rgba(4,86,62,0.3); padding: 18px 0;">
               <span style="font-size: 18px;">Off-peak<br><span style="font-size: 14px; color: #A24A14;">Mon–Thu, 9am–10pm</span></span>
               <span data-price-cell="" style="display: flex; justify-content: flex-end; align-items: flex-start; line-height: 1; font-weight: 700; font-size: clamp(30px, 5vw, 40px); font-variant-numeric: tabular-nums;">
-                <span>$</span><span data-reel="offpeak" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span>0</span><span style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span>
+                <span aria-hidden="true">$</span><span data-reel="offpeak" aria-hidden="true" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span aria-hidden="true">0</span><span aria-hidden="true" style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span><span data-sr="">{{ offpeakSr }}</span>
               </span>
             </div>
 
             <div data-rate-row="" style="position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; background: #04382A; padding: 20px 16px; margin: 0 -16px;">
               <span style="font-size: 18px; color: #FDF5E6;">Night Owl<br><span style="font-size: 14px; color: #F2C94C;">10pm–9am, every night</span></span>
               <span data-price-cell="" style="display: flex; justify-content: flex-end; align-items: flex-start; line-height: 1; font-weight: 700; font-size: clamp(30px, 5vw, 40px); font-variant-numeric: tabular-nums; color: #F2C94C;">
-                <span>$</span><span data-reel="night" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span>5</span><span style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span>
+                <span aria-hidden="true">$</span><span data-reel="night" aria-hidden="true" style="display: inline-block; height: 1em; line-height: 1; overflow: hidden;"><span data-reel-strip="" style="display: flex; flex-direction: column; transition: transform 660ms cubic-bezier(.16,.84,.3,1);"><span style="flex: none; height: 1em;">0</span><span style="flex: none; height: 1em;">1</span><span style="flex: none; height: 1em;">2</span><span style="flex: none; height: 1em;">3</span><span style="flex: none; height: 1em;">4</span><span style="flex: none; height: 1em;">5</span><span style="flex: none; height: 1em;">6</span><span style="flex: none; height: 1em;">7</span><span style="flex: none; height: 1em;">8</span><span style="flex: none; height: 1em;">9</span></span></span><span aria-hidden="true">5</span><span aria-hidden="true" style="font-size: 16px; font-weight: 400; align-self: flex-end; padding-bottom: 2px;">/hr</span><span data-sr="">{{ nightSr }}</span>
               </span>
             </div>
           </div>
@@ -536,7 +539,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
             <p style="margin: 18px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; font-size: 16px; line-height: 1.5;"><span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FDF5E6; background: #04563E; padding: 4px 8px;">FLEXTIME LEAGUE</span><span>Play your weekly round whenever your schedule allows.</span></p>
           </div>
           <div data-mono-meta="" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; border-bottom: 1.5px solid #04563E; padding: 12px 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #A24A14;">
-            <span>MARK YOUR CARD</span><span>{{ ballotProgress }}</span>
+            <span>MARK YOUR CARD</span><span aria-live="polite">{{ ballotProgress }}</span>
           </div>
           <div style="padding: 6px 26px 26px;">
             <sc-for list="{{ ballotGroups }}" as="g" hint-placeholder-count="4">
@@ -554,7 +557,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
             </sc-for>
             <div style="padding: 18px 0 4px;">
               <label for="ballot-note" data-mono-meta="" style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">05 &nbsp;ANYTHING WE DIDN’T ASK <span style="color: #A24A14;">(OPTIONAL)</span></label>
-              <textarea id="ballot-note" rows="2" maxLength="500" aria-describedby="ballot-note-count" value="{{ ballotNote }}" onChange="{{ setBallotNote }}" placeholder="A format we missed, a specific prize you would like to see…" style="margin-top: 12px; width: 100%; box-sizing: border-box; resize: vertical; min-height: 5.6em; font-family: 'Archivo', system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: #04563E; background: #FDF5E6; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 0; padding: 12px 14px; outline: none; transition: border-color 300ms ease;" style-focus="border-color: #04563E;"></textarea>
+              <textarea id="ballot-note" rows="2" maxLength="500" aria-describedby="ballot-note-count" value="{{ ballotNote }}" onChange="{{ setBallotNote }}" placeholder="A format we missed, a specific prize you would like to see…" style="margin-top: 12px; width: 100%; box-sizing: border-box; resize: vertical; min-height: 5.6em; font-family: 'Archivo', system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: #04563E; background: #FDF5E6; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 0; padding: 12px 14px; transition: border-color 300ms ease;" style-focus="border-color: #04563E;"></textarea>
               <span id="ballot-note-count" aria-live="polite" data-mono-meta="" style="display: block; min-height: 1.5em; margin-top: 6px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #A24A14;">{{ ballotNoteCount }}</span>
             </div>
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px;">
@@ -704,7 +707,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
             <label for="join-email" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">EMAIL ADDRESS</label>
             <div data-green="" style="position: relative; padding-bottom: 40px;">
               <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                <input id="join-email" type="email" name="email" required="required" maxLength="254" autoComplete="email" inputMode="email" placeholder="you@example.com" style="flex: 1 1 220px; min-width: 0; background: #FDF5E6; border: 0; padding: 15px 16px; font-family: 'Archivo', sans-serif; font-size: 16px; color: #04563E; outline: none;">
+                <input id="join-email" type="email" name="email" required="required" maxLength="254" autoComplete="email" inputMode="email" placeholder="you@example.com" style="flex: 1 1 220px; min-width: 0; background: #FDF5E6; border: 0; padding: 15px 16px; font-family: 'Archivo', sans-serif; font-size: 16px; color: #04563E; ">
                 <button type="submit" style="background: #B5551A; color: #FDF5E6; border: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 15px 26px; border-radius: 999px; cursor: pointer; min-height: 44px; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), color 260ms ease, transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #F2C94C; color: #04563E; transform: translateY(-2px);">Join the list</button>
               </div>
               <span data-rail="" aria-hidden="true" style="position: absolute; left: 0; right: 15px; bottom: 12px; height: 1px; background: rgba(253,245,230,0.3);"></span>
@@ -738,7 +741,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
               <div style="font-weight: 700; font-size: 16px;">1770 Central Avenue</div>
               <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; margin-top: 5px;">COLONIE, NY 12205 · 10 MIN FROM ALBANY</div>
             </div>
-            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.72790417575961,-73.8459286112816" target="_blank" rel="noopener" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 999px; white-space: nowrap; min-height: 44px; display: flex; align-items: center; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Get directions</a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=42.72790417575961,-73.8459286112816" target="_blank" rel="noopener" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 999px; white-space: nowrap; min-height: 44px; display: flex; align-items: center; transition: background-color 260ms cubic-bezier(.2,.9,.25,1), transform 260ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Get directions<span data-sr=""> (opens in a new tab)</span></a>
           </div>
         </div>
       </div>
@@ -815,13 +818,13 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
     <div style="display: flex; flex-direction: column; gap: 14px;">
       <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf" data-foot-tel="" style="display: inline-block;">CONTACT@PAROUT.GOLF</a></div>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
       </div>
     </div>
   </footer>
 
-  <div data-cta-bar="" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
+  <div data-cta-bar="" role="region" aria-label="Join the list" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #04382A; border-top: 1px solid #F2C94C; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); transition: transform 420ms cubic-bezier(.16,.84,.3,1);">
     <div style="min-width: 0;">
       <div data-cta-bar-sub="" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #F2C94C;">OPENING WINTER ’27 · COLONIE, NY</div>
       <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.25; color: #FDF5E6;">Rates from $35/hr</div>
@@ -1121,6 +1124,11 @@ class Component extends DCLogic {
     document.querySelectorAll('[data-rate-btn]').forEach(b => {
       b.style.color = b.getAttribute('data-rate-btn') === this.state.view ? '#FDF5E6' : '#04563E';
     });
+  }
+
+  /* Must match the fixed ones digit in each price cell (0, 0, 5). */
+  spokenRate(k) {
+    return '$' + (this.TENS[k][this.state.view] * 10 + (k === 'night' ? 5 : 0)) + ' per hour';
   }
 
   setReels(animate) {
@@ -1772,6 +1780,10 @@ class Component extends DCLogic {
       showPublic: () => this.setState({ view: 'public' }),
       showMember: () => this.setState({ view: 'member' }),
       colLabel: member ? 'MEMBER RATE' : 'PUBLIC RATE',
+      /* Spoken prices: the digit reels are aria-hidden, so screen readers get these instead. */
+      peakSr: this.spokenRate('peak'),
+      offpeakSr: this.spokenRate('offpeak'),
+      nightSr: this.spokenRate('night'),
       note: member
         ? 'MEMBER RATES SHOWN — $10/HR OFF EVERY WINDOW.'
         : 'PUBLIC RATES SHOWN — MEMBERS PAY $10/HR LESS.',
