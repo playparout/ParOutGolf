@@ -1514,10 +1514,24 @@ class Component extends DCLogic {
       });
       return;
     }
-    this.paintArcs(this.arcProgress());
-    requestAnimationFrame(() => {
-      this.arcs.forEach(a => { a.p.style.transition = 'stroke-dashoffset 180ms linear'; });
-    });
+    this.arcNow = this.arcProgress();
+    this.paintArcs(this.arcNow);
+  }
+
+  /* Line and ball are painted from one eased value in one frame. A CSS
+     transition on the line (restarted every scroll tick) left it trailing the
+     ball by half an arc while scrolling, then snapping to catch up. */
+  easeArcs() {
+    if (!this.arcs) return;
+    this.arcTarget = this.arcProgress();
+    if (this.arcRaf) return;
+    const step = () => {
+      const d = this.arcTarget - this.arcNow;
+      this.arcNow = Math.abs(d) < 0.001 ? this.arcTarget : this.arcNow + d * 0.2;
+      this.paintArcs(this.arcNow);
+      this.arcRaf = this.arcNow === this.arcTarget ? null : requestAnimationFrame(step);
+    };
+    this.arcRaf = requestAnimationFrame(step);
   }
 
   arcProgress() {
@@ -1673,7 +1687,7 @@ class Component extends DCLogic {
       this.checkReveals();
       this.checkMotifs();
       this.startSeconds();
-      this.paintArcs(this.arcProgress());
+      this.easeArcs();
       this.headerHide();
       const el = this.parallaxEl;
       if (el && el.parentElement) {
@@ -1782,6 +1796,7 @@ class Component extends DCLogic {
     if (this.secRaf) cancelAnimationFrame(this.secRaf);
     if (this.puttRaf) cancelAnimationFrame(this.puttRaf);
     if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
+    if (this.arcRaf) cancelAnimationFrame(this.arcRaf);
     if (this.onVis) document.removeEventListener('visibilitychange', this.onVis);
     if (this.menuTimer) clearTimeout(this.menuTimer);
     if (this.map) { this.map.remove(); this.map = null; }
