@@ -983,8 +983,7 @@ class Component extends DCLogic {
       })
     }));
     const note = (this.state.ballotNote || '').trim().slice(0, 500);
-    /* The note is the card's fifth line, so it counts toward the total. */
-    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length + (note ? 1 : 0);
+    const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length;
     const body = this.BALLOT.map(g => g.label + '\n' + ((picks[g.key] || []).join(', ') || '—')).join('\n\n');
     return {
       ballotNote: this.state.ballotNote || '',
@@ -992,7 +991,7 @@ class Component extends DCLogic {
       ballotNoteCount: this.lenHint((this.state.ballotNote || '').length, 500),
       ballotGroups: groups,
       ballotNoteActive: step === last ? '1' : '0',
-      ballotComplete: answered === last + 1 ? '1' : '0',
+      ballotComplete: answered === last ? '1' : '0',
       ballotDir: this.state.ballotDir || 'next',
       ballotStepSr: 'Step ' + (step + 1) + ' of ' + (last + 1),
       ballotBack: () => this.goBallot(-1),
@@ -1003,8 +1002,8 @@ class Component extends DCLogic {
       ballotNextOn: step < last ? '1' : '0',
       ballotNextHidden: step < last ? 'false' : 'true',
       ballotNextTab: step < last ? '0' : '-1',
-      ballotProgress: answered + ' OF ' + (last + 1) + ' ANSWERED',
-      ballotHint: answered === last + 1 ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
+      ballotProgress: answered + ' OF ' + last + ' ANSWERED',
+      ballotHint: answered === last ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
       ballotMailto: 'mailto:leagues@parout.golf?subject=' + encodeURIComponent('League card') + '&body=' + encodeURIComponent(body + "\n\nAnything we didn't ask\n" + (note || '—') + "\n\nAnything that made a past league work:\n")
     };
   }
