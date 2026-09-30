@@ -61,42 +61,37 @@
 <script>
 /* Clarity is a session recorder and the heaviest third party on the page, so
    the queue stub goes up immediately (nothing is lost) and the tag itself
-   loads once the page has been still for a moment after load. */
+   loads on first interaction, or 5s after load — whichever comes first. */
 (function(w,d,a,i){
   w[a]=w[a]||function(){(w[a].q=w[a].q||[]).push(arguments)};
-  var done=false, wait=0, evts=['pointerdown','keydown','scroll','touchstart'];
+  var done=false;
   function load(){
     if(done)return; done=true;
-    evts.forEach(function(e){w.removeEventListener(e,soon,{passive:true});});
+    ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.removeEventListener(e,load,{passive:true});});
     var t=d.createElement('script'); t.async=1; t.src='https://www.clarity.ms/tag/'+i;
     var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
   }
-  /* Clarity snapshots the whole page when it starts. Starting it on the
-     first scroll froze the hero animation mid-flick on phones, so it waits
-     until the page has been still for 1.5s. */
-  function soon(){ clearTimeout(wait); wait=setTimeout(load,1500); }
-  evts.forEach(function(e){w.addEventListener(e,soon,{passive:true});});
-  w.addEventListener('load',function(){setTimeout(soon,3500);});
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
 })(window, document, "clarity", "yh5ln13v7q");
 </script>
 <script>
-/* GA is queued immediately but the tag itself waits for a still page —
-   same deferral as Clarity, so neither lands mid-scroll on a phone. */
+/* GA is queued immediately but the tag itself loads on first interaction,
+   or 5s after load — same deferral as Clarity, so neither blocks the phone. */
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-K7S36LVFBM');
 (function(d,w){
-  var done=false, wait=0, evts=['pointerdown','keydown','scroll','touchstart'];
+  var done=false, evts=['pointerdown','keydown','scroll','touchstart'];
   function load(){
     if(done)return; done=true;
-    evts.forEach(function(e){w.removeEventListener(e,soon,{passive:true});});
+    evts.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
     var t=d.createElement('script'); t.async=1; t.src='https://www.googletagmanager.com/gtag/js?id=G-K7S36LVFBM';
     var y=d.getElementsByTagName('script')[0]; y.parentNode.insertBefore(t,y);
   }
-  function soon(){ clearTimeout(wait); wait=setTimeout(load,1500); }
-  evts.forEach(function(e){w.addEventListener(e,soon,{passive:true});});
-  w.addEventListener('load',function(){setTimeout(soon,3500);});
+  evts.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+  w.addEventListener('load',function(){setTimeout(load,5000);});
 })(document, window);
 </script>
 <link rel="dns-prefetch" href="https://www.clarity.ms">
