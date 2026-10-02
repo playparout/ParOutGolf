@@ -28,6 +28,11 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
 
 - Nearly all content is in `index.html`. Several sections render from JS data near the bottom of the file:
   league card questions (`BALLOT`), Technology tabs (`techVals()`), rate toggle notes.
+- Forms go to Netlify Forms: `waitlist` (Join the list), `contact` (Contact form) and `leagues` (league card). The visible
+  forms are drawn by JavaScript, so each one also has a hidden copy near `</x-dc>` in `index.html` for Netlify's
+  deploy scan; add any new field to both. Who gets emailed is set in Netlify (Site configuration → Notifications),
+  not in the code. If a submission fails, the visitor's email app opens with it filled in (`mailHandoff()`).
+  Coaches use a plain email link to coaches@parout.golf on purpose (they write longer pitches and attach files).
 - Technology has two tab rows fed by the same `techTabs` data: the side list (desktop) and tabs on top of the card
   (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),

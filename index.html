@@ -588,10 +588,29 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
               <label for="ballot-note" data-ballot-label="" tabIndex="-1" data-mono-meta="" style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">05 &nbsp;ANYTHING WE DIDN’T ASK <span style="color: #A24A14;">(OPTIONAL)</span></label>
               <textarea id="ballot-note" rows="2" maxLength="500" aria-describedby="ballot-note-count" value="{{ ballotNote }}" onChange="{{ setBallotNote }}" placeholder="A format we missed, a specific prize you would like to see…" style="margin-top: 12px; width: 100%; box-sizing: border-box; resize: vertical; min-height: 5.6em; font-family: 'Archivo', system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: #04563E; background: #FDF5E6; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 0; padding: 12px 14px; transition: border-color 300ms ease;" style-focus="border-color: #04563E;"></textarea>
               <span id="ballot-note-count" aria-live="polite" data-mono-meta="" style="display: block; min-height: 1.5em; margin-top: 6px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #A24A14;">{{ ballotNoteCount }}</span>
+              <label for="ballot-email" data-mono-meta="" style="display: block; margin-top: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A24A14;">YOUR EMAIL <span style="color: #A24A14;">(OPTIONAL)</span></label>
+              <input id="ballot-email" type="email" name="email" maxLength="254" autoComplete="email" inputMode="email" spellCheck="false" placeholder="you@example.com" aria-describedby="ballot-email-hint" style="margin-top: 12px; width: 100%; box-sizing: border-box; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; color: #04563E; background: #FDF5E6; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 0; padding: 12px 14px; transition: border-color 300ms ease;" style-focus="border-color: #04563E;">
+              <span id="ballot-email-hint" data-mono-meta="" style="display: block; margin-top: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #A24A14;">ONLY TO TELL YOU WHEN LEAGUE SIGN-UPS OPEN.</span>
             </div>
             <div data-ballot-send="" data-active="{{ ballotNoteActive }}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px;">
-              <a href="{{ ballotMailto }}" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">Send my card</a>
-              <span data-ballot-hint="" data-complete="{{ ballotComplete }}" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14; line-height: 1.6; max-width: 40ch; text-wrap: balance;">{{ ballotHint }}</span>
+              <sc-if value="{{ ballotNotSent }}" hint-placeholder-val="{{ true }}">
+                <button type="button" onClick="{{ sendBallot }}" aria-describedby="ballot-status" style="background: #B5551A; color: #FDF5E6; border: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; cursor: pointer; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">{{ ballotSendLabel }}</button>
+                <span data-ballot-hint="" data-complete="{{ ballotComplete }}" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #A24A14; line-height: 1.6; max-width: 40ch; text-wrap: balance;">{{ ballotHint }}</span>
+              </sc-if>
+              <sc-if value="{{ ballotSent }}" hint-placeholder-val="{{ false }}">
+                <div data-contact-stamp="" style="flex: 1 1 100%; border: 1.5px solid #04563E; padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;">
+                  <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.14em; color: #A24A14;">CARD RECEIVED</div>
+                  <div style="font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.06; letter-spacing: -0.020em;">Thanks — that helps shape season one.</div>
+                  <div style="position: relative; height: 2px; background: rgba(4,86,62,0.2);"><span data-contact-stamp-rule="" style="position: absolute; inset: 0; background: #B5551A; display: block;"></span></div>
+                  <sc-if value="{{ ballotHasEmail }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin: 0; font-size: 17px; line-height: 1.55;">We’ll email {{ ballotEmail }} when league sign-ups open.</p>
+                  </sc-if>
+                  <sc-if value="{{ ballotNoEmail }}" hint-placeholder-val="{{ true }}">
+                    <p style="margin: 0; font-size: 17px; line-height: 1.55;">Want to hear when sign-ups open? <a href="#join">Join the list</a>.</p>
+                  </sc-if>
+                </div>
+              </sc-if>
+              <p id="ballot-status" role="status" aria-live="polite" data-mono-meta="" style="flex: 1 1 100%; margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; letter-spacing: 0.04em; color: #A24A14;">{{ ballotMsg }}</p>
             </div>
             <div data-ballot-nav="" style="display: none; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px;">
               <button type="button" onClick="{{ ballotBack }}" data-ballot-back="" data-on="{{ ballotBackOn }}" aria-hidden="{{ ballotBackHidden }}" tabIndex="{{ ballotBackTab }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #04563E; background: transparent; border: 1.5px solid rgba(4,86,62,0.4); border-radius: 999px; cursor: pointer;"><svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Back</button>
@@ -613,6 +632,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
             <a href="mailto:coaches@parout.golf?subject=Coaching%20at%20Par%20Out%20Golf&amp;body=I'd%20like%20to%20teach%20out%20of%20a%20bay%20at%20Par%20Out%20Golf.%0A%0AName%3A%0AWhere%20I%20coach%20now%3A%0AWhat%20I%20specialize%20in%3A%0ADays%20and%20times%20I'd%20want%3A%0A" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 13px 24px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">I coach — let’s talk</a>
             <a href="#join" style="border: 1.5px solid rgba(4,86,62,0.4); color: #04563E; font-weight: 700; font-size: 16px; padding: 11px 22px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: border-color 300ms ease, background-color 300ms ease;" style-hover="border-color: #04563E; background-color: rgba(4,86,62,0.05);">Tell me when lessons start</a>
           </div>
+          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5;">Or email <a href="mailto:coaches@parout.golf">coaches@parout.golf</a> directly.</p>
         </div>
       </div>
       <div data-bay-board="" style="margin-top: 56px;">
@@ -896,12 +916,15 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
   <input name="name"><input type="email" name="email"><textarea name="message"></textarea><input name="bot-field">
 </form>
+<form name="leagues" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
+  <input name="format"><input name="team"><input name="season"><input name="vibe"><textarea name="note"></textarea><input type="email" name="email"><input name="bot-field">
+</form>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[BOOKING_URL]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
 class Component extends DCLogic {
   state = { techTab: 0, view: 'public', joinState: 'idle', joinErr: '', sent: false, sentVia: '', sending: false, emailErr: false, picks: {}, ballotStep: 0, ballotDir: 'next' };
 
   /* Delivery. With a formEndpoint set, both forms POST to it as JSON. Otherwise
-     they go to Netlify Forms (the hidden "waitlist" and "contact" forms after
+     they go to Netlify Forms (the hidden "waitlist", "contact" and "leagues" forms after
      </x-dc>). Success is only claimed on a 2xx; a failed POST hands off to the
      visitor's mail client with the message prefilled — nothing is silently
      dropped, and nothing says "sent" that wasn't. */
@@ -925,8 +948,8 @@ class Component extends DCLogic {
     return len >= max * 0.8 ? len.toLocaleString('en-US') + ' / ' + max.toLocaleString('en-US') : '';
   }
 
-  mailHandoff(subject, body) {
-    window.location.href = 'mailto:Contact@parout.golf?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  mailHandoff(subject, body, to) {
+    window.location.href = 'mailto:' + (to || 'Contact@parout.golf') + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
 
   BALLOT = [
@@ -1005,6 +1028,7 @@ class Component extends DCLogic {
       })
     }));
     const note = (this.state.ballotNote || '').trim().slice(0, 500);
+    const bs = this.state.ballotState || 'idle';
     const answered = this.BALLOT.filter(g => (picks[g.key] || []).length).length;
     const body = this.BALLOT.map(g => g.label + '\n' + ((picks[g.key] || []).join(', ') || '—')).join('\n\n');
     return {
@@ -1026,7 +1050,42 @@ class Component extends DCLogic {
       ballotNextTab: step < last ? '0' : '-1',
       ballotProgress: answered + ' OF ' + last + ' ANSWERED',
       ballotHint: answered === last ? 'THANKS — THAT IS THE WHOLE CARD.' : 'PICK AS MANY AS APPLY.',
-      ballotMailto: 'mailto:leagues@parout.golf?subject=' + encodeURIComponent('League card') + '&body=' + encodeURIComponent(body + "\n\nAnything we didn't ask\n" + (note || '—') + "\n\nAnything that made a past league work:\n")
+      ballotState: bs,
+      ballotSent: bs === 'sent',
+      ballotNotSent: bs !== 'sent',
+      ballotEmail: this.state.ballotEmail || '',
+      ballotHasEmail: !!this.state.ballotEmail,
+      ballotNoEmail: !this.state.ballotEmail,
+      ballotSendLabel: bs === 'sending' ? 'Sending…' : 'Send my card',
+      ballotMsg: {
+        sending: 'SENDING…',
+        mail: 'YOUR EMAIL APP IS OPEN WITH YOUR CARD FILLED IN — HIT SEND AND IT LANDS AT LEAGUES@PAROUT.GOLF.',
+        error: this.state.ballotErr
+      }[bs] || '',
+      sendBallot: () => {
+        if (bs === 'sending') return;
+        const field = document.getElementById('ballot-email');
+        const email = ((field && field.value) || '').trim();
+        if (!answered && !note) {
+          this.setState({ ballotState: 'error', ballotErr: 'MARK AT LEAST ONE ANSWER FIRST.' });
+          return;
+        }
+        if (email && !this.validEmail(email)) {
+          this.setState({ ballotState: 'error', ballotErr: 'THAT EMAIL LOOKS OFF — TRY YOU@EXAMPLE.COM, OR LEAVE IT BLANK.' });
+          if (field) field.focus();
+          return;
+        }
+        const payload = { note, email };
+        this.BALLOT.forEach(g => { payload[g.key] = (picks[g.key] || []).join(', '); });
+        this.setState({ ballotState: 'sending', ballotErr: '' });
+        this.track('league_card_submit');
+        this.postForm('leagues', payload)
+          .then(() => this.setState({ ballotState: 'sent', ballotEmail: email }))
+          .catch(() => {
+            this.mailHandoff('League card', body + "\n\nAnything we didn't ask\n" + (note || '—') + (email ? '\n\n' + email : '') + '\n', 'leagues@parout.golf');
+            this.setState({ ballotState: 'mail' });
+          });
+      }
     };
   }
 
