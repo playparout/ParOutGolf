@@ -629,10 +629,10 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
         <div style="margin-top: 22px;">
           <p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 46ch; text-wrap: pretty;">We don’t employ staff instructors — we open our doors to independent coaches who demand precision feedback tools. They set their own rates and availability. You book straight through Alba Play.</p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
-            <a href="mailto:coaches@parout.golf?subject=Coaching%20at%20Par%20Out%20Golf&amp;body=I'd%20like%20to%20teach%20out%20of%20a%20bay%20at%20Par%20Out%20Golf.%0A%0AName%3A%0AWhere%20I%20coach%20now%3A%0AWhat%20I%20specialize%20in%3A%0ADays%20and%20times%20I'd%20want%3A%0A" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 13px 24px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">I coach — let’s talk</a>
+            <a href="mailto:coaches@parout.golf?subject=%5BCoaching%5D%20Teaching%20at%20Par%20Out%20Golf&amp;body=I'd%20like%20to%20teach%20out%20of%20a%20bay%20at%20Par%20Out%20Golf.%0A%0AName%3A%0AWhere%20I%20coach%20now%3A%0AWhat%20I%20specialize%20in%3A%0ADays%20and%20times%20I'd%20want%3A%0A" style="background: #B5551A; color: #FDF5E6; font-weight: 700; font-size: 16px; padding: 13px 24px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: background-color 300ms cubic-bezier(.2,.9,.25,1), transform 300ms cubic-bezier(.2,.9,.25,1);" style-hover="background: #04563E; transform: translateY(-2px);">I coach — let’s talk</a>
             <a href="#join" style="border: 1.5px solid rgba(4,86,62,0.4); color: #04563E; font-weight: 700; font-size: 16px; padding: 11px 22px; border-radius: 999px; min-height: 44px; display: flex; align-items: center; transition: border-color 300ms ease, background-color 300ms ease;" style-hover="border-color: #04563E; background-color: rgba(4,86,62,0.05);">Tell me when lessons start</a>
           </div>
-          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5;">Or email <a href="mailto:coaches@parout.golf">coaches@parout.golf</a> directly.</p>
+          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5;">Or email <a href="mailto:coaches@parout.golf?subject=%5BCoaching%5D%20Teaching%20at%20Par%20Out%20Golf">coaches@parout.golf</a> directly.</p>
         </div>
       </div>
       <div data-bay-board="" style="margin-top: 56px;">
@@ -911,13 +911,13 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 <!-- Netlify Forms: the forms above render client-side, so these hidden copies are what Netlify's
      deploy-time scan registers. Field names must match what postForm() sends. -->
 <form name="waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
-  <input type="email" name="email"><input name="bot-field">
+  <input type="email" name="email"><input name="subject" data-remove-prefix><input name="bot-field">
 </form>
 <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
-  <input name="name"><input type="email" name="email"><textarea name="message"></textarea><input name="bot-field">
+  <input name="name"><input type="email" name="email"><textarea name="message"></textarea><input name="subject" data-remove-prefix><input name="bot-field">
 </form>
 <form name="leagues" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true" style="display: none;">
-  <input name="format"><input name="team"><input name="season"><input name="vibe"><textarea name="note"></textarea><input type="email" name="email"><input name="bot-field">
+  <input name="format"><input name="team"><input name="season"><input name="vibe"><textarea name="note"></textarea><input type="email" name="email"><input name="subject" data-remove-prefix><input name="bot-field">
 </form>
 <script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[BOOKING_URL]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
 class Component extends DCLogic {
@@ -1075,14 +1075,15 @@ class Component extends DCLogic {
           if (field) field.focus();
           return;
         }
-        const payload = { note, email };
+        const subject = '[League] ' + (email ? 'Card from ' + email : 'New league card');
+        const payload = { note, email, subject };
         this.BALLOT.forEach(g => { payload[g.key] = (picks[g.key] || []).join(', '); });
         this.setState({ ballotState: 'sending', ballotErr: '' });
         this.track('league_card_submit');
         this.postForm('leagues', payload)
           .then(() => this.setState({ ballotState: 'sent', ballotEmail: email }))
           .catch(() => {
-            this.mailHandoff('League card', body + "\n\nAnything we didn't ask\n" + (note || '—') + (email ? '\n\n' + email : '') + '\n', 'leagues@parout.golf');
+            this.mailHandoff(subject, body + "\n\nAnything we didn't ask\n" + (note || '—') + (email ? '\n\n' + email : '') + '\n', 'leagues@parout.golf');
             this.setState({ ballotState: 'mail' });
           });
       }
@@ -1995,10 +1996,11 @@ class Component extends DCLogic {
         }
         this.setState({ joinState: 'sending', joinErr: '' });
         this.track('waitlist_submit');
-        this.postForm('waitlist', { email })
+        const subject = '[Waitlist] New signup: ' + email;
+        this.postForm('waitlist', { email, subject })
           .then(() => this.setState({ joinState: 'sent' }))
           .catch(() => {
-            this.mailHandoff('Join the Par Out Golf list', 'Add me to the list: ' + email + '\n');
+            this.mailHandoff(subject, 'Add me to the list: ' + email + '\n');
             this.setState({ joinState: 'mail' });
           });
       },
@@ -2008,12 +2010,13 @@ class Component extends DCLogic {
         const email = (els.email.value || '').trim();
         if (!this.validEmail(email)) { this.setState({ emailErr: true, sent: false }); els.email.focus(); return; }
         const payload = { name: (els.name.value || '').trim().slice(0, 80), email, message: (els.message.value || '').trim().slice(0, 2000) };
+        payload.subject = '[Contact] Message from ' + (payload.name || email);
         this.setState({ emailErr: false, sending: true });
         this.track('contact_submit');
         this.postForm('contact', payload)
           .then(() => this.setState({ sending: false, sent: true, sentVia: 'post' }))
           .catch(() => {
-            this.mailHandoff('Par Out Golf — ' + (payload.name || 'website message'),
+            this.mailHandoff(payload.subject,
               payload.message + '\n\n— ' + payload.name + '\n' + payload.email + '\n');
             this.setState({ sending: false, sent: true, sentVia: 'mail' });
           });
