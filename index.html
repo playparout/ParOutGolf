@@ -169,6 +169,11 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
 @media (max-width: 1120px) {
   nav[data-nav] { gap: 18px !important; font-size: 14px !important; }
   [data-split], [data-tech-grid] { grid-template-columns: 1fr !important; gap: 34px !important; }
+  /* Stacked Technology: the tabs sit on top of the card so the text is always right under them. */
+  [data-tech-sidetabs], [data-tech-head] { display: none !important; }
+  [data-tech-cardtabs] { display: grid !important; }
+  [data-tech-foot] { display: flex !important; }
+  #tech-panel { padding: 30px 22px 22px !important; min-height: 0 !important; touch-action: pan-y; }
   [data-faq-anchor] { position: static !important; }
 }
 /* Spacing scale, one block per breakpoint. Desktop L160 · M112 · S56,
@@ -649,7 +654,7 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
       <div data-tech-grid="" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: 56px; align-items: start;">
         <div style="display: flex; flex-direction: column; gap: 16px;">
           <h2 data-reveal="wipe" style="margin: 0; font-family: 'Bricolage Grotesque', 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 48px); line-height: 0.94; letter-spacing: -0.024em; color: #FDF5E6; max-width: 18ch; text-wrap: balance;">Trackman iO in all four bays.</h2>
-          <div role="group" aria-label="Trackman capabilities" style="display: flex; flex-direction: column; margin-top: 22px; border-top: 1px solid rgba(253,245,230,0.28);">
+          <div role="group" aria-label="Trackman capabilities" data-tech-sidetabs="" style="display: flex; flex-direction: column; margin-top: 22px; border-top: 1px solid rgba(253,245,230,0.28);">
             <sc-for list="{{ techTabs }}" as="t" hint-placeholder-count="3">
               <button type="button" aria-pressed="{{ t.on }}" aria-controls="tech-panel" onClick="{{ t.pick }}" style="{{ t.css }}">
                 <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">{{ t.num }}</span>
@@ -659,8 +664,16 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
           </div>
         </div>
         <div data-reveal="rise" style="position: relative; border: 1.5px solid rgba(242,201,76,0.55); background: #062E22;">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(242,201,76,0.4); padding: 12px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">
+          <div data-tech-head="" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(242,201,76,0.4); padding: 12px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #F2C94C;">
             <span>TRACKMAN iO</span><span style="color: #BCCCC2;">{{ techCount }}</span>
+          </div>
+          <div role="group" aria-label="Trackman capabilities" data-tech-cardtabs="" style="display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid rgba(242,201,76,0.4);">
+            <sc-for list="{{ techTabs }}" as="t" hint-placeholder-count="3">
+              <button type="button" aria-pressed="{{ t.on }}" aria-controls="tech-panel" onClick="{{ t.pick }}" style="{{ t.cardCss }}">
+                <span data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #F2C94C;">{{ t.num }}</span>
+                <span style="font-family: 'Archivo', sans-serif; font-size: 15px; font-weight: 700; line-height: 1.15;">{{ t.label }}</span>
+              </button>
+            </sc-for>
           </div>
           <div id="tech-panel" aria-live="polite" style="padding: 46px 32px 40px; display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; min-height: 360px;">
             <sc-for list="{{ techPanels }}" as="p" hint-placeholder-count="1">
@@ -675,6 +688,14 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
                 </div>
               </div>
             </sc-for>
+          </div>
+          <div data-tech-foot="" aria-hidden="true" style="display: none; align-items: center; justify-content: space-between; padding: 0 22px 18px;">
+            <div style="display: flex; gap: 8px;">
+              <sc-for list="{{ techTabs }}" as="t" hint-placeholder-count="3">
+                <span style="{{ t.dotCss }}"></span>
+              </sc-for>
+            </div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #BCCCC2;">SWIPE</span>
           </div>
         </div>
       </div>
@@ -848,8 +869,8 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
     <div style="display: flex; flex-direction: column; gap: 14px;">
       <div data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7;">OPEN 24 HOURS · 7 DAYS<br>COLONIE, NY · NEAR ALBANY, NY<br><a href="mailto:Contact@parout.golf" data-foot-tel="" style="display: inline-block;">CONTACT@PAROUT.GOLF</a></div>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
-        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" data-mono-meta="" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></a>
+        <a href="https://www.instagram.com/parout.golf/" target="_blank" rel="noopener" data-mono-meta="" style="font-size: 13px; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;">INSTAGRAM <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></span></a>
+        <a href="https://www.facebook.com/profile.php?id=61590569169332" target="_blank" rel="noopener" data-mono-meta="" style="font-size: 13px; color: #04563E; border: 1.5px solid rgba(4,86,62,0.4); padding: 13px 14px; border-radius: 999px; transition: border-color 220ms ease, color 220ms ease;" style-hover="border-color: #B5551A; color: #B5551A;"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;">FACEBOOK <svg width="1em" height="1em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: -0.125em; overflow: visible;"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-sr=""> (opens in a new tab)</span></span></a>
       </div>
     </div>
     <p data-trademark="" style="grid-column: 1 / -1; margin: 0; padding-top: 18px; border-top: 1px solid rgba(4,86,62,0.16); font-size: 13px; line-height: 1.5; color: #04563E;">TRACKMAN® and the Tracer Logo are registered trademarks of Trackman A/S</p>
@@ -1028,6 +1049,7 @@ class Component extends DCLogic {
     this.initMenu();
     this.initCtaBar();
     this.initHeaderHide();
+    this.initTechSwipe();
     this.buildClock();
     this.buildDispersion();
     this.initMotifs();
@@ -1805,11 +1827,38 @@ class Component extends DCLogic {
     if (this.io) this.io.disconnect();
     if (this.mapIo) this.mapIo.disconnect();
     if (this.onKey) document.removeEventListener('keydown', this.onKey);
+    if (this.techPanelEl) {
+      this.techPanelEl.removeEventListener('pointerdown', this.onTechDown);
+      this.techPanelEl.removeEventListener('pointerup', this.onTechUp);
+      this.techPanelEl.removeEventListener('pointercancel', this.onTechCancel);
+    }
     if (this.onScroll) {
       window.removeEventListener('scroll', this.onScroll);
       window.removeEventListener('resize', this.onScroll);
     }
     document.body.style.overflow = '';
+  }
+
+  // Stacked Technology card: swipe left/right to change tabs.
+  initTechSwipe() {
+    const panel = document.getElementById('tech-panel');
+    if (!panel) return;
+    const stacked = window.matchMedia('(max-width: 1120px)');
+    let x0 = null, y0 = 0;
+    this.onTechDown = e => { if (stacked.matches) { x0 = e.clientX; y0 = e.clientY; } };
+    this.onTechUp = e => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0, dy = e.clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      const n = (this.state.techTab || 0) + (dx < 0 ? 1 : -1);
+      if (n >= 0 && n <= 2) this.setState({ techTab: n });
+    };
+    this.onTechCancel = () => { x0 = null; };
+    panel.addEventListener('pointerdown', this.onTechDown);
+    panel.addEventListener('pointerup', this.onTechUp);
+    panel.addEventListener('pointercancel', this.onTechCancel);
+    this.techPanelEl = panel;
   }
 
   techVals() {
@@ -1832,6 +1881,8 @@ class Component extends DCLogic {
         label: x.label,
         on: n === i,
         pick: () => this.setState({ techTab: n }),
+        cardCss: 'display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; min-width: 0; min-height: 64px; padding: 12px 12px 11px; margin-bottom: -1px; background: ' + (n === i ? 'rgba(242,201,76,0.12)' : 'transparent') + '; color: ' + (n === i ? '#F2C94C' : '#FDF5E6') + '; border: 0; border-left: ' + (n === 0 ? '0' : '1px solid rgba(242,201,76,0.25)') + '; border-bottom: 2px solid ' + (n === i ? '#F2C94C' : 'transparent') + '; cursor: pointer; transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;',
+        dotCss: 'display: block; height: 7px; width: ' + (n === i ? '20px' : '7px') + '; border-radius: 4px; background: ' + (n === i ? '#F2C94C' : 'rgba(253,245,230,0.3)') + '; transition: background-color 300ms ease, width 300ms ease;',
         css: 'display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; text-align: left; width: 100%; background: ' + (n === i ? 'rgba(242,201,76,0.12)' : 'transparent') + '; color: ' + (n === i ? '#F2C94C' : '#FDF5E6') + '; border: 0; border-bottom: 1px solid rgba(253,245,230,0.28); border-left: 2px solid ' + (n === i ? '#F2C94C' : 'transparent') + '; padding: 16px 14px; min-height: 44px; cursor: pointer; transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;'
       })),
       techPanels: rows.map((x, n) => ({
