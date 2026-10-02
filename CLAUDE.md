@@ -32,6 +32,9 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   forms are drawn by JavaScript, so each one also has a hidden copy near `</x-dc>` in `index.html` for Netlify's
   deploy scan; add any new field to both. Who gets emailed is set in Netlify (Site configuration → Notifications),
   not in the code. If a submission fails, the visitor's email app opens with it filled in (`mailHandoff()`).
+  Every form sends a `subject` field, which Netlify uses as the alert email's subject. Each starts with a tag
+  for inbox filters: `[Contact]`, `[League]`, `[Waitlist]`, `[Coaching]` (the coaches link). The fallback emails use
+  the same subjects. Keep the tags if you reword them.
   Coaches use a plain email link to coaches@parout.golf on purpose (they write longer pitches and attach files).
 - Technology has two tab rows fed by the same `techTabs` data: the side list (desktop) and tabs on top of the card
   (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
