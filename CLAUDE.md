@@ -5,7 +5,7 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
 
 ## How the owner likes to work
 
-- Make the requested change, then send desktop (1440px) and phone (390px) screenshots before anything goes live.
+- Make the requested change; the owner reviews it on the Netlify preview, so screenshots aren't needed for every change.
 - Keep all changes on one working branch and one pull request. Open a PR (which creates a Netlify
   preview link) only when the owner asks — merges to `main` cost Netlify deploy credits, previews don't.
 - While reviewing on a preview, the password gate may be removed. **Always restore it before merging to
@@ -28,6 +28,8 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
 
 - Nearly all content is in `index.html`. Several sections render from JS data near the bottom of the file:
   league card questions (`BALLOT`), Technology tabs (`techVals()`), rate toggle notes.
+- Technology has two tab rows fed by the same `techTabs` data: the side list (desktop) and tabs on top of the card
+  (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
   centered at the bottom of the Technology section.
   Trackman's logo rules require this footer line wherever their logo appears; it's on every page's footer
