@@ -233,10 +233,9 @@ details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
   [data-stats] > div { border-bottom: 1px solid rgba(4,86,62,0.28); padding: 14px 0 !important; }
   [data-stats] > div:nth-child(odd) { border-right: 1px solid rgba(4,86,62,0.28); padding-right: 14px !important; }
   [data-stats] > div:nth-child(even) { padding-left: 14px !important; }
-  [data-rate-table] { display: flex !important; flex-direction: column !important; }
+  /* Phone rates keep the desktop layout (price to the right of each window); only the column header hides. */
   [data-rate-head] { display: none !important; }
-  [data-rate-row] { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
-  [data-price-cell] { justify-content: flex-start !important; }
+  [data-rate-row] { align-items: center !important; }
   [data-steps] { position: relative; }
   [data-steps]::before { content: ''; position: absolute; left: 8px; top: 22px; bottom: 22px; width: 1px; background: rgba(242,201,76,0.32); }
   [data-step] { grid-template-columns: 26px 1fr !important; gap: 14px !important; border-top: 0 !important; border-bottom: 0 !important; padding: 13px 0 !important; }
