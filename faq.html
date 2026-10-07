@@ -15,7 +15,7 @@
   de.setAttribute('data-gated','');
   var st=document.createElement('style');
   st.textContent="@font-face{font-family:'PGArchivo';font-weight:400;font-display:swap;src:url('./fonts/Archivo-Regular.woff2') format('woff2')}"
-    +"@font-face{font-family:'PGArchivo';font-weight:700;font-display:swap;src:url('./fonts/Archivo-Bold.woff2') format('woff2')}"
+    +"@font-face{font-family:'PGArchivo';font-weight:700;font-display:swap;src:url('./fonts/Righteous-Regular.woff2') format('woff2')}"
     +"@font-face{font-family:'PGBric';font-weight:700;font-display:swap;src:url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2')}"
     +"@font-face{font-family:'PGMono';font-weight:400;font-display:swap;src:url('./fonts/JetBrainsMono-Regular.woff2') format('woff2')}"
     +"html[data-gated] body{display:none!important}"
@@ -124,7 +124,8 @@ gtag('config', 'G-K7S36LVFBM');
 <helmet>
 <style>
 @font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/Archivo-Regular.woff2') format('woff2'); }
-@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Archivo-Bold.woff2') format('woff2'); }
+/* Trial: bold Archivo text (logo word, buttons, labels) draws in Righteous. To undo, point this back at Archivo-Bold.woff2 here, in the gate fonts above and in the preload. */
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/Righteous-Regular.woff2') format('woff2'); }
 @font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/BricolageGrotesque-Bold.woff2') format('woff2'); }
 @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2'); }
 body { margin: 0; background: #FDF5E6; -webkit-font-smoothing: antialiased; }
