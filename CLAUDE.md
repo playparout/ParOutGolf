@@ -41,8 +41,8 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
 - Par Out logo: the master file is `assets/par-out-logo.svg` (the mark only; "PAR OUT" next to it is typed text).
   The pages don't load that file: the mark is copied into each page as `<symbol id="pm">` (used by the header and
   footer), so a new logo means replacing that symbol in all five pages. The favicon has its own artwork with
-  thicker stripes, `assets/par-out-favicon-source.svg`; `assets/favicon.svg` is that file in a square viewBox
-  (no background) and `favicon.ico` is a 32px render of it. `assets/apple-touch-icon.png` (180px, square corners, cream
+  thicker stripes, `assets/par-out-favicon-source.svg`; `assets/favicon.svg` is that file on a rounded cream
+  (#FDF5E6) square, same shape as the old green tile, and `favicon.ico` is a 32px render of it. `assets/apple-touch-icon.png` (180px, square corners, cream
   #FDF5E6 background) is the favicon art with padding around it. A new main logo also means redrawing the mark in the
   share image, then bumping the share image's version number.
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
