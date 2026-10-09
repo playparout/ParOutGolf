@@ -40,8 +40,9 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
 - Par Out logo: the master file is `assets/par-out-logo.svg` (the mark only; "PAR OUT" next to it is typed text).
   The pages don't load that file: the mark is copied into each page as `<symbol id="pm">` (used by the header and
-  footer), so a new logo means replacing that symbol in all five pages. Also redo `assets/favicon.svg` (full-color mark on a
-  cream tile) and `favicon.ico` (32px), `assets/apple-touch-icon.png` (180px, square corners, still the green tile
+  footer), so a new logo means replacing that symbol in all five pages. The favicon has its own artwork with
+  thicker stripes, `assets/par-out-favicon-source.svg`; `assets/favicon.svg` is that file in a square viewBox
+  (no background) and `favicon.ico` is a 32px render of it. Also redo `assets/apple-touch-icon.png` (180px, square corners, still the green tile
   with the mark's green parts made cream and orange brightened to #E07A36) and the mark drawn into the share image, then bump the share image's version number.
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
   centered at the bottom of the Technology section.
