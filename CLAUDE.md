@@ -38,6 +38,11 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   Coaches use a plain email link to coaches@parout.golf on purpose (they write longer pitches and attach files).
 - Technology has two tab rows fed by the same `techTabs` data: the side list (desktop) and tabs on top of the card
   (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
+- Par Out logo: the master file is `assets/par-out-logo.svg` (the mark only; "PAR OUT" next to it is typed text).
+  The pages don't load that file: the mark is copied into each page as `<symbol id="pm">` (used by the header and
+  footer), so a new logo means replacing that symbol in all five pages. Also redo `assets/favicon.svg` (mark on a
+  green tile, green parts made cream, orange brightened to #E07A36), `favicon.ico` (32px), `assets/apple-touch-icon.png`
+  (180px, square corners) and the mark drawn into the share image, then bump the share image's version number.
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
   centered at the bottom of the Technology section.
   Trackman's logo rules require this footer line wherever their logo appears; it's on every page's footer
@@ -73,7 +78,7 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
 - Search/link-preview tags (title, description, og:/twitter: meta, canonical, icons, JSON-LD) live in each page's
   real `<head>`, just before `</head>` — not in `<helmet>`, which only JavaScript moves into the head, so link
   previews in iMessage, Facebook, Slack, etc. would come up blank. A design export puts them back in `<helmet>`;
-  move them out again. The share image is `assets/og-card-v8.png` (1200×630).
+  move them out again. The share image is `assets/og-card-v9.png` (1200×630).
 - `faq.html` carries FAQPage JSON-LD with every visible question and answer (17). When an FAQ answer changes,
   update the JSON-LD to match. The homepage has no FAQPage markup (one copy per site).
 - `sitemap.xml` is at the repo root; bump its `<lastmod>` dates when pages change. `robots.txt` blocks all
@@ -92,7 +97,7 @@ editing, and remember the pieces that aren't plain text.
     description ("from $35/hr"), JSON-LD (`priceRange`, Night Owl offer price, membership descriptions).
   - Every page: phone bottom bar "Rates from $35/hr" and phone menu tagline "RATES FROM $35/HR".
   - `404.html` cards "FROM $35/HR" and "$10/HR OFF". `faq.html` "Members save $10/hr" answer + its JSON-LD.
-  - Share image `assets/og-card-v8.png` has "RATES FROM $35/HR" drawn in (regenerate it).
+  - Share image `assets/og-card-v9.png` has "RATES FROM $35/HR" drawn in (regenerate it).
 - **Memberships** ($199 Early Bird, 50 spots; $249 Annual; "fifty dollars less"): `index.html` membership cards,
   "first call on the 50 Early Bird memberships", no-JS block, JSON-LD offers.
 - **Booking windows** (members 30 days, public 7): `index.html` step 01, perks, homepage FAQ, no-JS block,
