@@ -38,13 +38,13 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   Coaches use a plain email link to coaches@parout.golf on purpose (they write longer pitches and attach files).
 - Technology has two tab rows fed by the same `techTabs` data: the side list (desktop) and tabs on top of the card
   (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
-- Par Out logo: the master file is `assets/par-out-logo.svg` (the mark only; "PAR OUT" next to it is typed text).
-  The pages don't load that file: the mark is copied into each page as `<symbol id="pm">` (used by the header and
-  footer), so a new logo means replacing that symbol in all five pages. The favicon has its own artwork with
-  thicker stripes, `assets/par-out-favicon-source.svg`; `assets/favicon.svg` is that file on a rounded cream
-  (#FDF5E6) square, same shape as the old green tile, and `favicon.ico` is a 32px render of it. `assets/apple-touch-icon.png` (180px, square corners, cream
-  #FDF5E6 background) is the favicon art with padding around it. A new main logo also means redrawing the mark in the
-  share image, then bumping the share image's version number.
+- Par Out logo: the master file is `assets/par-out-logo.svg` (the mark only, 484×731; "PAR OUT" next to it is
+  typed text). The pages don't load that file: the mark is copied into each page as `<symbol id="pm">` (header
+  31×47, footer 21×31; `[data-logo-mark]` in `index.html`'s phone styles shrinks it to 25×38), so a new logo
+  means replacing that symbol in all five pages. The icons are made from the same file: `assets/favicon.svg` is
+  the mark on a rounded cream (#FDF5E6) square with the mark at 90% of its height, `favicon.ico` is a 32px render
+  of it, and `assets/apple-touch-icon.png` is 180px with square corners (iOS rounds them) and the mark at 85%.
+  The share image has the mark drawn in at its top left; after a logo change redraw it and bump its version.
 - Trackman logo: `assets/powered-by-trackman-reversed.svg` (orange mark, white text, for dark backgrounds),
   centered at the bottom of the Technology section.
   Trackman's logo rules require this footer line wherever their logo appears; it's on every page's footer
