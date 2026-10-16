@@ -154,6 +154,13 @@ nav[data-nav] a:hover [data-underline], nav[data-nav] a:focus-visible [data-unde
 details[data-faq] summary { transition: background-color 220ms cubic-bezier(.2,.9,.25,1), padding-left 260ms cubic-bezier(.2,.9,.25,1); }
 details[data-faq] summary:hover { background-color: rgba(4,86,62,0.045); padding-left: 8px; }
 details[data-faq] summary:hover [data-faq-num] { color: #A24A14; }
+/* Hover for the JS-built league chips and Technology tabs (their inline styles can't carry style-hover).
+   Unselected only, kept lighter than the selected look; mouse/trackpad only so taps on phones don't stick. */
+@media (hover: hover) and (pointer: fine) {
+  [data-chips] button[aria-pressed="false"]:hover { border-color: #04563E !important; background-color: rgba(4,86,62,0.05) !important; }
+  [data-tech-sidetabs] button[aria-pressed="false"]:hover { background-color: rgba(242,201,76,0.06) !important; border-left-color: rgba(242,201,76,0.45) !important; }
+  [data-tech-cardtabs] button[aria-pressed="false"]:hover { background-color: rgba(242,201,76,0.06) !important; border-bottom-color: rgba(242,201,76,0.45) !important; }
+}
 @keyframes contactStampIn { 0% { opacity: 0; transform: scale(1.06); } 55% { opacity: 1; transform: scale(0.995); } 100% { opacity: 1; transform: scale(1); } }
 @keyframes contactRuleWipe { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 [data-contact-stamp] { animation: contactStampIn 420ms cubic-bezier(.16,.84,.3,1) both; }

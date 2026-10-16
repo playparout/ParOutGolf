@@ -38,6 +38,9 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   Coaches use a plain email link to coaches@parout.golf on purpose (they write longer pitches and attach files).
 - Technology has two tab rows fed by the same `techTabs` data: the side list (desktop) and tabs on top of the card
   (`data-tech-cardtabs`, shown once the layout stacks at 1120px and below, with swipe and progress dots).
+- Hover states: most buttons use a `style-hover` attribute. The league chips and Technology tabs are built by JS with
+  inline style strings, which can't carry one, so their hover lives in the `@media (hover: hover)` rules near the FAQ
+  hover CSS in `index.html` (unselected only, lighter than the selected look). Restyle both together.
 - Par Out logo: the master file is `assets/par-out-logo.svg` (the mark only, 484×742; "PAR OUT" next to it is
   typed text). The pages don't load that file: the mark is copied into each page as `<symbol id="pm">` (header
   31×47, footer 20×31; `[data-logo-mark]` in `index.html`'s phone styles shrinks it to 25×38), so a new logo
