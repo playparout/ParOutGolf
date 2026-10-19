@@ -84,7 +84,7 @@ Netlify publishes the repo root as-is, so anything in this file is publicly read
   real `<head>`, just before `</head>` — not in `<helmet>`, which only JavaScript moves into the head, so link
   previews in iMessage, Facebook, Slack, etc. would come up blank. A design export puts them back in `<helmet>`;
   move them out again. The share image is `assets/og-card-v11.png` (1200×630).
-- `faq.html` carries FAQPage JSON-LD with every visible question and answer (17). When an FAQ answer changes,
+- `faq.html` carries FAQPage JSON-LD with every visible question and answer (18). When an FAQ answer changes,
   update the JSON-LD to match. The homepage has no FAQPage markup (one copy per site).
 - `sitemap.xml` is at the repo root; bump its `<lastmod>` dates when pages change. `robots.txt` blocks all
   crawlers until launch.
@@ -114,7 +114,7 @@ editing, and remember the pieces that aren't plain text.
   privacy/terms contact boxes; FAQ "Stuck right now?" box and tech section. Phone is always `tel:+15187273442`.
 - **"Opening Winter ’27"**: `index.html` hero, join section, bottom bar; every page's menu footer label; no-JS
   block ("Opening winter 2027").
-- **FAQ count** ("Seventeen answers") and the per-section counts in the FAQ page's "On this page" list.
+- **FAQ count** ("Eighteen answers") and the per-section counts in the FAQ page's "On this page" list.
 - **Policy dates**: "LAST UPDATED" on `privacy.html` / `terms.html` when their wording changes; `sitemap.xml`
   `<lastmod>`.
 
